@@ -1,0 +1,24 @@
+<div class="contaier-fluid bg">
+       
+    <div class="row">
+        <div class="col-md-3- col-sm-3 col-xs-12"></div>
+        <div class="col-md-6- col-sm-6 col-xs-12">
+            <!--Formulario para crear cuenta nueva-->
+            <form class="form-conatainer row">
+              <h1>Ingresar tipo de usuario</h1>
+                  <div class="form-group col-md-12">
+                     <label>Nombre</label>
+                     <input type="text" class="form-control" placeholder="Nombre" name="nombre" pattern="[A-Za-z]"  required [(ngModel)]="tipU.nombre">
+                  </div>
+                  <div class="form-group col-md-12">
+                       <label>Descripcion</label>
+                       <textarea class="form-control" placeholder="Descripcion" name="descripcion" required pattern="[A-Za-z]" [(ngModel)]="tipU.descripcion"></textarea>
+                   </div>
+               <button type="submit" class="btn btn-primary btn-block" (click)="Agregar(tipU)">Agregar</button> <!--btn-block para el color verde-->
+                
+            </form>
+          <!--final del form-->
+        </div>
+        <div class="col-md-4- col-sm-4 col-xs-12"></div>
+    </div >
+</div>

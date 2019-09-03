@@ -1,0 +1,45 @@
+div.con{
+    width: 200px;
+    height: 260px;
+    margin-left: 100px;
+    float: left;
+    box-shadow: -1px 4px 29px 8px rgba(83, 83, 83, 0.75);
+    box-shadow: -1px 4px 29px 8px rgba(83, 83, 83, 0.75);
+    box-shadow: -1px 4px 29px 8px rgba(83, 83, 83, 0.75);
+    box-shadow: -1px 4px 29px 8px rgba(83, 83, 83, 0.75);
+}
+div#unoAd{
+    background-color: rgb(33, 84, 150);
+}
+div.con:hover{
+    height: 290px;
+
+}
+div.con:hover p.texto{
+padding-top: 30px;
+opacity: 1;
+
+}
+div.con:hover img.icon{
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,.6);
+}
+/*contenedor principal*/
+
+img.icon{
+    display: block;
+    margin: 50px auto;
+    background-color: rgb(255, 255,255,.12);
+    width: 90px;
+    padding: 20px;
+    border-radius: 70px;
+    -webkit-box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+    -webkit-transition:box-shadow .4s;
+}
+p.texto{
+    font-size: 1.2em;
+    color:rgb(250, 242, 242);
+    text-align: center;
+    padding: 5px;
+    opacity: .50;
+    -webkit-transition: padding-top .4s;
+}
