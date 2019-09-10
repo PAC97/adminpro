@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 //Rutas
 import { APPS_ROUTES } from './app.routes';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 //Modulos
 
@@ -32,7 +33,8 @@ import {serviceUser} from './services/usuario.service';
     APPS_ROUTES,
     PagesModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   providers: [
     serviceUser

@@ -6,6 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import {TipoUsuarioService} from './tipo-usuario/tipo-usuario.service';
 //Paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { FormsModule } from "@angular/forms";
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,6 +18,7 @@ import {MenuComponent} from './menu/menu.component';
 import { TipoUsuarioComponent } from './tipo-usuario/tipo-usuario.component';
 import { CommonModule } from '@angular/common';
 import { AddTipoUsuarioComponent } from './tipo-usuario/add-tipo-usuario/add-tipo-usuario.component';
+import { ModTipoUsuarioComponent } from './tipo-usuario/mod-tipo-usuario/mod-tipo-usuario.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +29,8 @@ import { AddTipoUsuarioComponent } from './tipo-usuario/add-tipo-usuario/add-tip
         UsuarioComponent,
         MenuComponent,
         TipoUsuarioComponent,
-        AddTipoUsuarioComponent
+        AddTipoUsuarioComponent,
+        ModTipoUsuarioComponent
     ], exports: [
         PagesComponent,
         DashboardComponent,
@@ -40,7 +43,8 @@ import { AddTipoUsuarioComponent } from './tipo-usuario/add-tipo-usuario/add-tip
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        AngularFontAwesomeModule
    ],
    providers: [
     TipoUsuarioService

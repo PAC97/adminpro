@@ -7,14 +7,18 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import {MenuComponent} from './menu/menu.component';
 import {TipoUsuarioComponent} from './tipo-usuario/tipo-usuario.component';
 import {AddTipoUsuarioComponent} from './tipo-usuario/add-tipo-usuario/add-tipo-usuario.component';
+import { ModTipoUsuarioComponent } from './tipo-usuario/mod-tipo-usuario/mod-tipo-usuario.component';
 
 const pagesRoutes: Routes = [
     {
         path: '',
         component: PagesComponent,
         children: [
+            //Rutas para tipoUsuario xddx
+            {path: 'mod-tipoUsuario/:id', component: ModTipoUsuarioComponent},
             {path: 'add-tipoUsuario', component: AddTipoUsuarioComponent},
             {path: 'tipoUsuario', component: TipoUsuarioComponent},
+            //Fin rutas tipoUsuario
             {path: 'menu', component: MenuComponent},
             {path: 'dashboard', component: DashboardComponent},
             {path: 'progress', component: ProgressComponent},
