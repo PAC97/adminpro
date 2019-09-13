@@ -18,7 +18,7 @@
                         <td>{{tipUser.descripcion}}</td>
                         <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-tipoUsuario/', tipUser._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteTipoUsuario(tipUser._id)"><a></a></fa></td>
                       </tr>
-                    </tbody>
+                    </tbody >
                   </table>
 
                   <pagination-controls (pageChange)="p = $event"></pagination-controls>

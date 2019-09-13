@@ -43,7 +43,7 @@ export class AddTipoUsuarioComponent implements OnInit {
     else{
       Swal.fire(
         'Verificar los datos ingresados!',
-        'El registro no se agrego correctamente.',
+        'El registro debe ir lleno correctamente.',
         'warning'
       )
     }

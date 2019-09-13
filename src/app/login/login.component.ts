@@ -27,13 +27,14 @@ export class LoginComponent{
       console.log(this.datos);
       if(this.datos.data.token != null){
         localStorage.setItem('x-access-token', this.datos.data.token);
+        localStorage.setItem('session', this.datos.data.Usuario._id);
         this.currentUserSubject.next(this.datos.data.token);
         if(this.datos.data.Usuario.ID_TipoUsuario == "5d66adb6bff7ac1a18287fd8"){
 
-          this.route.navigate(['.']);
+          this.route.navigate(['/menu']);
         }
-        else if(this.datos.data.Usuario.ID_TipoUsuario == "5d66af4dbff7ac1a18287fd9"){
-          this.route.navigate(['.'])
+        else if(this.datos.data.Usuario.ID_TipoUsuario == "5d6ec10bee352216b8b3d421"){
+          this.route.navigate(['/inicio'])
         }
         else{
           var errror = "Verificar datos del usuario";
