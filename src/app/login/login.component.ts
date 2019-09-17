@@ -4,13 +4,18 @@ import {serviceUser} from '../services/usuario.service';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent implements OnInit{
+  ngOnInit() {
+   localStorage.removeItem('x-access-token');
+   localStorage.removeItem('session');
+  }
   userLog:userLog={
     'Correo':"",
     'Password':"",
@@ -21,26 +26,43 @@ export class LoginComponent{
     this.currentUserSubject = new BehaviorSubject<user>(JSON.parse(localStorage.getItem('x-access-token')));
    }
   log(){
+    if(this.userLog.Correo != '' && this.userLog.Password != ''){
     this.service.logUser(this.userLog)
     .subscribe(user=>{
       this.datos = user;
       console.log(this.datos);
-      if(this.datos.data.token != null){
-        localStorage.setItem('x-access-token', this.datos.data.token);
-        localStorage.setItem('session', this.datos.data.Usuario._id);
-        this.currentUserSubject.next(this.datos.data.token);
-        if(this.datos.data.Usuario.ID_TipoUsuario == "5d66adb6bff7ac1a18287fd8"){
 
+      if(this.datos.data != null){
+        Swal.fire(
+          'Usuario valido',
+          'Bienvenido',
+          'success'
+        )
+        localStorage.setItem('x-access-token', this.datos.data.token);
+        localStorage.setItem('session', this.datos.data.Usuario);
+        this.currentUserSubject.next(this.datos.data.token);
+        if(this.datos.data.Rol.nombre == 'Admin'){
           this.route.navigate(['/menu']);
         }
-        else if(this.datos.data.Usuario.ID_TipoUsuario == "5d6ec10bee352216b8b3d421"){
+        else if( this.datos.data.Rol.nombre == 'Cliente')
           this.route.navigate(['/inicio'])
         }
         else{
-          var errror = "Verificar datos del usuario";
-          console.log(errror);
-        }
-      }
-    })
+          Swal.fire(
+            'Error',
+            'Usuario verificar los datos ingresados',
+            'warning'
+          )
+           }
+         }
+       )
+     }
+    else{
+      Swal.fire(
+        'Error',
+        'Todos lo datos son requeridos',
+        'warning'
+      )
   }
+ }
 }

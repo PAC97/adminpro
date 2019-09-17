@@ -7,14 +7,17 @@
                 <li class="user-profile">
                     <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><img
                             src="../assets/images/users/profile.png" alt="user" /><span
-                            class="hide-menu">{{userSession.Usuario.Nombres}} {{userSession.Usuario.Apellidos}}</span></a>
+                            class="hide-menu">{{userSession.Nombres}} {{userSession.Apellidos}}</span></a>
                 </li>
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><span class="hide-menu">Mi
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/inicio']"><span class="hide-menu">Inicio</span></a>
+                </li>
+                <li class="user-profile">
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/cuenta']"><span class="hide-menu">Mi
                             cuenta</span></a>
                 </li>
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><span class="hide-menu">Mis
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/mis-publicaciones']"><span class="hide-menu">Mis
                             publicaciones</span></a>
                 </li>
                 <li class="user-profile">

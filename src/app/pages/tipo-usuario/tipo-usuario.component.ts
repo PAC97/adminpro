@@ -41,7 +41,7 @@ export class TipoUsuarioComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, borrar!',
+      confirmButtonText: '¡Si, borrar!',
       cancelButtonText: 'No, Cancelar'
     }).then((result) => {
       if (result.value) {
