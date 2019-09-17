@@ -36,4 +36,7 @@ export class serviceUser {
   getIDUser(){
     return this.http.get(`${this.API_URI}/usuario/${this.id}`, {headers: this.httpheaders})
   }
+  getIdtipoUsuario(id:string){
+    return this.http.get(`${this.API_URI}/TipoUsuario/${id}`, {headers: this.httpheaders});
+  }
 }

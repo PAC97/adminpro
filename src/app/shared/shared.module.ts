@@ -16,14 +16,17 @@ import {PAGES_ROUTES_USUARIO} from '../pages-user/pages-user.routes';
         HeaderUserComponent,
         SideuserComponent,
     ],
-    exports: [
+    exports:[
         BreadcrumbsComponent,
         HeaderComponent,
         SidebarComponent,
         SideuserComponent,
         HeaderUserComponent,
         NopagefoundComponent,
-    ]
+    ],
+    imports: [
+        PAGES_ROUTES_USUARIO,
+  ]
 })
 
 export class SharedModule {};

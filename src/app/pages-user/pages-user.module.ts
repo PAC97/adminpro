@@ -11,12 +11,16 @@ import {PagesUserComponent} from './pages-user.component';
 import {PAGES_ROUTES_USUARIO} from './pages-user.routes';
 import { InicioComponent } from './inicio/inicio.component';
 import { CuentaComponent } from './cuenta/cuenta.component';
+import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
+import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones/mod-publicaciones.component';
 
 @NgModule({
   declarations: [
     PagesUserComponent,
     InicioComponent,
     CuentaComponent,
+    MisPublicacionesComponent,
+    ModPublicacionesComponent,
   ],
   exports: [
     PagesUserComponent,
