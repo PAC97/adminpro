@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceUserService } from './service/service-user.service';
 
-
+import { Router, ActivatedRoute } from '@angular/router';
+//alerta
+import Swal from 'sweetalert2';
+//Models
+import { user } from './models/usuario';
 @Component({
   selector: 'app-cuenta',
   templateUrl: './cuenta.component.html',
@@ -9,9 +13,10 @@ import { ServiceUserService } from './service/service-user.service';
 })
 export class CuentaComponent implements OnInit {
 
-  constructor(private service: ServiceUserService) { }
-  user:any;
-  us:any;
+  constructor( private service: ServiceUserService) { }
+  user: any;
+  us: any;
+
   ngOnInit() {
     this.service.getIDUser()
       .subscribe(user => {
@@ -20,5 +25,5 @@ export class CuentaComponent implements OnInit {
         console.log(this.us)
       })
   }
-
+  
 }

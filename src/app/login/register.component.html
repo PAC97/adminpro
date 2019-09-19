@@ -50,18 +50,7 @@
                     </div>
                 </div>
             </div>
-                <div class="form-group">
-                        <div class="col-md-12">
-                            <input hidden name="ID_Servicio" [value]="IDservicio" [(ngModel)]="User.ID_Servicio">
-                            <select class="form-control" (change)="addServicios($event)">
-                                <option>Selecionar servicio</option>
-                                <option *ngFor="let ser of servicios" [value]="ser._id">{{ser.nombre}}</option>
-                            </select>
-                        </div>
-                    </div>
-                <div class="form-group">
-                  
-                </div>
+               
                 <div class="form-group text-center m-t-20">
                     <div class="col-xs-12">
                         <button class="btn btn-info btn-block text-uppercase waves-effect waves-light" type="submit" (click)="add(User,confirm)">Crear cuenta</button>

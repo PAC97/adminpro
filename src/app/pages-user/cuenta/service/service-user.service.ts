@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { observable, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {user} from '../models/usuario'; 
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,8 @@ export class ServiceUserService {
  }
  getIDUser(){
   return this.http.get(`${this.API_URI}/usuario/${this.id}`, {headers: this.httpheaders})
+  }
+  putUsuario(user:user, id:string){
+    return this.http.put(`${this.API_URI}/usuario/${id}`,user, {headers: this.httpheaders})
   }
 }

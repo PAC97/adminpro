@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
     });
     console.log(items);
     if(this.User.Nombres != '' && this.User.Apellidos && this.User.Edad != '' && this.User.Telefono != '' 
-    && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != '' && this.User.ID_Servicio > '' && this.User.ID_Servicio != ''){
+    && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != ''){
       if(this.confirm == this.User.Password){
         if(items.length <=0 ){
           this.service.postUser(this.User)
@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
             if(user != null){
              Swal.fire(
                'Registrado con exito',
-               'Para ingresar su correo es: ',
+               'Para ingresar su correo es y contraseña son: '+ this.User.Correo + ' ' + this.User.Password,
                'success'
              )
              console.log(user);

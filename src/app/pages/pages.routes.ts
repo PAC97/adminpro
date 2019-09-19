@@ -46,7 +46,7 @@ const pagesRoutes: Routes = [
             {path: 'dashboard', component: DashboardComponent},
             {path: 'progress', component: ProgressComponent},
             {path: 'graficas1', component:Graficas1Component},
-            {path: '', redirectTo:'/login', pathMatch: 'full'}
+            {path: '', redirectTo:'/menu', pathMatch: 'full'}
         ]
     }
 ];

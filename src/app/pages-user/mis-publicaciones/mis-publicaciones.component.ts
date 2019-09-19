@@ -63,13 +63,5 @@ export class MisPublicacionesComponent implements OnInit {
       }
     });
   }
-  //modificar
-  mod(id:string){
-    this.service.getIdpublicacion(id)
-    .subscribe(idPu =>{
-      this.idPu = idPu;
-      this.pu = this.idPu.publicacion;
-      console.log(this.pu);
-    })
-  }
+
 }
