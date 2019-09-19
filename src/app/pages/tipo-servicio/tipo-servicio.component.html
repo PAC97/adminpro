@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" [routerLink]="['/add-servicio']">Crear Servicio</button>
+            <br>
+            <br>
+            <table class="table">
+                <thead class="thead-dark" style="background: #000;">
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let tipSer of Servicio | paginate: { itemsPerPage: 4, currentPage: p }">
+                    <td>{{tipSer.nombre}}</td>
+                    <td>{{tipSer.descripcion}}</td>
+                    <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-Servicio/', tipSer._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteServicio(tipSer._id)"><a></a></fa></td>
+                  </tr>
+                </tbody >
+              </table>
+
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

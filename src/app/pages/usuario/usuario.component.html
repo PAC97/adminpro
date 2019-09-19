@@ -1,1 +1,33 @@
 <p>usuario works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead class="thead-dark" style="background: #000;">
+                  <tr>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">ID_Servicio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let User of User | paginate: { itemsPerPage: 4, currentPage: p }">
+                    <td>{{User.Nombres}} {{User.Apellidos}}</td>
+                    <td>{{User.Edad}}</td>
+                    <td>{{User.Telefono}}</td>
+                    <td>{{User.Direccion}}</td>
+                    <td>{{User.Correo}}</td>
+                    <td>{{User.ID_Servicio}}</td>
+                    <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-Usuario/', User._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteUsuario(User._id)"><a></a></fa></td>
+                  </tr>
+                </tbody >
+              </table>
+
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
+
