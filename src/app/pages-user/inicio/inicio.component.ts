@@ -73,6 +73,8 @@ export class InicioComponent implements OnInit {
           'success'
         )
         console.log(pub);
+        this.publi.Titulo = '';
+        this.publi.Descripcion = '';
           this.obtenesPublicaciones();
       })    
     }

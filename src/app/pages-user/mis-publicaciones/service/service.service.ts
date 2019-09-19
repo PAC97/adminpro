@@ -28,4 +28,7 @@ export class ServiceService {
  getIdpublicacion(id:string){
   return this.http.get(`${this.API_URI}/publicaciones/${id}`, {headers: this.httpheaders});
  }
+ putPublicacion(pub:publicaciones, id:string){
+  return this.http.put(`${this.API_URI}/publicaciones/${id}`, pub , {headers: this.httpheaders});
+ }
 }

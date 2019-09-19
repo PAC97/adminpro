@@ -3,7 +3,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //
@@ -13,6 +13,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { CuentaComponent } from './cuenta/cuenta.component';
 import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
 import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones/mod-publicaciones.component';
+import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
     CuentaComponent,
     MisPublicacionesComponent,
     ModPublicacionesComponent,
+    ModCuentaComponent,
   ],
   exports: [
     PagesUserComponent,
@@ -31,7 +33,8 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
     AngularFontAwesomeModule,
     FormsModule,
     PAGES_ROUTES_USUARIO,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesUserModule { }
