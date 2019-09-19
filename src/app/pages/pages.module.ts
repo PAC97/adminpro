@@ -6,6 +6,8 @@ import { HttpClientModule } from "@angular/common/http";
 import {TipoUsuarioService} from './tipo-usuario/tipo-usuario.service';
 import { UsuarioService } from './usuario/usuario.service';
 import { TipoServicioService } from './tipo-servicio/tipo-servicio.service';
+import { PublicacionesService } from './publicaciones/publicaciones.service';
+
 //Paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -21,6 +23,7 @@ import { TipoUsuarioComponent } from './tipo-usuario/tipo-usuario.component';
 import { CommonModule } from '@angular/common';
 import { AddTipoUsuarioComponent } from './tipo-usuario/add-tipo-usuario/add-tipo-usuario.component';
 import { ModTipoUsuarioComponent } from './tipo-usuario/mod-tipo-usuario/mod-tipo-usuario.component';
+import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 
 //
 import {ServicioComponent} from './tipo-servicio/tipo-servicio.component';
@@ -40,10 +43,13 @@ import { ModUsuarioComponent } from './usuario/mod-usuario/mod-usuario.component
         TipoUsuarioComponent,
         AddTipoUsuarioComponent,
         ModTipoUsuarioComponent,
+
         ModUsuarioComponent,
         ServicioComponent,
         AddTipoServicioComponent,
-        ModTipoServicioComponent
+        ModTipoServicioComponent,
+        PublicacionesComponent
+
     ], exports: [
         PagesComponent,
         DashboardComponent,
@@ -61,8 +67,11 @@ import { ModUsuarioComponent } from './usuario/mod-usuario/mod-usuario.component
    ],
    providers: [
     TipoUsuarioService,
+
     UsuarioService,
-    TipoServicioService
+    TipoServicioService,
+    PublicacionesService
+
    ]
 })
 
