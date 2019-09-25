@@ -1,4 +1,3 @@
-<p>usuario works!</p>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -10,18 +9,17 @@
                     <th scope="col">Telefono</th>
                     <th scope="col">Direccion</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">ID_Servicio</th>
+                    <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let User of User | paginate: { itemsPerPage: 4, currentPage: p }">
+                  <tr *ngFor="let User of uses | paginate: { itemsPerPage: 4, currentPage: p }">
                     <td>{{User.Nombres}} {{User.Apellidos}}</td>
                     <td>{{User.Edad}}</td>
                     <td>{{User.Telefono}}</td>
                     <td>{{User.Direccion}}</td>
                     <td>{{User.Correo}}</td>
-                    <td>{{User.ID_Servicio}}</td>
-                    <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-Usuario/', User._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteUsuario(User._id)"><a></a></fa></td>
+                    <td><a> <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteUsuario(User._id)"></fa></a></td>
                   </tr>
                 </tbody >
               </table>

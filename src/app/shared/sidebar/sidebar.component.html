@@ -9,22 +9,25 @@
 
                             <!-- Intento 1 -->
                                 <li class="user-profile">
-                                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><img
+                                    <a class="waves-effect waves-dark" aria-expanded="false"><img
                                             src="../assets/images/users/profile.png" alt="user" /><span
-                                            class="hide-menu">Steve Jobs</span></a>
+                                            class="hide-menu">{{ nombre }} {{ apellido }}</span></a>
                                 </li>
                                 <li class="nav-devider"></li>
                                 <li class="user-profile">
-                                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/Usuario']"><span class="hide-menu">Usuario</span></a>
+                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/menu']"><span class="hide-menu">Inicio</span></a>
                                 </li>
                                 <li class="user-profile">
-                                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/tipoUsuario']"><span class="hide-menu">Tipo de Usuarios</span></a>
+                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/usuario']"><span class="hide-menu">Usuario</span></a>
                                 </li>
                                 <li class="user-profile">
-                                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/Servicio']"><span class="hide-menu">Servicios</span></a>
+                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/tipoUsuario']"><span class="hide-menu">Tipo de Usuarios</span></a>
                                 </li>
                                 <li class="user-profile">
-                                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/publicaciones']"><span class="hide-menu">Publicaciones</span></a>
+                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/servicio']"><span class="hide-menu">Servicios</span></a>
+                                </li>
+                                <li class="user-profile">
+                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/publicaciones']"><span class="hide-menu">Publicaciones</span></a>
                                 </li>
                             
                         
@@ -47,24 +50,7 @@
                             </li>
                             </li> -->
 
-                            <li class="nav-devider"></li>
-
-                            <li class="nav-small-cap">PERSONAL</li>
-                            <li> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
-
-                            
-                            <!-- <li class="nav-small-cap">PERSONAL</li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
-
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a >Minimal </a></li>
-                                    <li><a >Analytical</a></li>
-                                    <li><a >Demographical</a></li>
-                                    <li><a >Modern</a></li>
-                                </ul>
-                            </li> -->
-                            
-
+                         
                         </ul>
                     </nav>
                     <!-- End Sidebar navigation -->

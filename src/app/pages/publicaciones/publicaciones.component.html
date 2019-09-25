@@ -7,13 +7,12 @@
             <br>
             <br>
             <table class="table">
-                <thead>
+                <thead class="thead-dark" style="background: #000;">
                     <tr>
-                        <th class="col">Título</th>
+                        <th>Título</th>
                         <th class="col">Descripción</th>
                         <th class="col">Usuario</th>
                         <th class="col">Fecha</th>
-                        <!-- <th class="col">Estado</th> -->
                         <th class="col">Acciones</th>
                     </tr>
                 </thead>
@@ -21,7 +20,7 @@
                     <tr *ngFor="let publi of Publicaciones | paginate: { itemsPerPage: 4, currentPage: p}">
                         <td>{{ publi.Titulo }}</td>
                         <td>{{ publi.Descripcion }}</td>
-                        <td>{{ publi.Usuario }}</td>
+                        <td>{{ publi.Usuario.Nombres }}</td>
                         <td>{{ publi.Fecha }}</td>
                         <!-- <td>{{ publi.Estado }}</td> -->
                         <td>
