@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class PublicacionesComponent implements OnInit {
   Publicaciones: any;
+  pul:any;
   constructor(private service: PublicacionesService, private router:Router) {}
 
   ngOnInit() {
@@ -22,7 +23,8 @@ export class PublicacionesComponent implements OnInit {
   Obtenerpublicaciones(){
     this.service.getPublicaciones()
     .subscribe(pub=>{
-      this.Publicaciones = pub;
+      this.pul = pub;
+      this.Publicaciones = this.pul.publicaciones;
       console.log(this.Publicaciones);
       if(this.Publicaciones.mensaje == "no tiene autorización"){
         this.router.navigate(['../login'])

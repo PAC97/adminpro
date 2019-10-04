@@ -3,6 +3,7 @@ import {user} from '../pages/usuario/models/usuario';
 import {serviceUser} from '../services/usuario.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class RegisterComponent implements OnInit {
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
   User:user={
     'Nombres':'',
     'Apellidos':'',
@@ -18,8 +21,10 @@ export class RegisterComponent implements OnInit {
     'Direccion': '',
     'Correo':'',
     'Password':'',
-    'ID_TipoUsuario':'5d6ec10bee352216b8b3d421',
-    'ID_Servicio':''
+    'ID_TipoUsuario':'5d97805ccaf9ff2338b93746',
+    'Servicios':'albañil',
+    'pathImg': '',
+    'Region': ''
     }
     IDservicio;
     confirm;
@@ -40,10 +45,28 @@ export class RegisterComponent implements OnInit {
       console.log(this.servicios);
     })
   }
-  addServicios(event){
-    this.IDservicio = event.target.value;
-    this.User.ID_Servicio = this.IDservicio;
-  }
+//Metodos para las imagenes 
+fileChangeEvent(event: any): void {
+  this.imageChangedEvent = event;
+}
+imageCropped(event: ImageCroppedEvent) {
+  this.croppedImage = event.base64;
+}
+imageLoaded() {
+  // show cropper
+}
+cropperReady() {
+  // cropper ready
+}
+loadImageFailed() {
+  // show message
+}
+foto(){
+this.User.pathImg = this.croppedImage;
+console.log(this.User);
+}
+//
+
   add(){
     var correo = this.User.Correo;
     var items = this.uses.filter(function(item) {
@@ -51,7 +74,7 @@ export class RegisterComponent implements OnInit {
     });
     console.log(items);
     if(this.User.Nombres != '' && this.User.Apellidos && this.User.Edad != '' && this.User.Telefono != '' 
-    && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != ''){
+    && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != '' && this.User.pathImg != ''){
       if(this.confirm == this.User.Password){
         if(items.length <=0 ){
           this.service.postUser(this.User)
@@ -59,7 +82,7 @@ export class RegisterComponent implements OnInit {
             if(user != null){
              Swal.fire(
                'Registrado con exito',
-               'Para ingresar su correo es y contraseña son: '+ this.User.Correo + ' ' + this.User.Password,
+               'Para ingresar su correo es: '+ this.User.Correo,
                'success'
              )
              console.log(user);

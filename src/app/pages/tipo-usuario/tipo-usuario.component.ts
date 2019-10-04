@@ -14,6 +14,7 @@ import {Router} from '@angular/router';
 })
 export class TipoUsuarioComponent implements OnInit {
   tipoUsario:any;
+  tips:any;
   constructor(private service:TipoUsuarioService, private router:Router) { }
 
   ngOnInit() {
@@ -26,7 +27,8 @@ export class TipoUsuarioComponent implements OnInit {
   obtenerTipoUsuario(){
     this.service.getTipoUsuario()
     .subscribe(tip=>{
-      this.tipoUsario=tip;
+      this.tips=tip;
+      this.tipoUsario=this.tips.tipoUsuario;
       console.log(this.tipoUsario);
       if(this.tipoUsario.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])

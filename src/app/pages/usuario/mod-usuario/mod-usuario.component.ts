@@ -16,15 +16,17 @@ import Swal from 'sweetalert2';
 export class ModUsuarioComponent implements OnInit {
   
   Usr:user={
-    'Nombres':"",
-    'Apellidos': "",
-    'Edad': "",
-   'Telefono': "",
-    'Direccion': "",
-    'Correo': "",
-    'Password': "",
-    'ID_TipoUsuario': "",
-    'ID_Servicio': "",
+    'Nombres':'',
+    'Apellidos':'',
+    'Edad':'',
+    'Telefono':'',
+    'Direccion': '',
+    'Correo':'',
+    'Password':'',
+    'ID_TipoUsuario':'5d97805ccaf9ff2338b93746',
+    'Servicios':'albañil',
+    'pathImg': '',
+    'Region': ''
   }
   ids:any;
   User:any;
