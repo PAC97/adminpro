@@ -8,7 +8,9 @@ export interface user{
     Correo: string ,
     Password: string,
     ID_TipoUsuario: string ,
-    ID_Servicio: string,
+    Servicios:string,
+    pathImg: string,
+    Region: string
 }
 export interface userLog{
     Correo: string,

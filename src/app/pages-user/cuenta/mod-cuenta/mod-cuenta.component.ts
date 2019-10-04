@@ -5,6 +5,7 @@ import { user, userLog } from '../models/usuario';
 import { Router, ActivatedRoute } from '@angular/router';
 //alerta
 import Swal from 'sweetalert2';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-mod-cuenta',
@@ -12,6 +13,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./mod-cuenta.component.css']
 })
 export class ModCuentaComponent implements OnInit {
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
   user: any;
   us: any;
   nombre: any;
@@ -19,16 +22,19 @@ export class ModCuentaComponent implements OnInit {
   telefono: any;
   direccion: any;
   edad: any;
+  img:any;
   User: user = {
-    'Nombres': '',
-    'Apellidos': '',
-    'Telefono': '',
+    'Nombres':'',
+    'Apellidos':'',
+    'Edad':'',
+    'Telefono':'',
     'Direccion': '',
-    'Correo': '',
-    'ID_TipoUsuario': '',
-    'ID_Servicio': '',
-    'Edad': '',
-    'Password': '',
+    'Correo':'',
+    'Password':'',
+    'ID_TipoUsuario':'',
+    'Servicios':'',
+    'pathImg': '',
+    'Region': ''
   }
   pass = "";
   confirPass = "";
@@ -42,6 +48,26 @@ export class ModCuentaComponent implements OnInit {
   ngOnInit() {
     this.getUsuario();
   }
+  //apartado para modificar las imagenes
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+  imageLoaded() {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
+  }
+  foto(){
+  this.User.pathImg = this.croppedImage;
+  this.modifica();
+  }
   //Datos de ese usuario 
   getUsuario() {
     this.service.getIDUser()
@@ -53,464 +79,11 @@ export class ModCuentaComponent implements OnInit {
         this.telefono = this.us.Telefono;
         this.direccion = this.us.Direccion;
         this.edad = this.us.Edad;
+        this.img = this.us.pathImg;
         console.log(this.us)
       })
   }
-  //Modificar
-  modifica() {
-    this.User.Correo = this.us.Correo;
-    this.User.ID_Servicio = this.us.ID_Servicio;
-    this.User.ID_TipoUsuario = this.us.ID_TipoUsuario;
-    //If para nombres
-    if (this.User.Nombres != '') {
-      //If para apellidos
-      if (this.User.Apellidos != '') {
-        if (this.User.Direccion != '') {
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-        else {
-          this.User.Direccion = this.us.Direccion;
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-      }
-      //else para apellidos
-      else {
-        this.User.Apellidos = this.us.Apellidos;
-        if (this.User.Direccion != '') {
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-        else {
-          this.User.Direccion = this.us.Direccion;
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-      }
-    }
-    //Else para nombre
-    else {
-      this.User.Nombres = this.us.Nombres;
-      //If para apelledos
-      if (this.User.Apellidos != '') {
-        if (this.User.Direccion != '') {
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-        else {
-          this.User.Direccion = this.us.Direccion;
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            console.log(this.User); if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-      }
-      //Else para apellidos
-      else {
-        this.User.Apellidos = this.us.Apellidos;
-        if (this.User.Direccion != '') {
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-        else {
-          this.User.Direccion = this.us.Direccion;
-          if (this.User.Password != '') {
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-          else {
-            this.User.Password = this.us.Password;
-            if (this.User.Edad != '') {
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-            else {
-              this.User.Edad = this.us.Edad;
-              if (this.User.Telefono != '') {
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-              else {
-                this.User.Telefono = this.us.Telefono;
-                this.guardarModificacion();
-                console.log(this.User)
-              }
-            }
-          }
-        }
-      }
-    }
 
-  }
   //Metodo para validar la modificcacion
   guardarModificacion() {
     Swal.fire({
@@ -569,5 +142,783 @@ export class ModCuentaComponent implements OnInit {
           )
         }
       })
+  }
+  
+  //Modificar
+  modifica() {
+    this.User.Correo = this.us.Correo;
+    this.User.Servicios = this.us.Servicios;
+    this.User.ID_TipoUsuario = this.us.ID_TipoUsuario;
+    this.User.Region = this.us.Region;
+    //If para nombres
+    if (this.User.Nombres != '') {
+      //If para apellidos
+      if (this.User.Apellidos != '') {
+        if (this.User.Direccion != '') {
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+               if(this.user.pathImg != ''){
+                 this.guardarModificacion();
+               }
+               else{
+                 this.User.pathImg = this.us.pathImg;
+                 this.guardarModificacion();
+               }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+        else {
+          this.User.Direccion = this.us.Direccion;
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+      }
+      //else para apellidos
+      else {
+        this.User.Apellidos = this.us.Apellidos;
+        if (this.User.Direccion != '') {
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+        else {
+          this.User.Direccion = this.us.Direccion;
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //Else para nombre
+    else {
+      this.User.Nombres = this.us.Nombres;
+      //If para apelledos
+      if (this.User.Apellidos != '') {
+        if (this.User.Direccion != '') {
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+        else {
+          this.User.Direccion = this.us.Direccion;
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            console.log(this.User); if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+      }
+      //Else para apellidos
+      else {
+        this.User.Apellidos = this.us.Apellidos;
+        if (this.User.Direccion != '') {
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+        else {
+          this.User.Direccion = this.us.Direccion;
+          if (this.User.Password != '') {
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+          else {
+            this.User.Password = this.us.Password;
+            if (this.User.Edad != '') {
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+            else {
+              this.User.Edad = this.us.Edad;
+              if (this.User.Telefono != '') {
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+              else {
+                this.User.Telefono = this.us.Telefono;
+                if(this.user.pathImg != ''){
+                  this.guardarModificacion();
+                }
+                else{
+                  this.User.pathImg = this.us.pathImg;
+                  this.guardarModificacion();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }

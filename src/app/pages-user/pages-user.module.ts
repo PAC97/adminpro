@@ -15,6 +15,8 @@ import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones
 import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones/mod-publicaciones.component';
 import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 @NgModule({
   declarations: [
     PagesUserComponent,
@@ -34,7 +36,9 @@ import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
     FormsModule,
     PAGES_ROUTES_USUARIO,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImageCropperModule
+  
   ]
 })
 export class PagesUserModule { }
