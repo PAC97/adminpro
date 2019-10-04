@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <!--Div central para crear la administracion de los usuario o ver su perfil mas que todo-->
+        <div class="col-md-10">
+            <div style="background: rgb(255, 255, 255); height: 230px;">
+                <div class="col-md-12" style="text-align: center">
+                    <img src="../assets/images/users/profile.png"
+                        style="border-radius: 100px; width: 130px; margin-top: 20px;" />
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <h2>
+                        <fa name="user" size="1x"></fa> Mi nombre:      {{ nombre }} {{ apellido }}
+                    </h2>
+                </div>
+            </div>
+            <div style="background: rgb(255, 255, 255); height: 200px; margin-top: 20px;">
+              <div class="col-md-12"><br></div>
+                <div class="col-md-12">
+                    <h3>
+                        <fa name="mobile" size="1x"></fa> Mi numero celular:  {{ telefono }}
+                    </h3>
+                    <hr>
+                    <h3>
+                        <fa name="home" size="1x"></fa> Mi direccion: {{ direccion }}
+                    </h3>
+                    <hr>
+                    <h3>
+                        <fa name="envelope-square" size="1x"></fa> Correo: {{ correo }} 
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
