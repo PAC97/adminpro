@@ -29,18 +29,18 @@ export class TipoUsuarioService {
     }
     //Post
     postTipoUsuario(TipoUser:tipoUsuario){
-      return this.http.post(`${this.API_URI}/TipoUsuario`, TipoUser, {headers: this.httpheaders});
+      return this.http.post(`${this.API_URI}/tipoUsuario`, TipoUser, {headers: this.httpheaders});
     }
     // Delete
     deleteTipoUsuario(id:string){
-      return this.http.delete(`${this.API_URI}/TipoUsuario/${id}`, {headers: this.httpheaders});
+      return this.http.delete(`${this.API_URI}/tipoUsuario/${id}`, {headers: this.httpheaders});
     }
     //Get id
     getIdtipoUsuario(id:string){
-      return this.http.get(`${this.API_URI}/TipoUsuario/${id}`, {headers: this.httpheaders});
+      return this.http.get(`${this.API_URI}/tipoUsuario/${id}`, {headers: this.httpheaders});
     }
     //put
     putTipoUsuario(id:any, TipoUser:tipoUsuario){
-      return this.http.put(`${this.API_URI}/TipoUsuario/${id}`, TipoUser, {headers: this.httpheaders});
+      return this.http.put(`${this.API_URI}/tipoUsuario/${id}`, TipoUser, {headers: this.httpheaders});
     }
   }

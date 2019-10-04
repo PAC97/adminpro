@@ -8,8 +8,9 @@ import {publicaciones} from '../models/publicaciones';
 export class PublicacionesService {
   API_URI = 'http://localhost:3000/api';
   httpheaders:any;
-  
+  id:any;  
   constructor(private http:HttpClient) {
+    this.id = localStorage.getItem('session');
     var session = localStorage.getItem('x-access-token');
     this.httpheaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -26,4 +27,9 @@ export class PublicacionesService {
   return this.http.get(`${this.API_URI}/publicaciones`, {headers: this.httpheaders} );
  }
  //
+ //Traer usuario log 
+
+  getIDUser(){
+    return this.http.get(`${this.API_URI}/usuario/${this.id}`, {headers: this.httpheaders})
+ }
 }

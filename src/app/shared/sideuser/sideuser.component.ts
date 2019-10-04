@@ -10,6 +10,7 @@ userSession:any;
 uses:any;
 nombre:any;
 apellido:any;
+img:any;
   constructor(private service:serviceUser) { }
 
   ngOnInit() {
@@ -19,6 +20,7 @@ apellido:any;
       this.userSession = this.uses.usuario;
       this.nombre = this.userSession.Nombres;
       this.apellido = this.userSession.Apellidos;
+      this.img = this.userSession.pathImg;
       console.log(this.userSession);
     })
   }

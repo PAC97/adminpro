@@ -9,7 +9,9 @@
                         <div class="d-flex justify-content-center h-100">
                             <div class="searchbar">
                                 <input class="search_input" type="text" name="buscar" placeholder="Search...">
-                                <a class="search_icon"><fa name="search"></fa></a>
+                                <a class="search_icon">
+                                    <fa name="search"></fa>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -30,8 +32,7 @@
                 <div class="row">
                     <!--div perfil-->
                     <div class="col-md-2">
-                        <img src="../assets/images/users/profile.png"
-                            style="border-radius: 60px; width: 80px; margin-top: 10px;" />
+                        <img [src]="img" style="border-radius: 60px; width: 80px; margin-top: 10px;" />
                     </div>
                     <!--div publicaciones-->
                     <div class="col-md-8">
@@ -40,8 +41,8 @@
                     </div>
 
                     <!-- Modal -->
-                    <div class="modal" id="crearPublicacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
+                    <div class="modal" id="crearPublicacion" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -51,20 +52,23 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
+                                        <form class="form-horizontal form-material">
                                     <input class="form-control" placeholder="Ingresar titulo de la publicacion"
                                         name="Titulo" [(ngModel)]="publi.Titulo">
                                     <br>
                                     <br>
                                     <input class="form-control" placeholder="Ingresar descripcion de la publicacion"
                                         name="Descripcion" [(ngModel)]="publi.Descripcion">
+                                    </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" id="button" class="btn btn-primary"
-                                        (click)="publicar(publi)" data-dismiss="modal">Publicar</button>
+                                    <button type="button" id="button" class="btn btn-primary" (click)="publicar(publi)"
+                                        data-dismiss="modal">Publicar</button>
                                 </div>
-                              
+
                             </div>
+                            
                         </div>
                     </div>
                 </div>

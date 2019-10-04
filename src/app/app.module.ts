@@ -18,7 +18,7 @@ import { RegisterComponent } from './login/register.component';
 import {serviceUser} from './services/usuario.service';
 import { PagesUserComponent } from './pages-user/pages-user.component';
 
-
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 @NgModule({
@@ -35,7 +35,8 @@ import { PagesUserComponent } from './pages-user/pages-user.component';
     PagesUserModule,
     FormsModule,
     HttpClientModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ImageCropperModule
   ],
   providers: [
     serviceUser

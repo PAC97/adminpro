@@ -28,6 +28,9 @@ export class InicioComponent implements OnInit {
   modal: any;
   pubb:any;
   ok:any;
+  user;
+  img;
+  puls:any;
   ngOnInit() {
     var session = localStorage.getItem('x-access-token');
     if(session == null){
@@ -35,17 +38,25 @@ export class InicioComponent implements OnInit {
     }
     this.usuario = localStorage.getItem('session');
     this.obtenesPublicaciones();
-   // this.buscar.valueChanges.subscribe(value=> this.BuscarEmiter.emit(value))
+    //user
+    this.getUser();
+  }
+  getUser(){
+    this.service.getIDUser()
+    .subscribe(user=>{
+      this.user = user;
+      this.img = this.user.usuario.pathImg;
+      console.log(this.user);
+    })
   }
   obtenesPublicaciones(){
     this.service.getPublicaciones()
     .subscribe(pubb =>{
-      this.pubb = pubb;
-    
+      this.puls = pubb;
+      this.pubb = this.puls.publicaciones;
       var id = this.usuario;
       var items = this.pubb.filter(function(item) {
         return item.Usuario._id != id;
-        
       });
       console.log(items);
       this.pubb = items;
