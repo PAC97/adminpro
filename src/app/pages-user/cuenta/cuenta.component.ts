@@ -13,17 +13,26 @@ import { user } from './models/usuario';
 })
 export class CuentaComponent implements OnInit {
 
-  constructor( private service: ServiceUserService) { }
+  constructor(private service: ServiceUserService) { }
   user: any;
   us: any;
-
+  nombre: any;
+  apellido:any;
+  telefono:any;
+  direccion:any;
+  correo:any;
   ngOnInit() {
     this.service.getIDUser()
       .subscribe(user => {
         this.user = user;
         this.us = this.user.usuario;
+        this.nombre = this.user.usuario.Nombres;
+        this.apellido = this.user.usuario.Apellidos;
+        this.telefono = this.user.usuario.Telefono;
+        this.direccion = this.user.usuario.Direccion;
+        this.correo = this.user.usuario.Correo;
         console.log(this.us)
       })
   }
-  
+
 }

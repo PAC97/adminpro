@@ -8,6 +8,8 @@ import {serviceUser} from '../../services/usuario.service';
 export class SideuserComponent implements OnInit {
 userSession:any;
 uses:any;
+nombre:any;
+apellido:any;
   constructor(private service:serviceUser) { }
 
   ngOnInit() {
@@ -15,6 +17,8 @@ uses:any;
     .subscribe(id=>{
       this.uses = id;
       this.userSession = this.uses.usuario;
+      this.nombre = this.userSession.Nombres;
+      this.apellido = this.userSession.Apellidos;
       console.log(this.userSession);
     })
   }

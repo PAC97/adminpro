@@ -20,11 +20,11 @@
                         <form class="form-horizontal form-material col-md-9">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <input class="form-control" type="text" [value]="us.Nombres" name="Nombres"
+                                    <input class="form-control" type="text" [value]="nombre" name="Nombres"
                                         [(ngModel)]="User.Nombres">
                                 </div>
                                 <div class="col-xs-4">
-                                    <input class="form-control" type="text" [value]="us.Apellidos" name="Apellidos"
+                                    <input class="form-control" type="text" [value]="apellido" name="Apellidos"
                                         [(ngModel)]="User.Apellidos">
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                         <form class="form-horizontal form-material col-md-9">
                             <div class="form-group col-md-6">
                                 <div class="col-xs-12">
-                                    <input class="form-control" type="number" [value]="us.Telefono" name="Telefono"
+                                    <input class="form-control" type="number" [value]="telefono" name="Telefono"
                                         [(ngModel)]="User.Telefono">
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                         <form class="form-horizontal form-material col-md-9">
                             <div class="form-group col-md-6">
                                 <div class="col-xs-12">
-                                    <input class="form-control" type="text" [value]="us.Direccion" name="Direccion"
+                                    <input class="form-control" type="text" [value]="direccion" name="Direccion"
                                         [(ngModel)]="User.Direccion">
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                         <form class="form-horizontal form-material col-md-9">
                             <div class="form-group col-md-6">
                                 <div class="col-xs-12">
-                                    <input class="form-control" type="number" name="Edad" [value]="us.Edad"
+                                    <input class="form-control" type="number" name="Edad" [value]="edad"
                                         [(ngModel)]="User.Edad">
                                 </div>
                             </div>
@@ -105,12 +105,12 @@
                                         <form class="form-horizontal form-material">
                                             <div class="form-group col-md-12">
                                                 <div class="col-xs-12">
-                                                    <input class="form-control" type="text" name="pass" placeholder="Ingresar contraseña existente" [(ngModel)]="pass"> 
+                                                    <input class="form-control" type="password" name="pass" placeholder="Ingresar contraseña existente" [(ngModel)]="pass"> 
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <div class="col-xs-12">
-                                                    <input class="form-control" type="text" name="confirPass" placeholder="Ingresar nueva contraseña" [(ngModel)]="confirPass">
+                                                    <input class="form-control" type="password" name="confirPass" placeholder="Ingresar nueva contraseña" [(ngModel)]="confirPass">
                                                 </div>
                                             </div>
                                         </form>
@@ -118,7 +118,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" (click)="validarPass()">Modificar contraseña</button>
+                                        <button type="button" class="btn btn-primary" (click)="validarPass()" data-dismiss="modal">Modificar contraseña</button>
                                     </div>
                                 </div>
                             </div>

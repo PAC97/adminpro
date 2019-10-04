@@ -31,7 +31,8 @@ export class MisPublicacionesComponent implements OnInit {
   obtenerMyPubli(){
     this.service.getPublicacionporUsuario()
     .subscribe(pu => {
-      this.pubb = pu;
+      this.pu = pu;
+      this.pubb = this.pu.publicaciones;
       console.log(this.pubb);
     })
   }

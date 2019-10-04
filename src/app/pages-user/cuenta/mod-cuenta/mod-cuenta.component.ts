@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceUserService } from '../service/service-user.service';
-import { user } from '../models/usuario';
+import { user, userLog } from '../models/usuario';
 
 import { Router, ActivatedRoute } from '@angular/router';
 //alerta
@@ -14,6 +14,11 @@ import Swal from 'sweetalert2';
 export class ModCuentaComponent implements OnInit {
   user: any;
   us: any;
+  nombre: any;
+  apellido: any;
+  telefono: any;
+  direccion: any;
+  edad: any;
   User: user = {
     'Nombres': '',
     'Apellidos': '',
@@ -25,8 +30,13 @@ export class ModCuentaComponent implements OnInit {
     'Edad': '',
     'Password': '',
   }
-  pass="";
-  confirPass="";
+  pass = "";
+  confirPass = "";
+  valid: userLog = {
+    'Correo': '',
+    'Password': ''
+  }
+  pasEcual: any;
   constructor(private router: Router, private service: ServiceUserService) { }
 
   ngOnInit() {
@@ -38,6 +48,11 @@ export class ModCuentaComponent implements OnInit {
       .subscribe(user => {
         this.user = user;
         this.us = this.user.usuario;
+        this.nombre = this.us.Nombres;
+        this.apellido = this.us.Apellidos;
+        this.telefono = this.us.Telefono;
+        this.direccion = this.us.Direccion;
+        this.edad = this.us.Edad;
         console.log(this.us)
       })
   }
@@ -524,18 +539,35 @@ export class ModCuentaComponent implements OnInit {
       }
     });
   }
-  validarPass(){
-    if(this.pass == this.us.Password){
-      console.log('coinciden');
-    }
-    else{
-      console.log('no coinciden')
-    }
-     console.log(this.pass);
-    console.log(this.confirPass);
-  }
-  //Modificar contraseña
-  modPass(){
-
+  validarPass() {
+    this.valid.Password = this.pass;
+    this.valid.Correo = this.us.Correo;
+    this.service.logUser(this.valid)
+      .subscribe(pass => {
+        this.pasEcual = pass;
+        console.log(this.pasEcual);
+        if (this.pasEcual.status == 'Success') {
+          if (this.pass == this.confirPass) {
+            Swal.fire(
+              '¡Contraseña invalida!',
+              'La contraseña debe ser diferente a la actual',
+              'warning'
+            )
+          }
+          else {
+            this.User.Password = this.confirPass;
+            this.modifica();
+            this.confirPass = '';
+            this.pass = '';
+          }
+        }
+        else {
+          Swal.fire(
+            '¡Contraseña invalida!',
+            'La contraseña ingresada no coincide con la ya utilizada',
+            'warning'
+          )
+        }
+      })
   }
 }
