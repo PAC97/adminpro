@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //servicio
 import {UsuarioService} from '../usuario.service';
 //models
-import {user} from '../models/Usuario';
+import {user} from '../models/usuario';
 //ritas
 import {Router, ActivatedRoute} from '@angular/router';
 //alertas

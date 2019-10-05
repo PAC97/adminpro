@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { observable, Observable } from 'rxjs';
 
-import {tipoServicio} from './models/tipoServicio'; 
+import {tipoServicio} from './models/tiposervicio'; 
 
 @Injectable({
   providedIn: 'root'

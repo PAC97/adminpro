@@ -21,11 +21,13 @@ import { PagesUserComponent } from './pages-user/pages-user.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent   
   ],
   imports: [
     BrowserModule,
