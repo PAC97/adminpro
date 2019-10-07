@@ -22,6 +22,7 @@ export class ModPublicacionesComponent implements OnInit {
     'Titulo': '',
     'Descripcion': '',
     'Usuario': '',
+    'ID_Servicios':'',
     'Fecha': new Date,
   }
   ngOnInit() {
