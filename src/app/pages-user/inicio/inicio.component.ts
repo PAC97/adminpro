@@ -23,7 +23,7 @@ export class InicioComponent implements OnInit {
     'Titulo': '',
     'Descripcion': '',
     'Usuario': '',
-    'ID_TipoUsuario': '',
+    'ID_Servicios': '',
     'Fecha': new Date(Date.now())
   }
   usuario: any;
@@ -88,7 +88,7 @@ export class InicioComponent implements OnInit {
   //
   select($event){
     this.idSer = event;
-    this.publi.ID_TipoUsuario = this.idSer.target.value;
+    this.publi.ID_Servicios = this.idSer.target.value;
     console.log(this.idSer.target.value);
 
   }
