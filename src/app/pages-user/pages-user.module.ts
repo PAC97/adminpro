@@ -41,7 +41,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     SharedModule,
     ReactiveFormsModule,
     ImageCropperModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule  
   
   ]
 })

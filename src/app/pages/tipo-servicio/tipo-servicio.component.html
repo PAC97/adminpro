@@ -14,7 +14,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let tipSer of Servicio |  filter:filter | paginate: { itemsPerPage: 4, currentPage: p } ">
+                  <tr *ngFor="let tipSer of Servicio |  filter:filter | paginate: { itemsPerPage: 4, currentPage: p } "> 
                     <td>{{tipSer.nombre}}</td>
                     <td>{{tipSer.descripcion}}</td>
                     <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-Servicio/', tipSer._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteServicio(tipSer._id)"><a></a></fa></td>
