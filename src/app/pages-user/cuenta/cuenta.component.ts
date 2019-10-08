@@ -21,6 +21,7 @@ export class CuentaComponent implements OnInit {
   telefono:any;
   direccion:any;
   correo:any;
+  img:any;
   ngOnInit() {
     this.service.getIDUser()
       .subscribe(user => {
@@ -31,6 +32,7 @@ export class CuentaComponent implements OnInit {
         this.telefono = this.user.usuario.Telefono;
         this.direccion = this.user.usuario.Direccion;
         this.correo = this.user.usuario.Correo;
+        this.img = this.user.usuario.pathImg;
         console.log(this.us)
       })
   }
