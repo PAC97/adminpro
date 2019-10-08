@@ -16,6 +16,8 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
 import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     MisPublicacionesComponent,
     ModPublicacionesComponent,
     ModCuentaComponent,
+    BusquedaClientePipe
   ],
   exports: [
     PagesUserComponent,

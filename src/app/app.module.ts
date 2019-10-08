@@ -22,6 +22,9 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { TipServicioComponent } from './login/tip-servicio/tip-servicio.component';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
