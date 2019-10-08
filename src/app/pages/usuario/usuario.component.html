@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="query">
+        <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="filter">
         <div class="col-md-12">
             <table class="table">
                 <thead class="thead-dark" style="background: #000;">
@@ -14,7 +14,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let User of uses | paginate: { itemsPerPage: 4, currentPage: p } | busqueda:'Nombres,Apellidos,Correo,Direccion':query">
+                  <tr *ngFor="let User of uses | paginate: { itemsPerPage: 4, currentPage: p } | filter:filter">
                     <td>{{User.Nombres}} {{User.Apellidos}}</td>
                     <td>{{User.Edad}}</td>
                     <td>{{User.Telefono}}</td>

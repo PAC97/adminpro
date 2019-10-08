@@ -31,7 +31,9 @@ import {AddTipoServicioComponent} from './tipo-servicio/add-servicio/add-tipo-se
 import {ModTipoServicioComponent} from './tipo-servicio/mod-servicio/mod-tipo-servicio.component'
 import { from } from 'rxjs';
 import { ModUsuarioComponent } from './usuario/mod-usuario/mod-usuario.component';
-import {BusquedaPipe} from "../pipes/busqueda.pipe";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import {BusquedaPipe} from "../pipes/busqueda.pipe";
         AddTipoServicioComponent,
         ModTipoServicioComponent,
         PublicacionesComponent,
-        BusquedaPipe
+        
+        
 
     ], exports: [
         PagesComponent,
@@ -65,7 +68,8 @@ import {BusquedaPipe} from "../pipes/busqueda.pipe";
         PAGES_ROUTES,
         FormsModule,
         NgxPaginationModule,
-        AngularFontAwesomeModule
+        AngularFontAwesomeModule,
+        Ng2SearchPipeModule
    ],
    providers: [
     TipoUsuarioService,

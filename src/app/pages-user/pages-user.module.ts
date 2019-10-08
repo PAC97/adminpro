@@ -16,7 +16,7 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
 import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
     MisPublicacionesComponent,
     ModPublicacionesComponent,
     ModCuentaComponent,
-    BusquedaClientePipe
+   
   ],
   exports: [
     PagesUserComponent,
@@ -40,7 +40,8 @@ import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
-    ImageCropperModule
+    ImageCropperModule,
+    Ng2SearchPipeModule
   
   ]
 })
