@@ -19,6 +19,7 @@ import {serviceUser} from './services/usuario.service';
 import { PagesUserComponent } from './pages-user/pages-user.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { TipServicioComponent } from './login/tip-servicio/tip-servicio.component';
 
 
 
@@ -29,7 +30,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-       
+    TipServicioComponent,
   ],
   imports: [
     BrowserModule,

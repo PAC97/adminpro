@@ -28,8 +28,11 @@ export class PublicacionesService {
  }
  //
  //Traer usuario log 
-
   getIDUser(){
     return this.http.get(`${this.API_URI}/usuario/${this.id}`, {headers: this.httpheaders})
+ }
+ //obtener servicios 
+ getServicios(){
+   return this.http.get(`${this.API_URI}/servicio`, {headers: this.httpheaders})
  }
 }

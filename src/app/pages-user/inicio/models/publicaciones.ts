@@ -4,5 +4,6 @@ export interface publicaciones{
     Titulo:string;
     Descripcion:string;
     Usuario:string;
+    ID_Servicios:string;
     Fecha:Date;
 }

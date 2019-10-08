@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {user} from '../pages/usuario/models/usuario';
+import {user} from './models/usuario';
 import {serviceUser} from '../services/usuario.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -21,8 +21,12 @@ export class RegisterComponent implements OnInit {
     'Direccion': '',
     'Correo':'',
     'Password':'',
+
+    'ID_TipoUsuario':'5d97805ccaf9ff2338b93746',
+
     'ID_TipoUsuario':'5d97b1ea9159bc16a363bb67',
-    'Servicios':'albañil',
+    'Servicios':'',
+
     'pathImg': '',
     'Region': ''
     }
@@ -76,7 +80,7 @@ console.log(this.User);
     if(this.User.Nombres != '' && this.User.Apellidos && this.User.Edad != '' && this.User.Telefono != '' 
     && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != '' && this.User.pathImg != ''){
       if(this.confirm == this.User.Password){
-        if(items.length <=0 ){
+        if(items.length <= 0 ){
           this.service.postUser(this.User)
           .subscribe(user=>{
             if(user != null){

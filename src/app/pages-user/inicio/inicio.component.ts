@@ -18,10 +18,12 @@ export class InicioComponent implements OnInit {
   value="";
 
   constructor(private service: PublicacionesService, private router: Router, private renderer: Renderer2) { }
+  //variables
   publi: publicaciones = {
     'Titulo': '',
     'Descripcion': '',
     'Usuario': '',
+    'ID_TipoUsuario': '',
     'Fecha': new Date(Date.now())
   }
   usuario: any;
@@ -31,6 +33,11 @@ export class InicioComponent implements OnInit {
   user;
   img;
   puls:any;
+  ser:any;
+  servicios:any;
+  idSer:any;
+
+//
   ngOnInit() {
     var session = localStorage.getItem('x-access-token');
     if(session == null){
@@ -40,6 +47,8 @@ export class InicioComponent implements OnInit {
     this.obtenesPublicaciones();
     //user
     this.getUser();
+    //servicios
+    this.getSer();
   }
   getUser(){
     this.service.getIDUser()
@@ -47,6 +56,14 @@ export class InicioComponent implements OnInit {
       this.user = user;
       this.img = this.user.usuario.pathImg;
       console.log(this.user);
+    });
+  }
+  getSer(){
+    this.service.getServicios()
+    .subscribe(ser=>{
+      this.ser = ser;
+      this.servicios = this.ser.servicios;
+      console.log(ser);
     })
   }
   obtenesPublicaciones(){
@@ -68,10 +85,13 @@ export class InicioComponent implements OnInit {
 
     })
   }
-  //buscar
-/*  buscar = new FormControl('')
-  @Output('buscar') BuscarEmiter = new EventEmitter<string>()
-  */
+  //
+  select($event){
+    this.idSer = event;
+    this.publi.ID_TipoUsuario = this.idSer.target.value;
+    console.log(this.idSer.target.value);
+
+  }
   //Publicar para cada usuario xd d xd xd xd xd 
   publicar() {
     this.publi.Usuario = this.usuario;
