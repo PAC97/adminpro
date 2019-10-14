@@ -15,9 +15,12 @@ import {UsuarioComponent} from './usuario/usuario.component';
 import {ServicioComponent} from './tipo-servicio/tipo-servicio.component';
 import {AddTipoServicioComponent} from './tipo-servicio/add-servicio/add-tipo-servicio.component';
 import {ModTipoServicioComponent} from './tipo-servicio/mod-servicio/mod-tipo-servicio.component';
-
+//cuenta
+import {CuentaComponent} from './cuenta/cuenta.component';
+import {ModCuentaComponent} from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { from } from 'rxjs';
 
 
 const pagesRoutes: Routes = [
@@ -44,7 +47,10 @@ const pagesRoutes: Routes = [
             {path: 'dashboard', component: DashboardComponent},
             {path: 'progress', component: ProgressComponent},
             {path: 'graficas1', component:Graficas1Component},
-            {path: '', redirectTo:'/menu', pathMatch: 'full'}
+            {path: '', redirectTo:'/menu', pathMatch: 'full'},
+            //Rutas para Cuenta
+            {path: 'cuenta-admin', component: CuentaComponent },
+            {path: 'mod-cadmin', component: ModCuentaComponent }
         ]
     }
 ];

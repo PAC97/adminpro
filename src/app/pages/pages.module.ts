@@ -31,6 +31,8 @@ import {AddTipoServicioComponent} from './tipo-servicio/add-servicio/add-tipo-se
 import {ModTipoServicioComponent} from './tipo-servicio/mod-servicio/mod-tipo-servicio.component'
 import { from } from 'rxjs';
 import {BusquedaPipe} from "../pipes/busqueda.pipe";
+import { CuentaComponent } from './cuenta/cuenta.component';
+import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import {BusquedaPipe} from "../pipes/busqueda.pipe";
         AddTipoServicioComponent,
         ModTipoServicioComponent,
         PublicacionesComponent,
-        BusquedaPipe
+        BusquedaPipe,
+        CuentaComponent,
+        ModCuentaComponent
 
     ], exports: [
         PagesComponent,
