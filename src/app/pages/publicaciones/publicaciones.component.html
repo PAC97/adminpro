@@ -6,7 +6,7 @@
             </button> -->
             <br>
             <br>
-            <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="query">
+            <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="filter"> 
             <table class="table">
                 <thead class="thead-dark" style="background: #000;">
                     <tr>
@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let publi of Publicaciones | paginate: { itemsPerPage: 4, currentPage: p} | busqueda:'Titulo':query">
+                    <tr *ngFor="let publi of Publicaciones | paginate: { itemsPerPage: 4, currentPage: p} | filter:filter">
                         <td>{{ publi.Titulo }}</td>
                         <td>{{ publi.Descripcion }}</td>
                         <td>{{ publi.Usuario.Nombres }}</td>

@@ -3,9 +3,9 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <!--Fin del de publicacion-->
-            <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="query">
+            <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="filter">
             <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
-                *ngFor="let pub of pubb | busquedaCliente:'Titulo,Descripcion,Fecha':query">
+                *ngFor="let pub of pubb | filter:filter">
                 <div class="row">
                     <div class="col-md-11">
                         <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h4>{{pub.Descripcion}}</h4>
+                        <h4>{{pub.Descripcion}}</h4> 
                     </div>
                     <div class="col-md-4">
                         <h5>{{ pub.Fecha | date:'medium' }}</h5>
