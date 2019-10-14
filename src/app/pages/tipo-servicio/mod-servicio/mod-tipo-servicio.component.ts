@@ -42,8 +42,8 @@ export class ModTipoServicioComponent implements OnInit {
   }
   mod(){
    Swal.fire({
-      title: '¿Dese modificar el registro?',
-      text: "El registro se modificara",
+      title: '¿Desea modificar el registro?',
+      text: "El registro se modificará",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -60,7 +60,7 @@ export class ModTipoServicioComponent implements OnInit {
         )
         Swal.fire(
           'Modificado!',
-          'El registro se modifico correctamente.',
+          'El registro se modificó correctamente.',
           'success'
         )
       this.router.navigate(['/tipoUsuario']);

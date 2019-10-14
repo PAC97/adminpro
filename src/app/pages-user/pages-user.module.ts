@@ -16,9 +16,13 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
 import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
+
 import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
 import { MisServiciosComponent } from './mis-servicios/mis-servicios.component';
 import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servicios.component';
+
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -29,9 +33,11 @@ import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servici
     MisPublicacionesComponent,
     ModPublicacionesComponent,
     ModCuentaComponent,
+
     BusquedaClientePipe,
     MisServiciosComponent,
     MasServiciosComponent
+
   ],
   exports: [
     PagesUserComponent,
@@ -44,7 +50,13 @@ import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servici
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
+
     ImageCropperModule
+
+    ImageCropperModule,
+    Ng2SearchPipeModule  
+  
+
   ]
 })
 export class PagesUserModule { }

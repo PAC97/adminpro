@@ -85,7 +85,7 @@ export class TipServicioComponent implements OnInit {
     else{
       Swal.fire(
         'Error',
-        'Debe seleccionar almenos un servicio',
+        'Debe seleccionar al menos un servicio',
         'warning'
       )
     }
