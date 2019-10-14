@@ -35,4 +35,7 @@ export class PublicacionesService {
  getServicios(){
    return this.http.get(`${this.API_URI}/servicio`, {headers: this.httpheaders})
  }
+ getIDServicio(id:string){
+ return this.http.get(`${this.API_URI}/publicacioneServicio/${id}`,{headers: this.httpheaders})
+ }
 }

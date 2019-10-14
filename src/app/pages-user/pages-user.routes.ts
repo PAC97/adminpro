@@ -5,6 +5,8 @@ import {CuentaComponent} from './cuenta/cuenta.component';
 import {MisPublicacionesComponent} from './mis-publicaciones/mis-publicaciones.component';
 import {ModPublicacionesComponent} from './mis-publicaciones/mod-publicaciones/mod-publicaciones.component';
 import {ModCuentaComponent} from './cuenta/mod-cuenta/mod-cuenta.component';
+import {MisServiciosComponent} from './mis-servicios/mis-servicios.component';
+import {MasServiciosComponent} from './mis-servicios/mas-servicios/mas-servicios.component';
 
 
 const pagesRoutes: Routes = [
@@ -13,13 +15,15 @@ const pagesRoutes: Routes = [
         component: PagesUserComponent,
         children: [
             //Rutas para tipoUsuario xddx
+            {path: 'mas-servicios', component: MasServiciosComponent},
+            {path: 'mis-servicios', component: MisServiciosComponent},
             {path: 'mod-cuenta', component: ModCuentaComponent},
             {path: 'mod-publicaciones/:id', component: ModPublicacionesComponent},
             {path: 'mis-publicaciones', component: MisPublicacionesComponent},
             {path: 'cuenta', component: CuentaComponent},
             {path: 'inicio', component: InicioComponent},
   
-            {path: '', redirectTo:'/menu', pathMatch: 'full'}
+            {path: '', redirectTo:'/inicio', pathMatch: 'full'}
         ]
     }
 ];

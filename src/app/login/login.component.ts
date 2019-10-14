@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
           this.datos = user;
           console.log(this.datos);
           if (this.datos.data != null) {
+            if(this.datos.data.Estado == true){
             Swal.fire(
               'Usuario valido',
               'Bienvenido',
@@ -41,12 +42,17 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('session', this.datos.data.Usuario);
             this.currentUserSubject.next(this.datos.data.token);
             //if para validar los servicios 
-            if (this.datos.data.Servicios.length >= 1) {
+           
               if (this.datos.data.Rol.nombre == 'Admin') {
                 this.route.navigate(['/menu']);
               }
               else if (this.datos.data.Rol.nombre == 'Cliente') {
+                if (this.datos.data.Servicios.length >= 1) {
                 this.route.navigate(['/inicio'])
+              }
+              else {
+                this.route.navigate(['/SeleccionarServicios']);
+              }
               }
               else {
                 Swal.fire(
@@ -55,19 +61,23 @@ export class LoginComponent implements OnInit {
                   'warning'
                 )
               }
-            }
-            else {
-              this.route.navigate(['/SeleccionarServicios']);
-            }
+           
             //
           }
+          else{
+            Swal.fire(
+              'Al parecer no tienes una cuenta o a sido desabilitada',
+              'por favor contactar al administrador para poder solucionar el problema',
+              'warning'
+            )
+          }
+        }
           else {
             Swal.fire(
               'Error',
               'Todos lo datos son requeridos',
               'warning'
             )
-        
             }
         })
       }

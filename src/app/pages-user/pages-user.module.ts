@@ -17,6 +17,8 @@ import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
+import { MisServiciosComponent } from './mis-servicios/mis-servicios.component';
+import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servicios.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
     MisPublicacionesComponent,
     ModPublicacionesComponent,
     ModCuentaComponent,
-    BusquedaClientePipe
+    BusquedaClientePipe,
+    MisServiciosComponent,
+    MasServiciosComponent
   ],
   exports: [
     PagesUserComponent,
@@ -41,7 +45,6 @@ import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
     SharedModule,
     ReactiveFormsModule,
     ImageCropperModule
-  
   ]
 })
 export class PagesUserModule { }
