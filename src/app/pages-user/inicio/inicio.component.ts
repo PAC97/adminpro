@@ -23,7 +23,7 @@ export class InicioComponent implements OnInit {
     'Titulo': '',
     'Descripcion': '',
     'Usuario': '',
-    'ID_Servicios': '',
+    'ID_Servicio': '',
     'Fecha': new Date(Date.now())
   }
   usuario: any;
@@ -36,6 +36,7 @@ export class InicioComponent implements OnInit {
   ser:any;
   servicios:any;
   idSer:any;
+  IdFil:any;
 
 //
   ngOnInit() {
@@ -85,13 +86,42 @@ export class InicioComponent implements OnInit {
 
     })
   }
-  //
+  //seleccionar
   select($event){
     this.idSer = event;
-    this.publi.ID_Servicios = this.idSer.target.value;
+    this.publi.ID_Servicio = this.idSer.target.value;
     console.log(this.idSer.target.value);
-
   }
+  //filtrar 
+  filt($event){
+    this.IdFil = event;
+    if(this.IdFil.target.value == 'todos'){
+      this.obtenesPublicaciones();
+    }
+    else{
+      this.getidServicio();
+    }
+  }
+  //get por id de servicios
+  getidServicio(){
+    this.service.getIDServicio(this.IdFil.target.value)
+    .subscribe(pubb =>{
+      this.puls = pubb;
+      this.pubb = this.puls.publicaciones;
+      var id = this.usuario;
+      var items = this.pubb.filter(function(item) {
+        return item.Usuario._id != id;
+      });
+      console.log(items);
+      this.pubb = items;
+      this.pubb.sort(function(a, b) {
+        a = new Date(a.Fecha);
+        b = new Date(b.Fecha);
+        return a>b ? -1 : a<b ? 1 : 0;
+    });
+    })
+  }
+  //
   //Publicar para cada usuario xd d xd xd xd xd 
   publicar() {
     this.publi.Usuario = this.usuario;
