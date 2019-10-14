@@ -37,8 +37,8 @@ export class ServicioComponent implements OnInit {
   };
   DeleteServicio(id:string){
     Swal.fire({
-      title: '¿Dese eliminar el registro?',
-      text: "Al eliminar no se podra recuperar el registro!",
+      title: '¿Desea eliminar el registro?',
+      text: "Al eliminar no se podrá recuperar el registro!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -56,7 +56,7 @@ export class ServicioComponent implements OnInit {
         )
         Swal.fire(
           'Eliminado!',
-          'El registro se elimino correctamente.',
+          'El registro se eliminó correctamente.',
           'success'
         )
       }

@@ -30,7 +30,6 @@ import {ServicioComponent} from './tipo-servicio/tipo-servicio.component';
 import {AddTipoServicioComponent} from './tipo-servicio/add-servicio/add-tipo-servicio.component';
 import {ModTipoServicioComponent} from './tipo-servicio/mod-servicio/mod-tipo-servicio.component'
 import { from } from 'rxjs';
-import { ModUsuarioComponent } from './usuario/mod-usuario/mod-usuario.component';
 import {BusquedaPipe} from "../pipes/busqueda.pipe";
 
 
@@ -45,7 +44,6 @@ import {BusquedaPipe} from "../pipes/busqueda.pipe";
         TipoUsuarioComponent,
         AddTipoUsuarioComponent,
         ModTipoUsuarioComponent,
-        ModUsuarioComponent,
         ServicioComponent,
         AddTipoServicioComponent,
         ModTipoServicioComponent,

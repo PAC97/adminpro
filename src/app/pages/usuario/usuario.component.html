@@ -7,8 +7,8 @@
                   <tr>
                     <th scope="col">Nombres</th>
                     <th scope="col">Edad</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Direccion</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Acciones</th>
                   </tr>
@@ -20,8 +20,9 @@
                     <td>{{User.Telefono}}</td>
                     <td>{{User.Direccion}}</td>
                     <td>{{User.Correo}}</td>
-                    <td><a> <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteUsuario(User._id)"></fa></a></td>
-                  </tr>
+                    <td><a> <fa name="check" size="2x" class="btn btn-success" (click)="getidUsuario(User._id)"></fa></a>
+                    <a> <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteUsuario(User._id)"></fa></a></td>
+                   </tr>
                 </tbody >
               </table>
 
