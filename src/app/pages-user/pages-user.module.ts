@@ -19,7 +19,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
 import { MisServiciosComponent } from './mis-servicios/mis-servicios.component';
 import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servicios.component';
-
+import { NgxSelectModule } from 'ngx-select-ex';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,8 @@ import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servici
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
-    ImageCropperModule
+    ImageCropperModule,
+    NgxSelectModule
   ]
 })
 export class PagesUserModule { }
