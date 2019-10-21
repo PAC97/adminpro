@@ -83,7 +83,7 @@ a:focus {
 a.link {
   color: #455a64; }
   a.link:hover, a.link:focus {
-    color: #398bf7; }
+    color: #87bafd; }
 
 .img-responsive {
   width: 100%;
@@ -839,10 +839,10 @@ sidebar navigation
   .sidebar-nav > ul > li > a .label {
     float: right;
     margin-top: 6px; }
-  .sidebar-nav > ul > li > a.active {
+  /* .sidebar-nav > ul > li > a.active {
     font-weight: 400;
     background: #ffffff;
-    color: #26c6da; }
+    color: #26c6da; } */
   .sidebar-nav > ul > li {
     margin-bottom: 5px; }
     .sidebar-nav > ul > li.active > a {

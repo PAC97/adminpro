@@ -16,7 +16,8 @@ import {ServicioComponent} from './tipo-servicio/tipo-servicio.component';
 import {AddTipoServicioComponent} from './tipo-servicio/add-servicio/add-tipo-servicio.component';
 import {ModTipoServicioComponent} from './tipo-servicio/mod-servicio/mod-tipo-servicio.component';
 //cuenta
-import {CuentaComponent} from './cuenta/cuenta.component';
+import {CuentaComponent} from '../pages-user/cuenta/cuenta.component';
+
 import {ModCuentaComponent} from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
