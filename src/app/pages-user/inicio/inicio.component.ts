@@ -2,13 +2,16 @@ import { Component, OnInit, Renderer2, ViewChild, ElementRef, Output, EventEmitt
 import { PublicacionesService } from './services/publicaciones.service';
 import { publicaciones } from './models/publicaciones';
 //form
-import {FormControl} from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 //rutas
 import { Router } from '@angular/router';
 //alerta
 import Swal from 'sweetalert2';
 
 import {debounceTime} from 'rxjs/operators';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
+
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -16,7 +19,8 @@ import {debounceTime} from 'rxjs/operators';
 })
 export class InicioComponent implements OnInit {
   value="";
-
+  public selectControl2 = new FormControl();
+  public selectControl = new FormControl();
   constructor(private service: PublicacionesService, private router: Router, private renderer: Renderer2) { }
   //variables
   publi: publicaciones = {
@@ -50,6 +54,28 @@ export class InicioComponent implements OnInit {
     this.getUser();
     //servicios
     this.getSer();
+    //filtrar
+    this.Filtrar();
+
+    this.select();
+  }
+  Filtrar(){
+
+    this.selectControl.valueChanges
+      .subscribe((subscriptionTypeId: number) => {
+        const obj = this.servicios.find(item => item._id === subscriptionTypeId);
+        this.IdFil = obj;
+        if(this.IdFil._id == 'todo'){
+          this.obtenesPublicaciones();
+        }
+        else{
+          this.getidServicio();
+        }
+       
+        console.log(
+           obj
+        );
+      });
   }
   getUser(){
     this.service.getIDUser()
@@ -64,7 +90,8 @@ export class InicioComponent implements OnInit {
     .subscribe(ser=>{
       this.ser = ser;
       this.servicios = this.ser.servicios;
-      console.log(ser);
+      this.servicios.unshift({_id: 'todo', nombre: 'Mostrar todos los datos', descripcion:'todo'});
+      console.log(this.servicios);
     })
   }
   obtenesPublicaciones(){
@@ -76,7 +103,6 @@ export class InicioComponent implements OnInit {
       var items = this.pubb.filter(function(item) {
         return item.Usuario._id != id;
       });
-      console.log(items);
       this.pubb = items;
       this.pubb.sort(function(a, b) {
         a = new Date(a.Fecha);
@@ -87,30 +113,23 @@ export class InicioComponent implements OnInit {
     })
   }
   //seleccionar
-  select($event){
-    this.idSer = event;
-    this.publi.ID_Servicio = this.idSer.target.value;
-    console.log(this.idSer.target.value);
+  select(){
+    this.selectControl.valueChanges
+      .subscribe((subscriptionTypeId: number) => {
+        const obj = this.servicios.find(item => item._id === subscriptionTypeId);
+        this.publi.ID_Servicio = obj._id;
+     });
   }
-  //filtrar 
-  filt($event){
-    this.IdFil = event;
-    if(this.IdFil.target.value == 'todos'){
-      this.obtenesPublicaciones();
-    }
-    else{
-      this.getidServicio();
-    }
-  }
-  //get por id de servicios
+  //get r id de servicios
   getidServicio(){
-    this.service.getIDServicio(this.IdFil.target.value)
+    this.service.getIDServicio(this.IdFil._id)
     .subscribe(pubb =>{
       this.puls = pubb;
       this.pubb = this.puls.publicaciones;
       var id = this.usuario;
+      console.log(this.pubb);
       var items = this.pubb.filter(function(item) {
-        return item.Usuario._id != id;
+        return item.Usuario != id;
       });
       console.log(items);
       this.pubb = items;
