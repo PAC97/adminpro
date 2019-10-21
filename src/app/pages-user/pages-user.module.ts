@@ -17,6 +17,8 @@ import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { ChatService } from '../services/chat.service';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MisPublicacionesComponent,
     ModPublicacionesComponent,
     ModCuentaComponent,
+    MensajesComponent,
    
   ],
   exports: [
@@ -43,6 +46,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ImageCropperModule,
     Ng2SearchPipeModule
   
+  ],
+  providers: [
+    ChatService
   ]
 })
 export class PagesUserModule { }
