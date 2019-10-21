@@ -23,6 +23,8 @@ import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servici
 import { NgxSelectModule } from 'ngx-select-ex';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { ChatService } from '../services/chat.service';
 
 
 @NgModule({
@@ -34,9 +36,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ModPublicacionesComponent,
     ModCuentaComponent,
 
+    MensajesComponent,
+   
+
+
     BusquedaClientePipe,
     MisServiciosComponent,
     MasServiciosComponent
+
 
   ],
   exports: [
@@ -50,10 +57,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
+
     ImageCropperModule,
-    NgxSelectModule
-=======
+    NgxSelectModule,
+
 
     ImageCropperModule,
 
@@ -61,7 +68,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     Ng2SearchPipeModule  
   
 
->>>>>>> 9399373b8fe88e3f8a76bc69aac7735ed18f9ca8
+  ],
+  providers: [
+    ChatService
+
   ]
 })
 export class PagesUserModule { }

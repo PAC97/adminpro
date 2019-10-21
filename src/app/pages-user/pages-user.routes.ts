@@ -5,8 +5,12 @@ import {CuentaComponent} from './cuenta/cuenta.component';
 import {MisPublicacionesComponent} from './mis-publicaciones/mis-publicaciones.component';
 import {ModPublicacionesComponent} from './mis-publicaciones/mod-publicaciones/mod-publicaciones.component';
 import {ModCuentaComponent} from './cuenta/mod-cuenta/mod-cuenta.component';
+
+import { MensajesComponent } from './mensajes/mensajes.component';
+
 import {MisServiciosComponent} from './mis-servicios/mis-servicios.component';
 import {MasServiciosComponent} from './mis-servicios/mas-servicios/mas-servicios.component';
+
 
 
 const pagesRoutes: Routes = [
@@ -22,8 +26,13 @@ const pagesRoutes: Routes = [
             {path: 'mis-publicaciones', component: MisPublicacionesComponent},
             {path: 'cuenta', component: CuentaComponent},
             {path: 'inicio', component: InicioComponent},
+
+            {path: 'mensaje', component: MensajesComponent},
+            {path: '', redirectTo:'/menu', pathMatch: 'full'}
+
   
             {path: '', redirectTo:'/inicio', pathMatch: 'full'}
+
         ]
     }
 ];
