@@ -37,6 +37,8 @@ import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
         FormsModule,
         NgxPaginationModule,
         AngularFontAwesomeModule,
-        Ng2SearchPipeModule 
+        Ng2SearchPipeModule,
+        ImageCropperModule,
+        ImageCropperModule,
    ],
    providers: [
     TipoUsuarioService,

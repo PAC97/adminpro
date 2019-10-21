@@ -55,7 +55,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NgxSelectModule
 =======
 
-    ImageCropperModule
+    ImageCropperModule,
 
     ImageCropperModule,
     Ng2SearchPipeModule  
