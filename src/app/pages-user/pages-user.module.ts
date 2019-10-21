@@ -16,10 +16,14 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
 import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
+
 import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
 import { MisServiciosComponent } from './mis-servicios/mis-servicios.component';
 import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servicios.component';
 import { NgxSelectModule } from 'ngx-select-ex';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -29,9 +33,11 @@ import { NgxSelectModule } from 'ngx-select-ex';
     MisPublicacionesComponent,
     ModPublicacionesComponent,
     ModCuentaComponent,
+
     BusquedaClientePipe,
     MisServiciosComponent,
     MasServiciosComponent
+
   ],
   exports: [
     PagesUserComponent,
@@ -44,8 +50,18 @@ import { NgxSelectModule } from 'ngx-select-ex';
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     ImageCropperModule,
     NgxSelectModule
+=======
+
+    ImageCropperModule
+
+    ImageCropperModule,
+    Ng2SearchPipeModule  
+  
+
+>>>>>>> 9399373b8fe88e3f8a76bc69aac7735ed18f9ca8
   ]
 })
 export class PagesUserModule { }

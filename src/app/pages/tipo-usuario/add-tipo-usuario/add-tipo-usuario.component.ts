@@ -34,7 +34,7 @@ export class AddTipoUsuarioComponent implements OnInit {
         console.log(tipoU)
           Swal.fire(
             'Usuario Agregado!',
-            'El registro se agrego correctamente.',
+            'El registro se agregó correctamente.',
             'success'
           )
           this.router.navigate(['/tipoUsuario']);

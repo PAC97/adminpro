@@ -1,5 +1,5 @@
 export interface user{
-    _id?: string,
+    _id?: number,
     Nombres: string ,
     Apellidos: string ,
     Edad: string,
@@ -8,10 +8,9 @@ export interface user{
     Correo: string ,
     Password: string,
     ID_TipoUsuario: string ,
-    Servicios:string[],
+    Servicios:string,
     pathImg: string,
-    Region: string,
-    Estado?: boolean;
+    Region: string
 }
 export interface userLog{
     Correo: string,

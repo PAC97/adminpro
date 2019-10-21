@@ -34,7 +34,7 @@ export class AddTipoServicioComponent implements OnInit {
         console.log(Serv)
           Swal.fire(
             'Servicio Agregado!',
-            'El registro se agrego correctamente.',
+            'El registro se agregó correctamente.',
             'success'
           )
           this.router.navigate(['/servicio']);
