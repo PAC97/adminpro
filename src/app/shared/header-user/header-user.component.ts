@@ -5,7 +5,7 @@ import {serviceUser} from '../../services/usuario.service';
 @Component({
   selector: 'app-header-user',
   templateUrl: './header-user.component.html',
-
+  
 })
 export class HeaderUserComponent implements OnInit {
   userSession:any;
@@ -17,6 +17,9 @@ export class HeaderUserComponent implements OnInit {
   constructor(private router:Router, private service:serviceUser) { }
 
   ngOnInit() {
+    this.getUserpoID();
+  }
+  getUserpoID(){
     this.service.getIDUser()
     .subscribe(id=>{
       this.uses = id;
@@ -28,7 +31,6 @@ export class HeaderUserComponent implements OnInit {
       console.log(this.userSession);
     })
   }
-  
   cerrar(){
     localStorage.removeItem('x-access-token');
     localStorage.removeItem('session');

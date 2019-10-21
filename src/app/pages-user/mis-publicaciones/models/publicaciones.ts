@@ -3,5 +3,5 @@ export interface publicaciones {
     Fecha: Date,
     Titulo: string,
     Usuario: string,
-    ID_Servicios:string;
+    ID_Servicios?:string,
 }

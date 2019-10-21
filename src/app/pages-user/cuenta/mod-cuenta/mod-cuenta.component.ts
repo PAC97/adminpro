@@ -5,7 +5,10 @@ import { user, userLog } from '../models/usuario';
 import { Router, ActivatedRoute } from '@angular/router';
 //alerta
 import Swal from 'sweetalert2';
+//imagen
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+//prueba xd xd xd
+
 
 @Component({
   selector: 'app-mod-cuenta',
@@ -43,7 +46,7 @@ export class ModCuentaComponent implements OnInit {
     'Password': ''
   }
   pasEcual: any;
-  constructor(private router: Router, private service: ServiceUserService) { }
+  constructor(private router: Router, private service: ServiceUserService  ) { }
 
   ngOnInit() {
     this.getUsuario();
@@ -109,6 +112,8 @@ export class ModCuentaComponent implements OnInit {
           'El usuario se modifico correctamente.',
           'success'
         )
+        this.getUsuario();
+       
       }
     });
   }

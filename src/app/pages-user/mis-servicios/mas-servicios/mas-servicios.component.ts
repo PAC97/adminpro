@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { serviceUser } from '../../services/usuario.service';
 import {user} from '../models/usuario';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import {ServiceServicioService} from '../service-servicio.service';
 @Component({
-  selector: 'app-tip-servicio',
-  templateUrl: './tip-servicio.component.html',
-  styleUrls: ['./tip-servicio.component.css']
+  selector: 'app-mas-servicios',
+  templateUrl: './mas-servicios.component.html',
+  styleUrls: ['./mas-servicios.component.css']
 })
-export class TipServicioComponent implements OnInit {
+export class MasServiciosComponent implements OnInit {
   user: any;
   img: any;
   servicio: any;
   ser: any;
+  uses:any;
+  Servicios=[];
   User:user={
     'Nombres':'',
     'Apellidos':'',
@@ -26,24 +28,34 @@ export class TipServicioComponent implements OnInit {
     'Servicios':['']
     }
   servicios = [];
-  constructor(private service: serviceUser, private route:Router){ }
+  constructor(private service: ServiceServicioService, private route:Router) { }
 
   ngOnInit() {
-
-    this.service.getIDUser()
-      .subscribe(user => {
-        this.user = user;
-        this.img = this.user.usuario.pathImg;
-      });
+    this.getIdUser();
     this.obtenerServicios();
   }
+  getIdUser(){
+    this.service.getUser()
+    .subscribe(user=>{
+      this.uses = user;
+      this.Servicios = this.uses.usuario.Servicios;
+      console.log(this.Servicios);
+    })
+  }
+  
   obtenerServicios() {
     this.service.getService()
       .subscribe(ser => {
         this.ser = ser;
         this.servicio = this.ser.servicios;
         console.log(this.servicio);
-      })
+        for(let i=0; i < this.servicio.length; i++){
+         console.log(this.servicio[i]);
+        }
+        for(let i=0; i < this.Servicios.length; i++){
+          console.log(this.Servicios[i]);
+         }
+    })
   }
   addSer(nombre: string) {
     var items = this.servicios.filter(function (items) {
@@ -60,18 +72,18 @@ export class TipServicioComponent implements OnInit {
    }
   }
   add(){
-    this.User.Nombres = this.user.usuario.Nombres;
-    this.User.Apellidos = this.user.usuario.Apellidos;
-    this.User.Edad = this.user.usuario.Edad;
-    this.User.Telefono = this.user.usuario.Telefono;
-    this.User.Direccion = this.user.usuario.Direccion;
-    this.User.Correo = this.user.usuario.Correo;
-    this.User.Password = this.user.usuario.Password;
-    this.User.ID_TipoUsuario = this.user.usuario.ID_TipoUsuario;
-    this.User.pathImg = this.user.usuario.pathImg;
+    this.User.Nombres = this.uses.usuario.Nombres;
+    this.User.Apellidos = this.uses.usuario.Apellidos;
+    this.User.Edad = this.uses.usuario.Edad;
+    this.User.Telefono = this.uses.usuario.Telefono;
+    this.User.Direccion = this.uses.usuario.Direccion;
+    this.User.Correo = this.uses.usuario.Correo;
+    this.User.Password = this.uses.usuario.Password;
+    this.User.ID_TipoUsuario = this.uses.usuario.ID_TipoUsuario;
+    this.User.pathImg = this.uses.usuario.pathImg;
     if(this.servicios.length > 0){
       this.User.Servicios = this.servicios;
-      this.service.putUsuario(this.User, this.user.usuario._id)
+      this.service.putUsuario(this.User, this.uses.usuario._id)
       .subscribe(us=>{
         console.log(us);
         Swal.fire(
@@ -79,13 +91,13 @@ export class TipServicioComponent implements OnInit {
           'Sus servicios se agregaron',
           'success'
         )
-        this.route.navigate(['/inicio']);
+        this.route.navigate(['/mis-servicios']);
       })
     }
     else{
       Swal.fire(
         'Error',
-        'Debe seleccionar al menos un servicio',
+        'Debe seleccionar almenos un servicio',
         'warning'
       )
     }

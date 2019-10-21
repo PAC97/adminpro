@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-11" style="margin-top: 30px;">
+                <h2>Mis servicios</h2>
+            </div>
+            <div class="col-md-1" style="margin-top: 30px;">
+               <a class="btn" [routerLink]="['/mas-servicios']"><fa name="plus" size="2x"></fa></a>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let ser of Servicios">
+
+            <div class="card" style="border-style: solid; border-width: 1px;">
+                    <button  (click)="eliminar(ser.nombre)" style="position:absolute; margin-left: 310px;" type="button" class="close" >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                <img class="card-img-top" src="../../../assets//images/background/user-info.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">{{ ser.nombre }}</h4>
+                    <p class="card-text">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

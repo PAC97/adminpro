@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
+         
             <!--Fin del de publicacion-->
             <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="filter">
             <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
@@ -15,7 +16,7 @@
                     <div class="col-md-1">
                         <div class="btn-group dropleft">
                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <fa size="3x" name="ellipsis-v"></fa>
+                                <fa size="2x" name="ellipsis-v"></fa>
                             </a>
                             <div class="dropdown-menu" x-placement="right-start"
                                 style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
@@ -31,9 +32,18 @@
                     <div class="col-md-4">
                         <h5>{{ pub.Fecha | date:'medium' }}</h5>
                     </div>
+                    <div class="col-md-12" style="margin-top: 20px;">
+                        <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre }}</span>
+                    </div>
+                    
                 </div>
             </div>
+               <!--error por si no hay archivos-->
+               <div *ngIf="Message > 0" class="alert alert-danger" role="alert">
+                   Oops al parecer no cuentas con ninguna publicacion para poder crear uno ve a <a [routerLink]="['/inicio']">Aqui</a>
+                  </div>
         </div>
+        
         <div class="col-md-1"></div>
     </div>
 </div>

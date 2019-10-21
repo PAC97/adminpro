@@ -7,15 +7,12 @@ export interface user{
     Direccion: string ,
     Correo: string ,
     Password: string,
-    ID_TipoUsuario: string,
+    ID_TipoUsuario: string ,
+    Servicios:string,
     pathImg: string,
-    Region?: string,
-    Servicios?: string[],
+    Region: string
 }
 export interface userLog{
     Correo: string,
     Password: string,
-}
-export interface ser{
-    nombre:string,
 }

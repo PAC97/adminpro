@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 //service
 import { ServiceService } from '../service/service.service';
 //Model
-import { publicaciones } from '../models/publicaciones';
+import {publicaciones} from '../models/publicaciones';
 
 @Component({
   selector: 'app-mod-publicaciones',
@@ -22,7 +22,6 @@ export class ModPublicacionesComponent implements OnInit {
     'Titulo': '',
     'Descripcion': '',
     'Usuario': '',
-    'ID_Servicios':'',
     'Fecha': new Date,
   }
   ngOnInit() {

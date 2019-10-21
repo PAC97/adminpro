@@ -8,7 +8,12 @@
                     <div class="col-md-12">
                         <div class="d-flex justify-content-center h-100">
                             <div class="searchbar">
+<<<<<<< HEAD
+                                <input class="search_input" type="text" name="buscar" placeholder="Buscar..."
+                                    [(ngModel)]="query">
+=======
                                 <input class="search_input" type="text" name="buscar" placeholder="Buscar..." [(ngModel)]="filter">
+>>>>>>> 9399373b8fe88e3f8a76bc69aac7735ed18f9ca8
                                 <a class="search_icon">
                                     <fa name="search"></fa>
                                 </a>
@@ -18,10 +23,9 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <select class="form-control" style="margin-top:15px;" (change)="filt($event)">
-                            <option>Selecionar servicio a filtrar</option>
-                            <option *ngFor="let ser of servicios" [value]="ser._id">{{ser.nombre}}</option>
-                        </select>
+                        <ngx-select [formControl]="selectControl" [allowClear]="true" [items]="servicios"
+                            optionValueField="_id" optionTextField="nombre" placeholder="Seleccionar servicio...">
+                        </ngx-select>
                     </div>
                 </div>
 
@@ -59,10 +63,11 @@
                                         <br>
                                         <input class="form-control" placeholder="Ingresar descripcion de la publicacion"
                                             name="Descripcion" [(ngModel)]="publi.Descripcion">
-                                            <select class="form-control" style="margin-top:15px;" (change)="select($event)">
-                                                <option>Selecionar servicio</option>
-                                                <option *ngFor="let ser of servicios" [value]="ser._id">{{ ser.nombre}}</option>
-                                            </select>
+                                           <br>
+                                           <br>
+                                            <ngx-select [formControl]="selectControl" [allowClear]="true" [items]="servicios"
+                                            optionValueField="_id" optionTextField="nombre" placeholder="Seleccionar servicio...">
+                                        </ngx-select>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
@@ -79,7 +84,11 @@
             </div>
             <!--Fin del de publicacion-->
             <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
+<<<<<<< HEAD
+                *ngFor="let pub of pubb | busquedaCliente:'Titulo,Descripcion':query">
+=======
                 *ngFor="let pub of pubb | filter:filter" >
+>>>>>>> 9399373b8fe88e3f8a76bc69aac7735ed18f9ca8
                 <div class="row">
                     <div class="col-md-12">
                         <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
@@ -91,6 +100,9 @@
                     <div class="col-md-4">
                         <button class="btn btn-primary">Enviar propuesta a {{pub.Usuario.Nombres}}</button>
                         <h3>{{ pub.Fecha | date:'shortTime' }}</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre}}</span>
                     </div>
                 </div>
             </div>
