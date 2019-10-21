@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
           else{
             Swal.fire(
               'Al parecer no tienes una cuenta o a sido desabilitada',
-              'por favor contactar al administrador para poder solucionar el problema',
+              '',
               'warning'
             )
           }

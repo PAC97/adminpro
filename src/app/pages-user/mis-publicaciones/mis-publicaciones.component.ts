@@ -17,6 +17,7 @@ export class MisPublicacionesComponent implements OnInit {
   usuario: any;
   pubb: any;
   idPu:any;
+  publica:any;
   pu:any;
   Message=0;
   constructor(private router: Router, private activateRouter: ActivatedRoute, private service: ServiceService) { }
@@ -32,11 +33,12 @@ export class MisPublicacionesComponent implements OnInit {
   obtenerMyPubli(){
     this.service.getPublicacionporUsuario()
     .subscribe(pu => {
-      this.pu = pu;
+      this.publica = pu;
+      this.pu = this.publica.publicaciones;
+      console.log(this.pu);
       if(this.pu.length > 0){
-        this.pubb = this.pu.publicaciones;
+        this.pubb = this.pu;
         console.log(this.pubb);
-       
       }
       else{
         this.Message = 1;
