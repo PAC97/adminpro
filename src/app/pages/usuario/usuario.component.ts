@@ -96,4 +96,31 @@ ModUsuario(){
      }
    });
   }  
+  DeleteUsuario(id:string){
+    Swal.fire({
+      title: '¿Desea Eliminar el registro?',
+      text: "El registro se Eliminara",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+       this.service.deleteUsuario(id) 
+        .subscribe(
+          res => {
+          },
+          err => console.log(err)
+        )
+        Swal.fire(
+          'Modificado!',
+          'El registro se modificó correctamente.',
+          'success'
+        )
+      this.getUsers();
+      }
+    });
+  }
 }

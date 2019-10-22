@@ -28,7 +28,7 @@ const pagesRoutes: Routes = [
             {path: 'inicio', component: InicioComponent},
 
             {path: 'mensaje', component: MensajesComponent},
-            {path: '', redirectTo:'/menu', pathMatch: 'full'}
+            {path: '', redirectTo:'/menu', pathMatch: 'full'},
 
   
             {path: '', redirectTo:'/inicio', pathMatch: 'full'}

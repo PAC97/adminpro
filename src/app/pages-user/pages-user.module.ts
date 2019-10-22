@@ -16,8 +16,6 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
 import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
-
-import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
 import { MisServiciosComponent } from './mis-servicios/mis-servicios.component';
 import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servicios.component';
 import { NgxSelectModule } from 'ngx-select-ex';
@@ -38,10 +36,7 @@ import { ChatService } from '../services/chat.service';
 
     MensajesComponent,
    
-
-
-    BusquedaClientePipe,
-    MisServiciosComponent,
+   MisServiciosComponent,
     MasServiciosComponent
 
 

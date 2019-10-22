@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { userLog, user } from '../pages/usuario/models/usuario';
-import { serviceUser } from '../services/usuario.service';
+import {  UsuarioService } from '../services/usuario.service';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
   datos: any;
   private currentUserSubject: BehaviorSubject<user>;
-  constructor(private service: serviceUser, private route: Router) {
+  constructor(private service:  UsuarioService, private route: Router) {
     this.currentUserSubject = new BehaviorSubject<user>(JSON.parse(localStorage.getItem('x-access-token')));
   }
   log() {
