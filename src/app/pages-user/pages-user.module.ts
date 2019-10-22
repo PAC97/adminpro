@@ -50,18 +50,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
     ImageCropperModule,
-    NgxSelectModule
-=======
-
-    ImageCropperModule,
-
-    ImageCropperModule,
+    NgxSelectModule,
     Ng2SearchPipeModule  
   
 
->>>>>>> 9399373b8fe88e3f8a76bc69aac7735ed18f9ca8
   ]
 })
 export class PagesUserModule { }
