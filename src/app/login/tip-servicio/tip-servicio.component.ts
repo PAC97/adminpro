@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { serviceUser } from '../../services/usuario.service';
+import {  UsuarioService } from '../../services/usuario.service';
 import {user} from '../models/usuario';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -23,10 +23,11 @@ export class TipServicioComponent implements OnInit {
     'Password':'',
     'ID_TipoUsuario':'',
     'pathImg': '',
-    'Servicios':['']
+    'Servicios':[''],
+    'Estado': true
     }
   servicios = [];
-  constructor(private service: serviceUser, private route:Router){ }
+  constructor(private service:  UsuarioService, private route:Router){ }
 
   ngOnInit() {
 
@@ -69,6 +70,7 @@ export class TipServicioComponent implements OnInit {
     this.User.Password = this.user.usuario.Password;
     this.User.ID_TipoUsuario = this.user.usuario.ID_TipoUsuario;
     this.User.pathImg = this.user.usuario.pathImg;
+    this.User.Estado = this.user.usuario.Estado;
     if(this.servicios.length > 0){
       this.User.Servicios = this.servicios;
       this.service.putUsuario(this.User, this.user.usuario._id)

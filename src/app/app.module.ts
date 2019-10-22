@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-import {serviceUser} from './services/usuario.service';
+import { UsuarioService} from './services/usuario.service';
 import { PagesUserComponent } from './pages-user/pages-user.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
@@ -44,7 +44,7 @@ import { TipServicioComponent } from './login/tip-servicio/tip-servicio.componen
     ImageCropperModule
   ],
   providers: [
-    serviceUser
+    UsuarioService,
   ],
   bootstrap: [AppComponent]
 })

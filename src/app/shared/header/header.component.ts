@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {serviceUser} from '../../services/usuario.service';
+import { UsuarioService} from '../../services/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import {serviceUser} from '../../services/usuario.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router, private service:serviceUser) { }
+  constructor(private router:Router, private service: UsuarioService) { }
   userSession: any;
   uses: any;
   nombre:any;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {serviceUser} from '../../services/usuario.service';
+import { UsuarioService} from '../../services/usuario.service';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   nombre:any;
   apellido:any;
   img:any;
-  constructor(private service:serviceUser) { }
+  constructor(private service: UsuarioService) { }
 
   ngOnInit() {
     this.service.getIDUser()

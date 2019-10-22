@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {user} from './models/usuario';
-import {serviceUser} from '../services/usuario.service';
+import { UsuarioService} from '../services/usuario.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
@@ -21,17 +21,16 @@ export class RegisterComponent implements OnInit {
     'Direccion': '',
     'Correo':'',
     'Password':'',
-
-    'ID_TipoUsuario':'5d66aefe256b8e3e040d4962',
-
+    'ID_TipoUsuario':'5d97805ccaf9ff2338b93746',
     'pathImg': '',
-    'Region': ''
+    'Region': '',
+    'Estado':true,
     }
     IDservicio;
     confirm;
     uses:any;
     servicios:any;
-  constructor(private service:serviceUser, private route:Router) { }
+  constructor(private service: UsuarioService, private route:Router) { }
 
   ngOnInit() {
     this.service.getUser()
