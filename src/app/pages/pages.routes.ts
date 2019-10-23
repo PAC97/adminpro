@@ -17,7 +17,7 @@ import {AddTipoServicioComponent} from './tipo-servicio/add-servicio/add-tipo-se
 import {ModTipoServicioComponent} from './tipo-servicio/mod-servicio/mod-tipo-servicio.component';
 //cuenta
 import {CuentaComponent} from '../pages-user/cuenta/cuenta.component';
-
+import { AdminRegisterComponent } from '../pages/cuenta/admin-register/admin-register.component';
 import {ModCuentaComponent} from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
@@ -51,7 +51,8 @@ const pagesRoutes: Routes = [
             {path: '', redirectTo:'/menu', pathMatch: 'full'},
             //Rutas para Cuenta
             {path: 'cuenta-admin', component: CuentaComponent },
-            {path: 'mod-cadmin', component: ModCuentaComponent }
+            {path: 'mod-cadmin', component: ModCuentaComponent },
+            {path: 'admin-register', component: AdminRegisterComponent}
         ]
     }
 ];

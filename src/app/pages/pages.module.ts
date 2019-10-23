@@ -38,6 +38,7 @@ import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { AdminRegisterComponent } from './cuenta/admin-register/admin-register.component';
 
 
 
@@ -58,7 +59,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
         PublicacionesComponent,
 
         CuentaComponent,
-        ModCuentaComponent
+        ModCuentaComponent,
+        AdminRegisterComponent
 
 
     ], exports: [
