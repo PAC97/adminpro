@@ -23,6 +23,7 @@ import { NgxSelectModule } from 'ngx-select-ex';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MensajesComponent } from './mensajes/mensajes.component';
 import { ChatService } from '../services/chat.service';
+import { DetallesPubliComponent } from './detalles-publi/detalles-publi.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ChatService } from '../services/chat.service';
     MensajesComponent,
    
    MisServiciosComponent,
-    MasServiciosComponent
+    MasServiciosComponent,
+    DetallesPubliComponent
 
 
   ],
@@ -66,7 +68,6 @@ import { ChatService } from '../services/chat.service';
   ],
   providers: [
     ChatService
-
   ]
 })
 export class PagesUserModule { }
