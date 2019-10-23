@@ -8,12 +8,7 @@
                     <div class="col-md-12">
                         <div class="d-flex justify-content-center h-100">
                             <div class="searchbar">
-<<<<<<< HEAD
-                                <input class="search_input" type="text" name="buscar" placeholder="Buscar..."
-                                    [(ngModel)]="query">
-=======
                                 <input class="search_input" type="text" name="buscar" placeholder="Buscar..." [(ngModel)]="filter">
->>>>>>> 9399373b8fe88e3f8a76bc69aac7735ed18f9ca8
                                 <a class="search_icon">
                                     <fa name="search"></fa>
                                 </a>
@@ -84,11 +79,7 @@
             </div>
             <!--Fin del de publicacion-->
             <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
-<<<<<<< HEAD
-                *ngFor="let pub of pubb | busquedaCliente:'Titulo,Descripcion':query">
-=======
                 *ngFor="let pub of pubb | filter:filter" >
->>>>>>> 9399373b8fe88e3f8a76bc69aac7735ed18f9ca8
                 <div class="row">
                     <div class="col-md-12">
                         <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>

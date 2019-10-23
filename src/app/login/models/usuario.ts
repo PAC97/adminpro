@@ -11,6 +11,7 @@ export interface user{
     pathImg: string,
     Region?: string,
     Servicios?: string[],
+    Estado?: boolean
 }
 export interface userLog{
     Correo: string,

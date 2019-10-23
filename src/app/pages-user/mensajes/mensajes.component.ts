@@ -8,7 +8,7 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class MensajesComponent implements OnInit {
   mensaje: string;
-  emisor: string = '5d97b8629159bc16a363bb6b';
+  emisor: any;
   receptor: String = '5d9927baaa133c14eb0e1bc9'
   mensajes: string[] = [];
   constructor(private chatService: ChatService) { 
@@ -16,6 +16,9 @@ export class MensajesComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+    this.emisor = localStorage.getItem('session');
+    console.log(this.emisor);
     this.chatService
       .getMessages()
       .subscribe((mensaje: string) => {
