@@ -109,7 +109,7 @@ export class InicioComponent implements OnInit {
         b = new Date(b.Fecha);
         return a>b ? -1 : a<b ? 1 : 0;
     });
-
+    console.log(this.pubb);
     })
   }
   //seleccionar
