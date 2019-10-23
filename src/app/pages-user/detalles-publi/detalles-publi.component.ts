@@ -4,6 +4,8 @@ import { Router, ActivatedRoute} from '@angular/router';
 import Swal from 'sweetalert2';
 //service
 import {ServicePubliService} from './service-publi.service';
+//Messaje service
+import {ChatService} from '../../services/chat.service';
 
 @Component({
   selector: 'app-detalles-publi',
@@ -25,13 +27,17 @@ titulo:any;
 descrip:any;
 fecha:any;
 ser:any;
-  constructor(private activate:ActivatedRoute, private service:ServicePubliService) { }
+mensaje:'';
+emisor:any;
+  constructor(private activate:ActivatedRoute, private service:ServicePubliService, private chatservice:ChatService) { }
 
   ngOnInit() {
     this.idUser = this.activate.snapshot.params.id;
     console.log(this.idUser);
     this.idPubli = this.activate.snapshot.params.id2;
     console.log(this.idPubli);
+
+    this.emisor = localStorage.getItem('session');
     //obtener id chat
     this.obtenerIdUserChat();
     //publi
@@ -60,5 +66,10 @@ ser:any;
       this.fecha = this.publi.Fecha;
       console.log(this.publi);
     })
+  }
+  sendChat(){
+    this.chatservice.sendMessage(this.mensaje, this.emisor, this.idUser);
+    this.mensaje = '';
+    console.log(this.mensaje);
   }
 }

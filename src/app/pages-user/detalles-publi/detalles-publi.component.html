@@ -39,10 +39,10 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <textarea style="height: 150px;" class="form-control"></textarea>
+                    <textarea [(ngModel)]="mensaje" style="height: 150px;" class="form-control"></textarea>
                 </div>
                 <div class="col-md-12" style="margin-top: 10px;">
-                    <input type="submit" style="color: white" value="Enviar mensaje" class="form-control btn btn-primary">
+                    <input type="submit" (click)="sendChat()" style="color: white" value="Enviar mensaje" class="form-control btn btn-primary">
                 </div>
             </div>
         </div>
