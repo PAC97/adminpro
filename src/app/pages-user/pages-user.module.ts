@@ -55,19 +55,19 @@ import { DetallesPubliComponent } from './detalles-publi/detalles-publi.componen
     SharedModule,
     ReactiveFormsModule,
 
+
     ImageCropperModule,
     NgxSelectModule,
 
-
-    ImageCropperModule,
-
-    ImageCropperModule,
     Ng2SearchPipeModule  
   
+
+
 
   ],
   providers: [
     ChatService
+
   ]
 })
 export class PagesUserModule { }
