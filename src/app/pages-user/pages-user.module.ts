@@ -53,14 +53,21 @@ import { ChatService } from '../services/chat.service';
     SharedModule,
     ReactiveFormsModule,
 
+
     ImageCropperModule,
     NgxSelectModule,
+
+    NgxSelectModule,
+
     Ng2SearchPipeModule  
   
+
+
 
   ],
   providers: [
     ChatService
+
 
   ]
 })
