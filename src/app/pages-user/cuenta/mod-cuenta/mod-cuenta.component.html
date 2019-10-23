@@ -82,15 +82,15 @@
                         </form>
                         <div class="col-md-1"></div>
                         <div class="col-md-2">
-                            <button class="btn btn-primary" (click)="modifica(User)">Modificar</button>
+                            <button class="btn btn-info" (click)="modifica(User)">Modificar</button>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#passwordmodal">Modificar
+                            <button class="btn btn-info" data-toggle="modal" data-target="#passwordmodal">Modificar
                                 mi contraseña</button>
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#img">Modificar
+                            <button class="btn btn-info" data-toggle="modal" data-target="#img">Modificar
                                 mi foto de perfil</button>
                         </div>
                         <!-- Modal -->
@@ -123,9 +123,9 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-danger"
                                             data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" (click)="validarPass()"
+                                        <button type="button" class="btn btn-info" (click)="validarPass()"
                                             data-dismiss="modal">Modificar contraseña</button>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <input class="btn btn-success" type="file" (change)="fileChangeEvent($event)" />
+                                        <input class="btn btn-info" type="file" (change)="fileChangeEvent($event)" />
 
                                         <image-cropper [imageChangedEvent]="imageChangedEvent"
                                             [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="128"
@@ -158,9 +158,9 @@
                                         <img [src]="croppedImage" />
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-danger"
                                             data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" (click)="foto()"
+                                        <button type="button" class="btn btn-info" (click)="foto()"
                                             data-dismiss="modal">Seleccionar imagen nueva</button>
                                     </div>
                                 </div>

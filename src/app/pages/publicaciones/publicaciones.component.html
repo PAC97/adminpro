@@ -10,11 +10,11 @@
             <table class="table">
                 <thead class="thead-dark" style="background: #000;">
                     <tr>
-                        <th>Título</th>
-                        <th class="col">Descripción</th>
-                        <th class="col">Usuario</th>
-                        <th class="col">Fecha</th>
-                        <th class="col">Acciones</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +29,8 @@
                               <fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-publicaciones/', publi._id]">
                               </fa>
                             </a> -->
-                            <fa name="trash" size="2x" class="btn btn-danger" (click)="Eliminarpublicaciones(publi._id)"><a></a></fa>
+                            
+                            <fa name="trash" size="2x" class="btn btn-danger" (click)="Eliminarpublicaciones(publi._id)"></fa>
                         </td>
                     </tr>
                 </tbody>
