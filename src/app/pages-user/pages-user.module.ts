@@ -55,11 +55,6 @@ import { ChatService } from '../services/chat.service';
 
     ImageCropperModule,
     NgxSelectModule,
-
-
-    ImageCropperModule,
-
-    ImageCropperModule,
     Ng2SearchPipeModule  
   
 
