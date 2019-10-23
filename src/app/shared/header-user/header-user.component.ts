@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {serviceUser} from '../../services/usuario.service';
+import { UsuarioService} from '../../services/usuario.service';
 
 @Component({
   selector: 'app-header-user',
@@ -14,7 +14,7 @@ export class HeaderUserComponent implements OnInit {
   apellido:any;
   img:any;
   correo:any;
-  constructor(private router:Router, private service:serviceUser) { }
+  constructor(private router:Router, private service: UsuarioService) { }
 
   ngOnInit() {
     this.getUserpoID();

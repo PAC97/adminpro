@@ -3,10 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { observable, Observable } from 'rxjs';
 import {userLog} from '../pages/usuario/models/usuario';
 import {user} from '../login/models/usuario';
+
 @Injectable({
   providedIn: 'root'
 })
-export class serviceUser {
+export class  UsuarioService {
     API_URI = 'http://localhost:3000/api';
     httpheaders:any;
     id:any;

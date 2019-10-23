@@ -27,6 +27,9 @@ export class UsuarioService {
     getUsuario(){
       return this.http.get(`${this.API_URI}/Usuario`, {headers: this.httpheaders});
     }
+    getUsuarioTipoID(Tip_ID: string){
+      return this.http.get(`${this.API_URI}/Usuario/${Tip_ID}`, {headers: this.httpheaders});
+    }
     //Post
     postUsuario(Usr:user){
       return this.http.post(`${this.API_URI}/Usuario`, Usr, {headers: this.httpheaders});
