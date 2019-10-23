@@ -16,13 +16,13 @@ import { ModPublicacionesComponent } from './mis-publicaciones/mod-publicaciones
 import { ModCuentaComponent } from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
-
-import { BusquedaClientePipe } from "../pipes/busqueda-cliente.pipe";
 import { MisServiciosComponent } from './mis-servicios/mis-servicios.component';
 import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servicios.component';
 import { NgxSelectModule } from 'ngx-select-ex';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { ChatService } from '../services/chat.service';
 
 
 @NgModule({
@@ -34,9 +34,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ModPublicacionesComponent,
     ModCuentaComponent,
 
-    BusquedaClientePipe,
-    MisServiciosComponent,
+    MensajesComponent,
+   
+   MisServiciosComponent,
     MasServiciosComponent
+
 
   ],
   exports: [
@@ -50,10 +52,24 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
+
+
+    ImageCropperModule,
+    NgxSelectModule,
+
+
+    ImageCropperModule,
     ImageCropperModule,
     NgxSelectModule,
     Ng2SearchPipeModule  
   
+
+
+
+  ],
+  providers: [
+    ChatService
+
 
   ]
 })

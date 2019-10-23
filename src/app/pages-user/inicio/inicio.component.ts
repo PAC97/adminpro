@@ -141,7 +141,7 @@ export class InicioComponent implements OnInit {
     })
   }
   //
-  //Publicar para cada usuario xd d xd xd xd xd 
+  //Publicar para cada usuario xd d xd xd 
   publicar() {
     this.publi.Usuario = this.usuario;
     if (this.publi.Titulo != '' && this.publi.Descripcion != '') {
