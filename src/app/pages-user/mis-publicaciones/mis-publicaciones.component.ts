@@ -13,6 +13,8 @@ import { ServiceService } from './service/service.service';
   styleUrls: ['./mis-publicaciones.component.css']
 })
 export class MisPublicacionesComponent implements OnInit {
+  filter:any;
+  p:any;
   ids;
   usuario: any;
   pubb: any;

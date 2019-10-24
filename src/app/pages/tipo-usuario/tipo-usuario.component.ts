@@ -13,6 +13,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./tipo-usuario.component.css']
 })
 export class TipoUsuarioComponent implements OnInit {
+  filter:any;
+  p:any;
   tipoUsario:any;
   tips:any;
   constructor(private service:TipoUsuarioService, private router:Router) { }

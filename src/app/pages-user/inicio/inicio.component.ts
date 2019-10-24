@@ -23,6 +23,8 @@ export class InicioComponent implements OnInit {
   public selectControl = new FormControl();
   constructor(private service: PublicacionesService, private router: Router, private renderer: Renderer2) { }
   //variables
+  filter:any;
+  p:any;
   publi: publicaciones = {
     'Titulo': '',
     'Descripcion': '',

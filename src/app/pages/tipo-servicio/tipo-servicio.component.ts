@@ -12,9 +12,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./tipo-servicio.component.css']
 })
 export class ServicioComponent implements OnInit {
-
- Servicio:any;
- ser:any;
+  filter:any;
+  p:any;
+  Servicio:any;
+  ser:any;
   constructor(private service:TipoServicioService, private router:Router) { }
 
   ngOnInit() {
