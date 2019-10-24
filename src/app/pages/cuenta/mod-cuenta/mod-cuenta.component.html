@@ -1,0 +1,176 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <!--Div central para crear la administracion de los usuario o ver su perfil mas que todo-->
+        <div class="col-md-10">
+            <div style="background: rgb(255, 255, 255); height: 250px;">
+                <div class="col-md-12" style="text-align: center">
+                    <img [src]="img" style="border-radius: 100px; width: 130px; margin-top: 20px;" />
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <!--Primer campo-->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>
+                                <fa name="user" size="1x"></fa> Mi nombre:
+                            </h4>
+                        </div>
+                        <form class="form-horizontal form-material col-md-9">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" [value]="nombre" name="Nombres"
+                                        [(ngModel)]="User.Nombres">
+                                </div>
+                                <div class="col-xs-4">
+                                    <input class="form-control" type="text" [value]="apellido" name="Apellidos"
+                                        [(ngModel)]="User.Apellidos">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!---->
+
+                </div>
+            </div>
+            <div style="background: rgb(255, 255, 255); height: 260px; margin-top: 20px;">
+                <div class="col-md-12"><br></div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>
+                                <fa name="mobile" size="1x"></fa> Mi numero celular:
+                            </h4>
+                        </div>
+
+                        <form class="form-horizontal form-material col-md-9">
+                            <div class="form-group col-md-6">
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="number" [value]="telefono" name="Telefono"
+                                        [(ngModel)]="User.Telefono">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="col-md-3">
+                            <h4>
+                                <fa name="home" size="1x"></fa> Mi direccion:
+                            </h4>
+                        </div>
+                        <form class="form-horizontal form-material col-md-9">
+                            <div class="form-group col-md-6">
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" [value]="direccion" name="Direccion"
+                                        [(ngModel)]="User.Direccion">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="col-md-3">
+                            <h4>
+                                <fa name="envelope-square" size="1x"></fa> Edad:
+                            </h4>
+                        </div>
+                        <form class="form-horizontal form-material col-md-9">
+                            <div class="form-group col-md-6">
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="number" name="Edad" [value]="edad"
+                                        [(ngModel)]="User.Edad">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info" (click)="modifica(User)">Modificar</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-info" data-toggle="modal" data-target="#passwordmodal">Modificar
+                                mi contraseña</button>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <button class="btn btn-info" data-toggle="modal" data-target="#img">Modificar
+                                mi foto de perfil</button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal" id="passwordmodal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modificar mi contraseña</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form class="form-horizontal form-material">
+                                            <div class="form-group col-md-12">
+                                                <div class="col-xs-12">
+                                                    <input class="form-control" type="password" name="pass"
+                                                        placeholder="Ingresar contraseña existente" [(ngModel)]="pass">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <div class="col-xs-12">
+                                                    <input class="form-control" type="password" name="confirPass"
+                                                        placeholder="Ingresar nueva contraseña"
+                                                        [(ngModel)]="confirPass">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger"
+                                            data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-info" (click)="validarPass()"
+                                            data-dismiss="modal">Modificar contraseña</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Fin del modal -->
+                        <!--modal para seleccionar la foto de perfil nueva-->
+
+                        <!-- Modal -->
+                        <div class="modal" id="img" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Seleccionar foto de perfil</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input class="btn btn-info" type="file" (change)="fileChangeEvent($event)" />
+
+                                        <image-cropper [imageChangedEvent]="imageChangedEvent"
+                                            [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="128"
+                                            format="png" (imageCropped)="imageCropped($event)"
+                                            (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                                            (loadImageFailed)="loadImageFailed()">
+                                        </image-cropper>
+
+                                        <img [src]="croppedImage" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger"
+                                            data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-info" (click)="foto()"
+                                            data-dismiss="modal">Seleccionar imagen nueva</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--fin del modal-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-10" style="margin-top: 30px;">
+                    <h2>Seleccionar nuevos servicios</h2>
+                </div>
+                <div class="col-md-2" style="margin-top: 30px;">
+                    <input type="button" value="Seleccionar" class="btn btn-info" (click)="add()">
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let ser of servicio;let i = index">
+                    <div class="card" style="border-style: solid; border-width: 1px;">
+                        <img class="card-img-top" src="../../../assets//images/background/user-info.jpg">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ ser.nombre }}</h4>
+                            <p class="card-text">
+                                {{ ser.descripcion }}
+                            </p>
+                            <div class="checkbox checkbox-primary pull-left p-t-0">
+                                <input id="{{'inlineCheckbox' + i}}" type="checkbox"
+                                    class="filled-in chk-col-light-blue" (click)="addSer(ser.nombre)">
+                                <label for="{{'inlineCheckbox' + i}}"> Seleccionar</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

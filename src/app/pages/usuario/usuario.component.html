@@ -1,1 +1,33 @@
-<p>usuario works!</p>
+<div class="container">
+    <div class="row">
+        <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="filter"> 
+        <div class="col-md-12">
+            <table class="table">
+                <thead class="thead-dark" style="background: #000;">
+                  <tr>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let User of uses | paginate: { itemsPerPage: 4, currentPage: p } | filter:filter">
+                    <td>{{User.Nombres}} {{User.Apellidos}}</td>
+                    <td>{{User.Edad}}</td>
+                    <td>{{User.Telefono}}</td>
+                    <td>{{User.Direccion}}</td>
+                    <td>{{User.Correo}}</td>
+                    <td><a> <fa name="check" size="2x" class="btn btn-success" (click)="getidUsuario(User._id)"></fa></a>
+                    <a> <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteUsuario(User._id)"></fa></a></td>
+                   </tr>
+                </tbody >
+              </table>
+
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="contaier-fluid bg">
+    <div class="row">
+        <div class="col-md-3- col-sm-3 col-xs-3"></div>
+        <div class="col-md-6- col-sm-6 col-xs-6">
+          <!--Inicio formulario para modificar ya quue omitiremos creear muchos componentes-->
+          <form class="form-conatainer row">
+            <h1>Modificar Servicio</h1>
+                <div class="form-group col-md-12">
+                   <label>Nombre</label>
+                   <input type="text" class="form-control" placeholder="Nombre" name="nombre" [value]="Servicio.tipoServicio.Nombre" [(ngModel)]="Servicio.Nombre">
+                </div>
+                <div class="form-group col-md-12">
+                     <label>Descripción</label>
+                     <textarea class="form-control" placeholder="Descripcion" name="descripcion" required [value]="Servicio.tipoServicio.descripcion" [(ngModel)]="Serv.descripcion"></textarea>
+                 </div>
+             <button type="submit" class="btn btn-primary btn-block" (click)="mod(Servicio)">Agregar</button> <!--btn-block para el color verde-->
+              
+          </form>
+        </div>
+        <div class="col-md-4- col-sm-4 col-xs-12"></div>
+    </div >
+</div>

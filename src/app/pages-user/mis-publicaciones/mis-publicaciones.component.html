@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+         
+            <!--Fin del de publicacion-->
+            <input class="form-control mb-2" placeholder="Búsqueda" [(ngModel)]="filter">
+            <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
+                *ngFor="let pub of pubb | filter:filter">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
+                        <hr>
+                    </div>
+                    <!--Dropdow-->
+                    <div class="col-md-1">
+                        <div class="btn-group dropleft">
+                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <fa size="2x" name="ellipsis-v"></fa>
+                            </a>
+                            <div class="dropdown-menu" x-placement="right-start"
+                                style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                <a class="dropdown-item" [routerLink]="['/mod-publicaciones', pub._id]">Modificar
+                                    publicación</a>
+                                <a class="dropdown-item" (click)="eliminarPu(pub._id)">Eliminar publicación</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>{{pub.Descripcion}}</h4> 
+                    </div>
+                    <div class="col-md-4">
+                        <h5>{{ pub.Fecha | date:'medium' }}</h5>
+                    </div>
+                    <div class="col-md-12" style="margin-top: 20px;">
+                        <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre }}</span>
+                    </div>
+                    
+                </div>
+            </div>
+               <!--error por si no hay archivos-->
+               <div *ngIf="Message > 0" class="alert alert-danger" role="alert">
+                   ¡Oops! Al parecer no cuentas con ninguna publicación para poder crear una da click  <a [routerLink]="['/inicio']"> Aqui</a>
+                  </div>
+        </div>
+        
+        <div class="col-md-1"></div>
+    </div>
+</div>

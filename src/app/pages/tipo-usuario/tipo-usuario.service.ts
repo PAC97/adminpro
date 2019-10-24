@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { observable, Observable } from 'rxjs';
+
 import {tipoUsuario} from './models/tipoUsuario'; 
 
 @Injectable({
@@ -26,5 +27,20 @@ export class TipoUsuarioService {
     getTipoUsuario(){
       return this.http.get(`${this.API_URI}/tipoUsuario`, {headers: this.httpheaders});
     }
-    //
-}
+    //Post
+    postTipoUsuario(TipoUser:tipoUsuario){
+      return this.http.post(`${this.API_URI}/tipoUsuario`, TipoUser, {headers: this.httpheaders});
+    }
+    // Delete
+    deleteTipoUsuario(id:string){
+      return this.http.delete(`${this.API_URI}/tipoUsuario/${id}`, {headers: this.httpheaders});
+    }
+    //Get id
+    getIdtipoUsuario(id:string){
+      return this.http.get(`${this.API_URI}/tipoUsuario/${id}`, {headers: this.httpheaders});
+    }
+    //put
+    putTipoUsuario(id:any, TipoUser:tipoUsuario){
+      return this.http.put(`${this.API_URI}/tipoUsuario/${id}`, TipoUser, {headers: this.httpheaders});
+    }
+  }

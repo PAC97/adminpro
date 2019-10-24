@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <button type="button" class="btn btn-primary" [routerLink]="['/add-tipoUsuario']">
+                Crear Tipo usuario
+            </button> -->
+            <br>
+            <br>
+            <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="filter"> 
+            <table class="table">
+                <thead class="thead-dark" style="background: #000;">
+                    <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let publi of Publicaciones | paginate: { itemsPerPage: 4, currentPage: p} | filter:filter">
+                        <td>{{ publi.Titulo }}</td>
+                        <td>{{ publi.Descripcion }}</td>
+                        <td>{{ publi.Usuario.Nombres }}</td>
+                        <td>{{ publi.Fecha }}</td>
+                        <!-- <td>{{ publi.Estado }}</td> -->
+                        <td>
+                            <!-- <a>
+                              <fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-publicaciones/', publi._id]">
+                              </fa>
+                            </a> -->
+                            
+                            <fa name="trash" size="2x" class="btn btn-danger" (click)="Eliminarpublicaciones(publi._id)"></fa>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

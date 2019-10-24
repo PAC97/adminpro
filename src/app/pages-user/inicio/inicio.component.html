@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <!--Filtro espacio-->
+            <div style="background: rgb(255, 255, 255); height: 150px;">
+                <div class="from-gruop">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center h-100">
+                            <div class="searchbar">
+                                <input class="search_input" type="text" name="buscar" placeholder="Buscar..." [(ngModel)]="filter">
+                                <a class="search_icon">
+                                    <fa name="search"></fa>
+                                </a>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <ngx-select [formControl]="selectControl" [allowClear]="true" [items]="servicios"
+                            optionValueField="_id" optionTextField="nombre" placeholder="Seleccionar servicio...">
+                        </ngx-select>
+                    </div>
+                </div>
+
+            </div>
+            <!--fin del div del filtro-->
+            <!--Div para crear una nueva publicacion-->
+            <div class="col-md-12" style="background: rgb(255, 255, 255); height: 100px; margin-top: 10px;">
+                <div class="row">
+                    <!--div perfil-->
+                    <div class="col-md-2">
+                        <img [src]="img" style="border-radius: 60px; width: 80px; margin-top: 10px;" />
+                    </div>
+                    <!--div publicaciones-->
+                    <div class="col-md-8">
+                        <input class="form-control-plaintext" style="margin-top: 30px;" placeholder="Publicar servicios"
+                            data-toggle="modal" data-target="#crearPublicacion">
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal" id="crearPublicacion" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Crear publicación</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body"> 
+                                    <form class="form-horizontal form-material">
+                                        <input class="form-control" placeholder="Ingresar titulo de la publicacion"
+                                            name="Titulo" [(ngModel)]="publi.Titulo">
+                                        <br>
+                                        <br>
+                                        <input class="form-control" placeholder="Ingresar descripcion de la publicacion"
+                                            name="Descripcion" [(ngModel)]="publi.Descripcion">
+                                           <br>
+                                           <br>
+                                            <ngx-select [formControl]="selectControl" [allowClear]="true" [items]="servicios"
+                                            optionValueField="_id" optionTextField="nombre" placeholder="Seleccionar servicio...">
+                                        </ngx-select>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" id="button" class="btn btn-primary" (click)="publicar(publi)"
+                                        data-dismiss="modal">Publicar</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Fin del de publicacion-->
+            <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
+                *ngFor="let pub of pubb | filter:filter" >
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
+                        <hr>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>{{pub.Descripcion}}</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-info" [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Enviar propuesta a {{pub.Usuario.Nombres}}</button>
+                        <h3>{{ pub.Fecha | date:'shortTime' }}</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
