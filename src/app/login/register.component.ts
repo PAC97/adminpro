@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     'Direccion': '',
     'Correo':'',
     'Password':'',
-    'ID_TipoUsuario':'5db1051dc9064971646b675c',
+    'ID_TipoUsuario':'5db105ddc9064971646b675d',
     'pathImg': '',
     'Region': '',
     'Estado': true,

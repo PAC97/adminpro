@@ -88,7 +88,7 @@ export class MasServiciosComponent implements OnInit {
         console.log(us);
         Swal.fire(
           'Datos agregados con éxito',
-          'Sus servicios se agregaron',
+          'Sus servicios han sido agregados',
           'success'
         )
         this.route.navigate(['/mis-servicios']);

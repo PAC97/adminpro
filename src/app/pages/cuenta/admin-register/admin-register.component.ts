@@ -21,7 +21,7 @@ export class AdminRegisterComponent implements OnInit {
     'Direccion': '',
     'Correo':'',
     'Password':'',
-    'ID_TipoUsuario':'5d66aefe256b8e3e040d4962',
+    'ID_TipoUsuario':'5db1051dc9064971646b675c',
     'pathImg': '',
     'Region': '',
     'Estado': true,
