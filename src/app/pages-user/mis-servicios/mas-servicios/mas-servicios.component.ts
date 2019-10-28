@@ -3,6 +3,7 @@ import {user} from '../models/usuario';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import {ServiceServicioService} from '../service-servicio.service';
+import { element } from 'protractor';
 @Component({
   selector: 'app-mas-servicios',
   templateUrl: './mas-servicios.component.html',
@@ -14,6 +15,7 @@ export class MasServiciosComponent implements OnInit {
   servicio: any;
   ser: any;
   uses:any;
+  pruev:any;
   Servicios=[];
   User:user={
     'Nombres':'',
@@ -25,39 +27,65 @@ export class MasServiciosComponent implements OnInit {
     'Password':'',
     'ID_TipoUsuario':'',
     'pathImg': '',
-    'Servicios':['']
+    'Servicios':[''],
+    'Estado':true
     }
+    sesr= [];
   servicios = [];
   constructor(private service: ServiceServicioService, private route:Router) { }
 
   ngOnInit() {
-    this.getIdUser();
-    this.obtenerServicios();
-  }
-  getIdUser(){
-    this.service.getUser()
-    .subscribe(user=>{
-      this.uses = user;
-      this.Servicios = this.uses.usuario.Servicios;
-      console.log(this.Servicios);
-    })
+   this.obtenerServicios();
+   this.getIdUser();
   }
   
   obtenerServicios() {
     this.service.getService()
       .subscribe(ser => {
         this.ser = ser;
-        this.servicio = this.ser.servicios;
-        console.log(this.servicio);
-        for(let i=0; i < this.servicio.length; i++){
-         console.log(this.servicio[i]);
-        }
-        for(let i=0; i < this.Servicios.length; i++){
-          console.log(this.Servicios[i]);
+        this.pruev = this.ser.servicios;
+        console.log(this.pruev);
+        this.pruev.forEach(element => {
+          var items = this.sesr.filter(function (items) {
+            return items.nombre == element.nombre;
+          })
+          console.log(items);
+          if(items.length > 0){
+           var index:number = this.sesr.indexOf(this.sesr.find(x => x.nombre == element.nombre));
+           this.sesr.splice(index, 1);
+           console.log(this.sesr);
+          }
+         else{
+           this.sesr.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id});
+           console.log(this.sesr);
          }
+        });
     })
   }
-  addSer(nombre: string) {
+  getIdUser(){
+    this.service.getUser()
+    .subscribe(user=>{
+      this.uses = user;
+      this.Servicios = this.uses.usuario.Servicios;
+      this.Servicios.forEach(element => {
+        var items = this.sesr.filter(function (items) {
+          return items.nombre == element.nombre;
+        })
+        console.log(items);
+        if(items.length > 0){
+         var index:number = this.sesr.indexOf(this.sesr.find(x => x.nombre == element.nombre));
+         this.sesr.splice(index, 1);
+         console.log(this.sesr);
+        }
+       else{
+         this.sesr.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id});
+         console.log(this.sesr);
+       }
+      });
+    })
+  }
+  
+  addSer(nombre: string, descripcion: string, _id: string) {
     var items = this.servicios.filter(function (items) {
       return items.nombre == nombre;
     })
@@ -67,7 +95,8 @@ export class MasServiciosComponent implements OnInit {
      console.log(this.servicios);
     }
    else{
-     this.servicios.push({ nombre: nombre });
+     this.servicios.push(
+       { nombre: nombre, descripcion: descripcion, _id: _id});
      console.log(this.servicios);
    }
   }
@@ -81,8 +110,27 @@ export class MasServiciosComponent implements OnInit {
     this.User.Password = this.uses.usuario.Password;
     this.User.ID_TipoUsuario = this.uses.usuario.ID_TipoUsuario;
     this.User.pathImg = this.uses.usuario.pathImg;
+    this.User.Estado = this.uses.usuario.Estado;
+    
     if(this.servicios.length > 0){
+    console.log(this.Servicios);
+      this.Servicios.forEach(element => {
+        var items = this.servicios.filter(function (items) {
+          return items.nombre == element.nombre;
+        })
+        console.log(items);
+        if(items.length > 0){
+         var index:number = this.servicios.indexOf(this.servicios.find(x => x.nombre == element.nombre));
+         this.servicios.splice(index, 1);
+         console.log(this.servicios);
+        }
+       else{
+         this.servicios.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id});
+         console.log(this.servicios);
+       }
+      });
       this.User.Servicios = this.servicios;
+      console.log(this.User);
       this.service.putUsuario(this.User, this.uses.usuario._id)
       .subscribe(us=>{
         console.log(us);

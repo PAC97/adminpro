@@ -163,7 +163,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-               if(this.user.pathImg != ''){
+               if(this.User.pathImg != ''){
                  this.guardarModificacion();
                }
                else{

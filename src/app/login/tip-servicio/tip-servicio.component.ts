@@ -46,7 +46,7 @@ export class TipServicioComponent implements OnInit {
         console.log(this.servicio);
       })
   }
-  addSer(nombre: string) {
+  addSer(nombre: string, descripcion: string, _id: string) {
     var items = this.servicios.filter(function (items) {
       return items.nombre == nombre;
     })
@@ -56,7 +56,7 @@ export class TipServicioComponent implements OnInit {
      console.log(this.servicios);
     }
    else{
-     this.servicios.push({ nombre: nombre });
+     this.servicios.push({ nombre: nombre, descripcion: descripcion, _id: _id});
      console.log(this.servicios);
    }
   }
