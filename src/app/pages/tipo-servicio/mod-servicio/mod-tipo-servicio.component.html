@@ -7,13 +7,13 @@
             <h1>Modificar Servicio</h1>
                 <div class="form-group col-md-12">
                    <label>Nombre</label>
-                   <input type="text" class="form-control" placeholder="Nombre" name="nombre" [value]="Servicio.tipoServicio.Nombre" [(ngModel)]="Servicio.Nombre">
+                   <input type="text" class="form-control" placeholder="Nombre" name="nombre" [value]="tipSer.servicio.nombre" [(ngModel)]="Servi.nombre">
                 </div>
                 <div class="form-group col-md-12">
                      <label>Descripción</label>
-                     <textarea class="form-control" placeholder="Descripcion" name="descripcion" required [value]="Servicio.tipoServicio.descripcion" [(ngModel)]="Serv.descripcion"></textarea>
-                 </div>
-             <button type="submit" class="btn btn-primary btn-block" (click)="mod(Servicio)">Agregar</button> <!--btn-block para el color verde-->
+                     <textarea class="form-control" placeholder="Descripcion" name="descripcion" required [value]="tipSer.servicio.descripcion" [(ngModel)]="Servi.descripcion"></textarea>
+                </div>
+             <button type="submit" class="btn btn-primary btn-block" (click)="mod()">Agregar</button> <!--btn-block para el color verde-->
               
           </form>
         </div>

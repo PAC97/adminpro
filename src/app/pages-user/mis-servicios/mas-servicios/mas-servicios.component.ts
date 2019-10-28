@@ -135,7 +135,7 @@ export class MasServiciosComponent implements OnInit {
       .subscribe(us=>{
         console.log(us);
         Swal.fire(
-          'Datos agregados con exito',
+          'Datos agregados con éxito',
           'Sus servicios se agregaron',
           'success'
         )
@@ -145,7 +145,7 @@ export class MasServiciosComponent implements OnInit {
     else{
       Swal.fire(
         'Error',
-        'Debe seleccionar almenos un servicio',
+        'Debe seleccionar al menos un servicio',
         'warning'
       )
     }

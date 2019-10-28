@@ -57,7 +57,6 @@ import { AdminRegisterComponent } from './cuenta/admin-register/admin-register.c
         AddTipoServicioComponent,
         ModTipoServicioComponent,
         PublicacionesComponent,
-
         CuentaComponent,
         ModCuentaComponent,
         AdminRegisterComponent

@@ -13,6 +13,8 @@ import {user} from './models/usuario';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
+  filter:any;
+  p:any;
   uses:any;
   ids:any;
   User:any;

@@ -14,7 +14,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./mod-tipo-servicio.component.css']
 })
 export class ModTipoServicioComponent implements OnInit {
-  
+  filter:any;
+  p:any;
   Servi:tipoServicio={
     'nombre':'',
     'descripcion': ''
@@ -35,9 +36,9 @@ export class ModTipoServicioComponent implements OnInit {
       console.log(this.ids);
     //get id registro
       this.service.getIdTipoServicio(this.ids)
-      .subscribe(tipSer =>{
-      this.tipSer = this.Servi;
-      console.log(this.Servi);
+      .subscribe(tipServ =>{
+      this.tipSer = tipServ;
+      console.log(tipServ);
     });
   }
   mod(){
@@ -52,7 +53,7 @@ export class ModTipoServicioComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        this.service.putTipoServicio(this.tipSer.tipoServicio._id, this.Servi) 
+        this.service.putTipoServicio(this.tipSer.servicio._id, this.Servi) 
         .subscribe(
           res => {
           },
@@ -63,7 +64,7 @@ export class ModTipoServicioComponent implements OnInit {
           'El registro se modificó correctamente.',
           'success'
         )
-      this.router.navigate(['/tipoUsuario']);
+      this.router.navigate(['/servicio']);
       }
     });
  }

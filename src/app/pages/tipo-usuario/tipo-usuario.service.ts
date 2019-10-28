@@ -8,7 +8,7 @@ import {tipoUsuario} from './models/tipoUsuario';
   providedIn: 'root'
 })
 export class TipoUsuarioService {
-  API_URI = 'http://localhost:3000/api';
+  API_URI = 'https://desemplea2.herokuapp.com/api';
   //variable para llenar dentro del constructor para luego utilizarce 
     httpheaders:any;
   constructor(private http:HttpClient) {

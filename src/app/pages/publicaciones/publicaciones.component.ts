@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./publicaciones.component.css']
 })
 export class PublicacionesComponent implements OnInit {
+  filter: any;
+  p:any;
   Publicaciones: any;
   pul:any;
   constructor(private service: PublicacionesService, private router:Router) {}

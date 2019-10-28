@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <button type="button" class="btn btn-primary" [routerLink]="['/add-servicio']">Crear Servicio</button>
+            <button type="button" class="btn btn-info" [routerLink]="['/add-servicio']">Crear Servicio</button>
             <br>
             <br>
             <input class="form-control mb-2" placeholder="Busqueda" [(ngModel)]="filter">
@@ -17,7 +17,7 @@
                   <tr *ngFor="let tipSer of Servicio |  filter:filter | paginate: { itemsPerPage: 4, currentPage: p } "> 
                     <td>{{tipSer.nombre}}</td>
                     <td>{{tipSer.descripcion}}</td>
-                    <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-Servicio/', tipSer._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteServicio(tipSer._id)"><a></a></fa></td>
+                    <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-servicio/', tipSer._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteServicio(tipSer._id)"></fa></td>
                   </tr>
                 </tbody >
               </table>
