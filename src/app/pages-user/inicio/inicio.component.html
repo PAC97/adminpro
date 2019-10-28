@@ -46,7 +46,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Crear publucacion</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Crear publicación</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" id="button" class="btn btn-primary" (click)="publicar(publi)"
+                                    <button type="button" id="button" class="btn btn-primary" (click)="publicar()"
                                         data-dismiss="modal">Publicar</button>
                                 </div>
 
@@ -90,7 +90,7 @@
                         <h4>{{pub.Descripcion}}</h4>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-primary" [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Enviar propuesta a {{pub.Usuario.Nombres}}</button>
+                        <button class="btn btn-info" [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Enviar propuesta a {{pub.Usuario.Nombres}}</button>
                         <h3>{{ pub.Fecha | date:'shortTime' }}</h3>
                     </div>
                     <div class="col-md-12">
