@@ -10,7 +10,8 @@ export interface user{
     ID_TipoUsuario: string ,
     Servicios:string,
     pathImg: string,
-    Region: string
+    Region: string, 
+    Estado?: boolean,
 }
 export interface userLog{
     Correo: string,
