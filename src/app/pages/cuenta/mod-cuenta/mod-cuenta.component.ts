@@ -35,7 +35,8 @@ export class ModCuentaComponent implements OnInit {
     'ID_TipoUsuario':'',
     'Servicios':'',
     'pathImg': '',
-    'Region': ''
+    'Region': '',
+    'Estado': true
   }
   pass = "";
   confirPass = "";
@@ -111,7 +112,6 @@ guardarModificacion() {
         'success'
       )
       this.getUsuario();
-     
     }
   });
 }
@@ -153,6 +153,7 @@ modifica() {
   this.User.Servicios = this.us.Servicios;
   this.User.ID_TipoUsuario = this.us.ID_TipoUsuario;
   this.User.Region = this.us.Region;
+  this.User.Estado = this.us.Estado;
   //If para nombres
   if (this.User.Nombres != '') {
     //If para apellidos

@@ -37,7 +37,8 @@ export class ModCuentaComponent implements OnInit {
     'ID_TipoUsuario':'',
     'Servicios':'',
     'pathImg': '',
-    'Region': ''
+    'Region': '',
+    'Estado': true
   }
   pass = "";
   confirPass = "";
@@ -155,6 +156,7 @@ export class ModCuentaComponent implements OnInit {
     this.User.Servicios = this.us.Servicios;
     this.User.ID_TipoUsuario = this.us.ID_TipoUsuario;
     this.User.Region = this.us.Region;
+    this.User.Estado = this.us.Estado;
     //If para nombres
     if (this.User.Nombres != '') {
       //If para apellidos
@@ -163,7 +165,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-               if(this.user.pathImg != ''){
+               if(this.User.pathImg != ''){
                  this.guardarModificacion();
                }
                else{
