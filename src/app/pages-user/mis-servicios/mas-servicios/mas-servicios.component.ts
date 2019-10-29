@@ -140,7 +140,7 @@ export class MasServiciosComponent implements OnInit {
           'success'
         )
         this.route.navigate(['/mis-servicios']);
-      })
+      }) 
     }
     else{
       Swal.fire(
