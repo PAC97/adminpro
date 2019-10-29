@@ -7,17 +7,17 @@
             <form class="form-conatainer row">
                 <h1>Modificar publicaciones</h1>
                 <div class="form-group col-md-12">
-                    <label>Titulo</label>
+                    <label>Título</label>
                     <input type="text" class="form-control" placeholder="Nombre" name="Titulo" pattern="[A-Za-z]"
                     required="required" [value]="publi.Titulo" [(ngModel)]="public.Titulo">
                 </div>
                 <div class="form-group col-md-12">
-                    <label>Descripcion</label>
+                    <label>Descripción</label>
                     <textarea class="form-control" placeholder="Descripcion" name="Descripcion" required
                         pattern="[A-Za-z]"required [value]="publi.Descripcion" [(ngModel)]="public.Descripcion">
                     </textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" (click)="modificar()">Modificar</button>
+                <button type="submit" class="btn btn-info btn-block" (click)="modificar()">Modificar</button>
                 <!--btn-block para el color verde-->
 
             </form>

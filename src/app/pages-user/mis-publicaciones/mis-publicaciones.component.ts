@@ -51,8 +51,8 @@ export class MisPublicacionesComponent implements OnInit {
   //Eliminar
   eliminarPu(id: string) {{}
    Swal.fire({
-      title: '¿Dese eliminar la publicacion?',
-      text: "Al eliminar no se podra recuperar la publicacion!",
+      title: '¿Desea eliminar la publicación?',
+      text: "Al eliminar no se podrá recuperar la publicación!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -70,7 +70,7 @@ export class MisPublicacionesComponent implements OnInit {
           )
         Swal.fire(
           'Eliminado!',
-          'La publicacion se elimino correctamente.',
+          'La publicación se elimino correctamente.',
           'success'
         )
       }
