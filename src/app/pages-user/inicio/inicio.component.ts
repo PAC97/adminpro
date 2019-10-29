@@ -73,10 +73,6 @@ export class InicioComponent implements OnInit {
         else{
           this.getidServicio();
         }
-       
-        console.log(
-           obj
-        );
       });
   }
   getUser(){
@@ -84,7 +80,7 @@ export class InicioComponent implements OnInit {
     .subscribe(user=>{
       this.user = user;
       this.img = this.user.usuario.pathImg;
-      console.log(this.user);
+      
     });
   }
   getSer(){
@@ -93,7 +89,7 @@ export class InicioComponent implements OnInit {
       this.ser = ser;
       this.servicios = this.ser.servicios;
       this.servicios.unshift({_id: 'todo', nombre: 'Mostrar todos los datos', descripcion:'todo'});
-      console.log(this.servicios);
+      
     })
   }
   obtenesPublicaciones(){
@@ -101,7 +97,7 @@ export class InicioComponent implements OnInit {
     .subscribe(pubb =>{
       this.puls = pubb;
       this.pubb = this.puls.publicaciones;
-      console.log(this.pubb);
+      
       var id = this.usuario;
       var items = this.pubb.filter(function(item) {
         return item.Usuario._id != id;
@@ -112,7 +108,7 @@ export class InicioComponent implements OnInit {
         b = new Date(b.Fecha);
         return a>b ? -1 : a<b ? 1 : 0;
     });
-    console.log(this.pubb);
+    
     })
   }
   //seleccionar
@@ -130,11 +126,11 @@ export class InicioComponent implements OnInit {
       this.puls = pubb;
       this.pubb = this.puls.publicaciones;
       var id = this.usuario;
-      console.log(this.pubb);
+      
       var items = this.pubb.filter(function(item) {
         return item.Usuario != id;
       });
-      console.log(items);
+      
       this.pubb = items;
       this.pubb.sort(function(a, b) {
         a = new Date(a.Fecha);
@@ -155,7 +151,7 @@ export class InicioComponent implements OnInit {
           'Publicacion realizada',
           'success'
         )
-        console.log(pub);
+        
         this.publi.Titulo = '';
         this.publi.Descripcion = '';
           this.obtenesPublicaciones();
@@ -168,6 +164,6 @@ export class InicioComponent implements OnInit {
         'warning'
       )
     }
-    console.log(this.publi);
+    
   }
 }

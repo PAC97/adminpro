@@ -37,10 +37,10 @@ export class MisPublicacionesComponent implements OnInit {
     .subscribe(pu => {
       this.publica = pu;
       this.pu = this.publica.publicaciones;
-      console.log(this.pu);
+      
       if(this.pu.length > 0){
         this.pubb = this.pu;
-        console.log(this.pubb);
+        
       }
       else{
         this.obtenerMyPubli();
