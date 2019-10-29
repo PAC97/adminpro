@@ -101,6 +101,7 @@ export class InicioComponent implements OnInit {
     .subscribe(pubb =>{
       this.puls = pubb;
       this.pubb = this.puls.publicaciones;
+      console.log(this.pubb);
       var id = this.usuario;
       var items = this.pubb.filter(function(item) {
         return item.Usuario._id != id;

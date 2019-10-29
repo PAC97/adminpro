@@ -35,8 +35,8 @@ export class PublicacionesComponent implements OnInit {
   };
   Eliminarpublicaciones(id: string){
     Swal.fire({
-      title: '¿Desea eliminar el registro?',
-      text: "¡Al eliminar no se podrá recuperar el registro!",
+      title: '¿Desea eliminar la publicación?',
+      text: "¡Al eliminar no se podrá recuperar la publicación!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -54,7 +54,7 @@ export class PublicacionesComponent implements OnInit {
         )
         Swal.fire(
           '¡Eliminado!',
-          'El registro se eliminó correctamente',
+          'La publicación se eliminó correctamente',
           'success'
         )
       }
