@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 
 import {debounceTime} from 'rxjs/operators';
 import { SelectDropDownModule } from 'ngx-select-dropdown'
+import { element } from 'protractor';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class InicioComponent implements OnInit {
     'ID_Servicio': '',
     'Fecha': new Date(Date.now())
   }
+  siT:any;
   usuario: any;
   modal: any;
   pubb:any;
@@ -45,6 +47,7 @@ export class InicioComponent implements OnInit {
   IdFil:any;
 
 //
+PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
   ngOnInit() {
     var session = localStorage.getItem('x-access-token');
     if(session == null){
@@ -148,18 +151,55 @@ export class InicioComponent implements OnInit {
   publicar() {
     this.publi.Usuario = this.usuario;
     if (this.publi.Titulo != '' && this.publi.Descripcion != '') {
-      this.service.postPublicaciones(this.publi)
-      .subscribe(pub =>{
-        Swal.fire(
-          'Publicacion creada con exito',
-          'Publicacion realizada',
-          'success'
-        )
-        console.log(pub);
-        this.publi.Titulo = '';
-        this.publi.Descripcion = '';
-          this.obtenesPublicaciones();
-      })    
+      var titu = this.publi.Titulo.split(" ");
+      var des = this.publi.Descripcion.split(" ");
+      titu.forEach(element =>{
+      var items = this.PalMal.filter( function (items){
+          return items == element
+        })
+        console.log(items);
+        if(items.length > 0){
+          this.siT = items;
+        } 
+        else{
+         console.log("ok"); 
+        }
+      });
+      des.forEach(element =>{
+        var items = this.PalMal.filter( function (items){
+            return items == element
+          })
+          if(items.length > 0){
+            this.siT = items;
+          } 
+          else{
+           console.log("ok"); 
+          }
+        })
+      console.log(this.siT);
+      if(this.siT.length < 0){
+
+        this.service.postPublicaciones(this.publi)
+        .subscribe(pub =>{
+          Swal.fire(
+            'Publicacion creada con exito',
+            'Publicacion realizada',
+            'success'
+          )
+          console.log(pub);
+          this.publi.Titulo = '';
+          this.publi.Descripcion = '';
+            this.obtenesPublicaciones();
+        })
+       }
+     
+    else{
+      Swal.fire(
+        'Error esta palabra no esta permitida:  ' + this.siT,
+        'Al parecer has ingresado palabras que no son permitidas',
+        'warning'
+      )
+    }
     }
     else{
       Swal.fire(

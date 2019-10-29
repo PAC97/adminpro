@@ -43,7 +43,6 @@ export class MisPublicacionesComponent implements OnInit {
         console.log(this.pubb);
       }
       else{
-        this.obtenerMyPubli();
         this.Message = 1;
       }
      

@@ -29,6 +29,7 @@ fecha:any;
 ser:any;
 mensaje:'';
 emisor:any;
+idus:any;
   constructor(private activate:ActivatedRoute, private service:ServicePubliService, private chatservice:ChatService) { }
 
   ngOnInit() {
@@ -64,6 +65,7 @@ emisor:any;
       this.titulo = this.publi.Titulo;
       this.descrip = this.publi.Descripcion;
       this.fecha = this.publi.Fecha;
+      this.idus = this.publi.Usuario;
       console.log(this.publi);
     })
   }
