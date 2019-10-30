@@ -30,7 +30,7 @@ export class ServicioComponent implements OnInit {
     .subscribe(tip=>{
       this.ser = tip;
       this.Servicio=this.ser.servicios;
-      console.log(this.Servicio);
+      
       if(this.Servicio.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])
       }

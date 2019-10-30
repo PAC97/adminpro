@@ -46,14 +46,14 @@ export class UsuarioComponent implements OnInit {
     this.service.getUsuario()
     .subscribe(user=>{
       this.uses = user;
-      console.log(this.uses);
+      
     })
   }
   getidUsuario(id:string){
     this.service.getIdUsuario(id)
     .subscribe(ids=>{
       this.Users = ids;
-      console.log(this.Users);
+      
       this.ModUsuario();
     })
   }
@@ -82,7 +82,7 @@ ModUsuario(){
       this.Usuario._id = this.Users.usuario._id;
       this.Usuario.Estado = false;
 
-      console.log(this.Usuario);
+      
       this.service.putUsuario(this.Usuario._id, this.Usuario) 
        .subscribe(
          res => {

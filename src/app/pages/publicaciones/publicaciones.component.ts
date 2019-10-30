@@ -27,7 +27,7 @@ export class PublicacionesComponent implements OnInit {
     .subscribe(pub=>{
       this.pul = pub;
       this.Publicaciones = this.pul.publicaciones;
-      console.log(this.Publicaciones);
+      
       if(this.Publicaciones.mensaje == "no tiene autorización"){
         this.router.navigate(['../login'])
       }
@@ -35,8 +35,8 @@ export class PublicacionesComponent implements OnInit {
   };
   Eliminarpublicaciones(id: string){
     Swal.fire({
-      title: '¿Desea eliminar el registro?',
-      text: "¡Al eliminar no se podrá recuperar el registro!",
+      title: '¿Desea eliminar la publicación?',
+      text: "¡Al eliminar no se podrá recuperar la publicación!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -54,7 +54,7 @@ export class PublicacionesComponent implements OnInit {
         )
         Swal.fire(
           '¡Eliminado!',
-          'El registro se eliminó correctamente',
+          'La publicación se eliminó correctamente',
           'success'
         )
       }

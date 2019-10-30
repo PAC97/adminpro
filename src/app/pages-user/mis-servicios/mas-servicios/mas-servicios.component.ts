@@ -44,20 +44,20 @@ export class MasServiciosComponent implements OnInit {
       .subscribe(ser => {
         this.ser = ser;
         this.pruev = this.ser.servicios;
-        console.log(this.pruev);
+        
         this.pruev.forEach(element => {
           var items = this.sesr.filter(function (items) {
             return items.nombre == element.nombre;
           })
-          console.log(items);
+          
           if(items.length > 0){
            var index:number = this.sesr.indexOf(this.sesr.find(x => x.nombre == element.nombre));
            this.sesr.splice(index, 1);
-           console.log(this.sesr);
+           
           }
          else{
            this.sesr.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id});
-           console.log(this.sesr);
+           
          }
         });
     })
@@ -71,15 +71,15 @@ export class MasServiciosComponent implements OnInit {
         var items = this.sesr.filter(function (items) {
           return items.nombre == element.nombre;
         })
-        console.log(items);
+        
         if(items.length > 0){
          var index:number = this.sesr.indexOf(this.sesr.find(x => x.nombre == element.nombre));
          this.sesr.splice(index, 1);
-         console.log(this.sesr);
+         
         }
        else{
          this.sesr.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id});
-         console.log(this.sesr);
+      
        }
       });
     })
@@ -92,12 +92,12 @@ export class MasServiciosComponent implements OnInit {
     if(items.length > 0){
      var index:number = this.servicios.indexOf(this.servicios.find(x => x.nombre == nombre));
      this.servicios.splice(index, 1);
-     console.log(this.servicios);
+     
     }
    else{
      this.servicios.push(
        { nombre: nombre, descripcion: descripcion, _id: _id});
-     console.log(this.servicios);
+     
    }
   }
   add(){
@@ -113,34 +113,34 @@ export class MasServiciosComponent implements OnInit {
     this.User.Estado = this.uses.usuario.Estado;
     
     if(this.servicios.length > 0){
-    console.log(this.Servicios);
+    
       this.Servicios.forEach(element => {
         var items = this.servicios.filter(function (items) {
           return items.nombre == element.nombre;
         })
-        console.log(items);
+        
         if(items.length > 0){
          var index:number = this.servicios.indexOf(this.servicios.find(x => x.nombre == element.nombre));
          this.servicios.splice(index, 1);
-         console.log(this.servicios);
+         
         }
        else{
          this.servicios.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id});
-         console.log(this.servicios);
+         
        }
       });
       this.User.Servicios = this.servicios;
-      console.log(this.User);
+      
       this.service.putUsuario(this.User, this.uses.usuario._id)
       .subscribe(us=>{
-        console.log(us);
+        
         Swal.fire(
           'Datos agregados con éxito',
           'Sus servicios han sido agregados',
           'success'
         )
         this.route.navigate(['/mis-servicios']);
-      })
+      }) 
     }
     else{
       Swal.fire(

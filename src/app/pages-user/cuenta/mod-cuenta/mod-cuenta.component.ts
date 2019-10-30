@@ -84,7 +84,7 @@ export class ModCuentaComponent implements OnInit {
         this.direccion = this.us.Direccion;
         this.edad = this.us.Edad;
         this.img = this.us.pathImg;
-        console.log(this.us)
+        
       })
   }
 
@@ -104,7 +104,7 @@ export class ModCuentaComponent implements OnInit {
         this.service.putUsuario(this.User, this.us._id)
           .subscribe(
             res => {
-              console.log(res)
+              
             },
             err => console.log(err)
           )
@@ -124,7 +124,7 @@ export class ModCuentaComponent implements OnInit {
     this.service.logUser(this.valid)
       .subscribe(pass => {
         this.pasEcual = pass;
-        console.log(this.pasEcual);
+        
         if (this.pasEcual.status == 'Success') {
           if (this.pass == this.confirPass) {
             Swal.fire(
@@ -688,7 +688,7 @@ export class ModCuentaComponent implements OnInit {
           }
           else {
             this.User.Password = this.us.Password;
-            console.log(this.User); if (this.User.Edad != '') {
+            if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
                 if(this.user.pathImg != ''){
                   this.guardarModificacion();

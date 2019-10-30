@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       this.service.logUser(this.userLog)
         .subscribe(user => {
           this.datos = user;
-          console.log(this.datos);
+          
           if (this.datos.data != null) {
             if(this.datos.data.Estado == true){
             Swal.fire(

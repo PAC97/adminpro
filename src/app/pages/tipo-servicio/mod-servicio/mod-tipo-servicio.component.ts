@@ -33,12 +33,12 @@ export class ModTipoServicioComponent implements OnInit {
     //cachar id del registro
     var id = this.activateRouter.snapshot.paramMap.get('id');
     this.ids = id;
-      console.log(this.ids);
+      
     //get id registro
       this.service.getIdTipoServicio(this.ids)
       .subscribe(tipServ =>{
       this.tipSer = tipServ;
-      console.log(tipServ);
+      
     });
   }
   mod(){
