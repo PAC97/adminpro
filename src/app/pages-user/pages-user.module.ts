@@ -24,6 +24,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MensajesComponent } from './mensajes/mensajes.component';
 import { ChatService } from '../services/chat.service';
 import { DetallesPubliComponent } from './detalles-publi/detalles-publi.component';
+import { PubliCuentaComponent } from './publi-cuenta/publi-cuenta.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { DetallesPubliComponent } from './detalles-publi/detalles-publi.componen
    
    MisServiciosComponent,
     MasServiciosComponent,
-    DetallesPubliComponent
+    DetallesPubliComponent,
+    PubliCuentaComponent
 
 
   ],

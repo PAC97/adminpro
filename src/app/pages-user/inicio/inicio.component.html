@@ -57,8 +57,8 @@
                                             name="Titulo" [(ngModel)]="publi.Titulo">
                                         <br>
                                         <br>
-                                        <input class="form-control" placeholder="Ingresar descripción de la publicación"
-                                            name="Descripcion" [(ngModel)]="publi.Descripcion">
+                                        <textarea class="form-control" placeholder="Ingresar descripción de la publicación"
+                                            name="Descripcion" [(ngModel)]="publi.Descripcion"></textarea>
                                            <br>
                                            <br>
                                             <ngx-select [formControl]="selectControl" [allowClear]="true" [items]="servicios"
@@ -82,8 +82,12 @@
             <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
                 *ngFor="let pub of pubb | filter:filter" >
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
+                        <hr>
+                    </div>
+                     <div class="col-md-4">
+                        <h3 style="margin-top:15px;"><a [routerLink]="['/publi-cuenta', pub.Usuario._id]">{{pub.Usuario.Nombres}}  {{pub.Usuario.Apellidos}}</a></h3>
                         <hr>
                     </div>
                     <div class="col-md-8">
@@ -91,7 +95,7 @@
                     </div>
                     <div class="col-md-4">
                         <button class="btn btn-info" [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Contactarse </button>
-                        <h3>{{ pub.Fecha | date:'shortTime' }}</h3>
+                        <h3 style="margin-top: 10px;">{{ pub.Fecha | date:'shortTime' }}</h3>
                     </div>
                     <div class="col-md-12">
                         <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre}}</span>
