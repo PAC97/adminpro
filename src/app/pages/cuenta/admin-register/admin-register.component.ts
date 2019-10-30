@@ -36,13 +36,13 @@ export class AdminRegisterComponent implements OnInit {
     this.service.getUser()
     .subscribe(user=>{
       this.uses = user;
-      console.log(this.uses);
+      
   })
   //Combobox 
   this.service.getService()
   .subscribe(tip=>{
     this.servicios = tip;
-    console.log(this.servicios);
+    
   })
   }
   //Metodos para las imagenes 
@@ -63,7 +63,7 @@ loadImageFailed() {
 }
 foto(){
 this.User.pathImg = this.croppedImage;
-console.log(this.User);
+
 }
 //
 
@@ -72,7 +72,7 @@ add(){
   var items = this.uses.filter(function(item) {
     return item.Correo == correo;
   });
-  console.log(items);
+  
   if(this.User.Nombres != '' && this.User.Apellidos && this.User.Edad != '' && this.User.Telefono != '' 
   && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != '' && this.User.pathImg != ''){
     if(this.confirm == this.User.Password){
@@ -85,7 +85,7 @@ add(){
              'Para ingresar su correo es: '+ this.User.Correo,
              'success'
            )
-           console.log(user);
+           
            this.route.navigate(['/menu']);
           }
         })

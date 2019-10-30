@@ -27,7 +27,7 @@ export class PublicacionesComponent implements OnInit {
     .subscribe(pub=>{
       this.pul = pub;
       this.Publicaciones = this.pul.publicaciones;
-      console.log(this.Publicaciones);
+      
       if(this.Publicaciones.mensaje == "no tiene autorización"){
         this.router.navigate(['../login'])
       }

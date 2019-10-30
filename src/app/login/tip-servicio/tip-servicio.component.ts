@@ -43,7 +43,7 @@ export class TipServicioComponent implements OnInit {
       .subscribe(ser => {
         this.ser = ser;
         this.servicio = this.ser.servicios;
-        console.log(this.servicio);
+        
       })
   }
   addSer(nombre: string, descripcion: string, _id: string) {
@@ -53,11 +53,10 @@ export class TipServicioComponent implements OnInit {
     if(items.length > 0){
      var index:number = this.servicios.indexOf(this.servicios.find(x => x.nombre == nombre));
      this.servicios.splice(index, 1);
-     console.log(this.servicios);
+     
     }
    else{
      this.servicios.push({ nombre: nombre, descripcion: descripcion, _id: _id});
-     console.log(this.servicios);
    }
   }
   add(){
@@ -75,7 +74,7 @@ export class TipServicioComponent implements OnInit {
       this.User.Servicios = this.servicios;
       this.service.putUsuario(this.User, this.user.usuario._id)
       .subscribe(us=>{
-        console.log(us);
+        
         Swal.fire(
           'Datos agregados con exito',
           'Sus servicios se agregaron',

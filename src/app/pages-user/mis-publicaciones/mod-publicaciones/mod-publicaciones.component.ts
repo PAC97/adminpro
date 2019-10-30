@@ -30,7 +30,7 @@ export class ModPublicacionesComponent implements OnInit {
       this.router.navigate(['../login'])
     }
     this.id = this.activateRouter.snapshot.paramMap.get('id')
-    console.log(this.id);
+    
     this.getid();
   }
   //publi id
@@ -39,7 +39,7 @@ export class ModPublicacionesComponent implements OnInit {
       .subscribe(da => {
         this.o = da
         this.publi = this.o.publicacion;
-        console.log(this.publi);
+        
       })
   }
   //Alerta modifacion

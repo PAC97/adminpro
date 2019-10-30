@@ -32,12 +32,11 @@ export class ModTipoUsuarioComponent implements OnInit {
     //cachar id del registro
     var id = this.activateRouter.snapshot.paramMap.get('id');
     this.ids = id;
-      console.log(this.ids);
+     
     //get id registro
       this.service.getIdtipoUsuario(this.ids)
       .subscribe(tipUs =>{
       this.tipUser = tipUs;
-      console.log(this.tipUM);
     });
   }
   mod(){

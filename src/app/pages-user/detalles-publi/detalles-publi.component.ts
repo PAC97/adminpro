@@ -34,9 +34,9 @@ idus:any;
 
   ngOnInit() {
     this.idUser = this.activate.snapshot.params.id;
-    console.log(this.idUser);
+   
     this.idPubli = this.activate.snapshot.params.id2;
-    console.log(this.idPubli);
+    
 
     this.emisor = localStorage.getItem('session');
     //obtener id chat

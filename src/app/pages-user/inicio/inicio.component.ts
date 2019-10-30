@@ -76,10 +76,6 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
         else{
           this.getidServicio();
         }
-       
-        console.log(
-           obj
-        );
       });
   }
   getUser(){
@@ -87,7 +83,7 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
     .subscribe(user=>{
       this.user = user;
       this.img = this.user.usuario.pathImg;
-      console.log(this.user);
+      
     });
   }
   getSer(){
@@ -96,7 +92,7 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
       this.ser = ser;
       this.servicios = this.ser.servicios;
       this.servicios.unshift({_id: 'todo', nombre: 'Mostrar todos los datos', descripcion:'todo'});
-      console.log(this.servicios);
+      
     })
   }
   obtenesPublicaciones(){
@@ -104,7 +100,7 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
     .subscribe(pubb =>{
       this.puls = pubb;
       this.pubb = this.puls.publicaciones;
-      console.log(this.pubb);
+      
       var id = this.usuario;
       var items = this.pubb.filter(function(item) {
         return item.Usuario._id != id;
@@ -115,7 +111,7 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
         b = new Date(b.Fecha);
         return a>b ? -1 : a<b ? 1 : 0;
     });
-    console.log(this.pubb);
+    
     })
   }
   //seleccionar
@@ -133,11 +129,11 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
       this.puls = pubb;
       this.pubb = this.puls.publicaciones;
       var id = this.usuario;
-      console.log(this.pubb);
+      
       var items = this.pubb.filter(function(item) {
         return item.Usuario != id;
       });
-      console.log(items);
+      
       this.pubb = items;
       this.pubb.sort(function(a, b) {
         a = new Date(a.Fecha);
@@ -208,6 +204,6 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
         'warning'
       )
     }
-    console.log(this.publi);
+    console.log(this.publi)
   }
 }
