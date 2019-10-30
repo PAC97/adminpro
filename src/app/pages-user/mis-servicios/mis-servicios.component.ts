@@ -34,7 +34,7 @@ export class MisServiciosComponent implements OnInit {
     .subscribe(user=>{
       this.user = user;
       this.Servicios = this.user.usuario.Servicios;
-      console.log(this.Servicios);
+      
     })
   }
   eliminar(nombre: string){
@@ -55,7 +55,7 @@ export class MisServiciosComponent implements OnInit {
     
          var index:number = this.Servicios.indexOf(this.Servicios.find(x => x.nombre == nombre));
          this.Servicios.splice(index, 1);
-         console.log(this.Servicios);
+         
          this.add();    
         Swal.fire(
           'Modificado!',
@@ -80,7 +80,7 @@ export class MisServiciosComponent implements OnInit {
       this.User.Servicios = this.Servicios;
       this.service.putUsuario(this.User, this.user.usuario._id)
       .subscribe(us=>{
-        console.log(us);
+      
         Swal.fire(
           'Datos eliminados con exito con exito',
           'Sus servicios se agregaron',

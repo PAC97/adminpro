@@ -82,7 +82,7 @@ getUsuario() {
       this.direccion = this.us.Direccion;
       this.edad = this.us.Edad;
       this.img = this.us.pathImg;
-      console.log(this.us)
+    
     })
 }
 
@@ -102,7 +102,7 @@ guardarModificacion() {
       this.service.putUsuario(this.User, this.us._id)
         .subscribe(
           res => {
-            console.log(res)
+           
           },
           err => console.log(err)
         )
@@ -121,7 +121,7 @@ validarPass() {
   this.service.logUser(this.valid)
     .subscribe(pass => {
       this.pasEcual = pass;
-      console.log(this.pasEcual);
+      
       if (this.pasEcual.status == 'Success') {
         if (this.pass == this.confirPass) {
           Swal.fire(
@@ -685,7 +685,7 @@ modifica() {
         }
         else {
           this.User.Password = this.us.Password;
-          console.log(this.User); if (this.User.Edad != '') {
+           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
               if(this.user.pathImg != ''){
                 this.guardarModificacion();

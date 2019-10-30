@@ -33,7 +33,7 @@ export class CuentaComponent implements OnInit {
         this.direccion = this.user.usuario.Direccion;
         this.correo = this.user.usuario.Correo;
         this.img = this.user.usuario.pathImg;
-        console.log(this.us)
+        
       })
   }
 

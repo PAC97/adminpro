@@ -31,7 +31,7 @@ export class AddTipoServicioComponent implements OnInit {
    if(this.Servicio.nombre != '' && this.Servicio.descripcion != ''){
       this.service.postTipoServicio(this.Servicio)
       .subscribe(Serv=>{
-        console.log(Serv)
+        
           Swal.fire(
             'Servicio Agregado!',
             'El registro se agregó correctamente.',

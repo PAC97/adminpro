@@ -31,7 +31,7 @@ export class AddTipoUsuarioComponent implements OnInit {
    if(this.tipU.nombre != '' && this.tipU.descripcion != ''){
       this.service.postTipoUsuario(this.tipU)
       .subscribe(tipoU=>{
-        console.log(tipoU)
+        
           Swal.fire(
             'Usuario Agregado!',
             'El registro se agregó correctamente.',

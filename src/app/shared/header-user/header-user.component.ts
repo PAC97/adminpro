@@ -28,7 +28,7 @@ export class HeaderUserComponent implements OnInit {
       this.apellido = this.userSession.Apellidos;
       this.img = this.userSession.pathImg;
       this.correo = this.userSession.Correo;
-      console.log(this.userSession);
+      
     })
   }
   cerrar(){
