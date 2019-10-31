@@ -66,11 +66,11 @@ export class RegisterComponent implements OnInit {
       })
       if(items.length > 0){
         document.getElementById('name').style.display = 'block';
-        document.getElementById("boto").disabled = true;
+        document.getElementById("boto").setAttribute('disabled', 'disabled');
       }
       else{
        document.getElementById('name').style.display = 'none';
-       document.getElementById("boto").disabled = false;
+       document.getElementById("boto").removeAttribute('disabled');
       } 
     })
   }
@@ -84,11 +84,11 @@ export class RegisterComponent implements OnInit {
       })
       if(items.length > 0){
         document.getElementById('ape').style.display = 'block';
-        document.getElementById("boto").disabled = true;
+        document.getElementById("boto").setAttribute('disabled', 'disabled');
       }
       else{
        document.getElementById('ape').style.display = 'none';
-       document.getElementById("boto").disabled = false;
+       document.getElementById("boto").removeAttribute('disabled');
       } 
     })
   }
@@ -98,11 +98,11 @@ export class RegisterComponent implements OnInit {
     var pas = this.pass.split("");
     if(pas.length < 8){
       document.getElementById('C1').style.display = 'block';
-      document.getElementById("boto").disabled = true;
+      document.getElementById("boto").setAttribute('disabled', 'disabled');
     }
     else{
       document.getElementById('C1').style.display = 'none';
-      document.getElementById("boto").disabled = false;
+      document.getElementById("boto").removeAttribute('disabled');
     }
   }
   Cpass2(event:any){
@@ -110,11 +110,11 @@ export class RegisterComponent implements OnInit {
     var pas = this.pass.split("");
     if(pas.length < 8){
       document.getElementById('C2').style.display = 'block';
-      document.getElementById("boto").disabled = true;
+      document.getElementById("boto").setAttribute('disabled', 'disabled');
     }
     else{
       document.getElementById('C2').style.display = 'none';
-      document.getElementById("boto").disabled = false;
+      document.getElementById("boto").removeAttribute('disabled');
     }
   }
 //Metodos para las imagenes 
