@@ -11,7 +11,7 @@ export class TipoServicioService {
   getServicio() {
     throw new Error("Method not implemented.");
   }
-  API_URI = 'https://desemplea2.herokuapp.com/api';
+  API_URI ='https://desempla2.herokuapp.com/api';
   //variable para llenar dentro del constructor para luego utilizarce 
     httpheaders:any;
   constructor(private http:HttpClient) {
