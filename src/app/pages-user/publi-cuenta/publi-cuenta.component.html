@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12" style="background: rgb(255, 255, 255); height: 180px; margin-top: 10px;">
+            <div class="row">
+                <div class="col-md-3" style="float: left;">
+                    <img [src]="img" style="border-radius: 100px; width: 130px; margin-top: 20px;" />
+                </div>
+                <div class="col-md-4">
+                    <h2 style="margin-top: 70px;">{{nombre}} {{apellido}}</h2>
+                    <hr>
+                </div>
+                <div class="col-md-4">
+                    <h2 style="margin-top: 70px;">{{telefono}}</h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
+            *ngFor="let pub of pubb | filter:filter">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
+                    <hr>
+                </div>
+                <div class="col-md-8">
+                    <h4>{{pub.Descripcion}}</h4>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-info"
+                        [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Contactarse </button>
+                    <h3 style="margin-top: 10px;">{{ pub.Fecha | date:'shortTime' }}</h3>
+                </div>
+                <div class="col-md-12">
+                    <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
