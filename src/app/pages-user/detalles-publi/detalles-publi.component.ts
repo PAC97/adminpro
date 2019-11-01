@@ -29,7 +29,7 @@ fecha:any;
 ser:any;
 mensaje:'';
 emisor:any;
-mensajes: any;
+idus:any;
   constructor(private activate:ActivatedRoute, private service:ServicePubliService, private chatservice:ChatService) { }
 
   ngOnInit() {
@@ -66,6 +66,7 @@ mensajes: any;
       this.titulo = this.publi.Titulo;
       this.descrip = this.publi.Descripcion;
       this.fecha = this.publi.Fecha;
+      this.idus = this.publi.Usuario;
       console.log(this.publi);
     })
   }
@@ -77,7 +78,7 @@ mensajes: any;
   obtenerChat(){
     this.chatservice.getMessages()
     .subscribe(men => {
-      this.mensajes = men;
+      /* this.mensajes = men; */
       console.log(this.mensaje);
     })
   }

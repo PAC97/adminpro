@@ -111,7 +111,6 @@ export class MasServiciosComponent implements OnInit {
     this.User.ID_TipoUsuario = this.uses.usuario.ID_TipoUsuario;
     this.User.pathImg = this.uses.usuario.pathImg;
     this.User.Estado = this.uses.usuario.Estado;
-    
     if(this.servicios.length > 0){
     
       this.Servicios.forEach(element => {
