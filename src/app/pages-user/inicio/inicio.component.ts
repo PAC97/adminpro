@@ -34,6 +34,7 @@ export class InicioComponent implements OnInit {
     'Fecha': new Date(Date.now())
   }
   siT:any;
+  an=[];
   usuario: any;
   modal: any;
   pubb:any;
@@ -41,6 +42,9 @@ export class InicioComponent implements OnInit {
   user;
   img;
   puls:any;
+  
+  ser2:any;
+  servicios2:any;
   ser:any;
   servicios:any;
   idSer:any;
@@ -59,6 +63,7 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
     this.getUser();
     //servicios
     this.getSer();
+    this.getSer2();
     //filtrar
     this.Filtrar();
 
@@ -95,6 +100,13 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
       
     })
   }
+  getSer2(){
+    this.service.getServicios()
+    .subscribe(ser=>{
+      this.ser2 = ser;
+      this.servicios2 = this.ser2.servicios;
+    })
+  }
   obtenesPublicaciones(){
     this.service.getPublicaciones()
     .subscribe(pubb =>{
@@ -116,9 +128,9 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
   }
   //seleccionar
   select(){
-    this.selectControl.valueChanges
+    this.selectControl2.valueChanges
       .subscribe((subscriptionTypeId: number) => {
-        const obj = this.servicios.find(item => item._id === subscriptionTypeId);
+        const obj = this.servicios2.find(item => item._id === subscriptionTypeId);
         this.publi.ID_Servicio = obj._id;
      });
   }
@@ -158,7 +170,7 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
           this.siT = items;
         } 
         else{
-         console.log("ok"); 
+          this.siT=this.an;
         }
       });
       des.forEach(element =>{
@@ -167,14 +179,20 @@ PalMal=['puta', 'perra', 'prostituta', 'pendejo', 'culero', 'sexo', 'anal'];
           })
           if(items.length > 0){
             this.siT = items;
+
           } 
           else{
-           console.log("ok"); 
+            if(this.siT.length <= 0){
+              this.siT = this.an;
+            }
+            else{
+              console.log(this.siT);
+            }
+            
           }
         })
       console.log(this.siT);
-      if(this.siT.length < 0){
-
+      if(this.siT.length <= 0){
         this.service.postPublicaciones(this.publi)
         .subscribe(pub =>{
           Swal.fire(
