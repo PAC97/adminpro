@@ -8,7 +8,8 @@ import {user} from '../login/models/usuario';
   providedIn: 'root'
 })
 export class  UsuarioService {
-    API_URI = 'https://desempla2.herokuapp.com/api';
+ API_URI = 'https://desempla2.herokuapp.com/api';
+
     httpheaders:any;
     id:any;
   constructor(private http:HttpClient) { 

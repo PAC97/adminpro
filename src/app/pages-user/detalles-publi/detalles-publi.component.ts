@@ -43,6 +43,7 @@ idus:any;
     this.obtenerIdUserChat();
     //publi
     this.obtenerPubliId();
+    this.obtenerChat();
  }
   obtenerIdUserChat(){
     this.service.getIDUser(this.idUser)
@@ -70,8 +71,15 @@ idus:any;
     })
   }
   sendChat(){
-    this.chatservice.sendMessage(this.mensaje, this.emisor, this.idUser);
+    this.chatservice.sendMessage(this.mensaje, this.idPubli, this.idUser);
     this.mensaje = '';
     console.log(this.mensaje);
+  }
+  obtenerChat(){
+    this.chatservice.getMessages()
+    .subscribe(men => {
+      /* this.mensajes = men; */
+      console.log(this.mensaje);
+    })
   }
 }

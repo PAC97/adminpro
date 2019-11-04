@@ -16,6 +16,7 @@ apellido:any;
 pubb:any;
 publi:any;
 telefono:any;
+filter: any;
   constructor(private activate:ActivatedRoute, private service:ServicesPubliCuentaService) { }
 
   ngOnInit() {
