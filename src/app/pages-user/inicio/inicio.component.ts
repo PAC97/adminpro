@@ -34,6 +34,7 @@ export class InicioComponent implements OnInit {
     'Fecha': new Date(Date.now())
   }
   siT:any;
+  okT=[];
   an=[];
   usuario: any;
   modal: any;
@@ -165,13 +166,18 @@ PalMal=['puta', 'put4', 'Puta', 'PUTA', 'Pucta', 'Put4', 'PUT4', 'pucta', 'puct4
       var items = this.PalMal.filter( function (items){
           return items == element
         })
+      
         console.log(items);
-        if(items.length > 0){
+        if(items.length > 0) {
           this.siT = items;
+          if(this.siT.length > 0){
+            this.okT = this.siT;
+          }
         } 
         else{
           this.siT=this.an;
         }
+        
       });
       des.forEach(element =>{
         var items = this.PalMal.filter( function (items){
@@ -179,7 +185,9 @@ PalMal=['puta', 'put4', 'Puta', 'PUTA', 'Pucta', 'Put4', 'PUT4', 'pucta', 'puct4
           })
           if(items.length > 0){
             this.siT = items;
-
+            if(this.siT.length > 0){
+              this.okT = this.siT;
+            }
           } 
           else{
             if(this.siT.length <= 0){
@@ -192,7 +200,7 @@ PalMal=['puta', 'put4', 'Puta', 'PUTA', 'Pucta', 'Put4', 'PUT4', 'pucta', 'puct4
           }
         })
       console.log(this.siT);
-      if(this.siT.length <= 0){
+      if(this.okT.length <= 0){
         this.service.postPublicaciones(this.publi)
         .subscribe(pub =>{
           Swal.fire(
@@ -209,7 +217,7 @@ PalMal=['puta', 'put4', 'Puta', 'PUTA', 'Pucta', 'Put4', 'PUT4', 'pucta', 'puct4
      
     else{
       Swal.fire(
-        'Error esta palabra no esta permitida:  ' + this.siT,
+        'Error esta palabra no esta permitida:  ' + this.okT,
         'Al parecer has ingresado palabras que no son permitidas',
         'warning'
       )
