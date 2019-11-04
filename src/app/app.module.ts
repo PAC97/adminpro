@@ -20,17 +20,15 @@ import { PagesUserComponent } from './pages-user/pages-user.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { TipServicioComponent } from './login/tip-servicio/tip-servicio.component';
-
-
-
-
-
+import { MessageComponent } from './login/message/message.component';
+import {SharedModule} from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     TipServicioComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,10 +36,13 @@ import { TipServicioComponent } from './login/tip-servicio/tip-servicio.componen
     APPS_ROUTES,
     PagesModule,
     PagesUserModule,
+    
     FormsModule,
     HttpClientModule,
     AngularFontAwesomeModule,
-    ImageCropperModule
+    ImageCropperModule,
+    AngularFontAwesomeModule,
+    SharedModule
   ],
   providers: [
     UsuarioService,
