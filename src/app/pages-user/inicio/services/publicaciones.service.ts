@@ -6,7 +6,7 @@ import {publicaciones} from '../models/publicaciones';
   providedIn: 'root'
 })
 export class PublicacionesService {
-  API_URI = 'https://desemplea2.herokuapp.com/api';
+  API_URI = 'https://desempla2.herokuapp.com/api';
   httpheaders:any;
   id:any;  
   constructor(private http:HttpClient) {
