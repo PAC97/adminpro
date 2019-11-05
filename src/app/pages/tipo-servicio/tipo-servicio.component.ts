@@ -30,7 +30,6 @@ export class ServicioComponent implements OnInit {
     .subscribe(tip=>{
       this.ser = tip;
       this.Servicio=this.ser.servicios;
-      
       if(this.Servicio.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])
       }
@@ -63,5 +62,5 @@ export class ServicioComponent implements OnInit {
       }
     });
   }
-
 }
+ 
