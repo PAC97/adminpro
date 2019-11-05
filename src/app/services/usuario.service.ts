@@ -45,4 +45,7 @@ export class  UsuarioService {
   putUsuario(user:user, id:string){
     return this.http.put(`${this.API_URI}/usuario/${id}`,user, {headers: this.httpheaders})
   }
+  getChatid(id:string){
+    return this.http.get(`${this.API_URI}/chat/${id}`, {headers: this.httpheaders})
+  }
 }
