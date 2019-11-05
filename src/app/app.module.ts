@@ -20,7 +20,7 @@ import { PagesUserComponent } from './pages-user/pages-user.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { TipServicioComponent } from './login/tip-servicio/tip-servicio.component';
-
+import {ChatsModule} from './chats/chats.module';
 
 
 
@@ -41,7 +41,8 @@ import { TipServicioComponent } from './login/tip-servicio/tip-servicio.componen
     FormsModule,
     HttpClientModule,
     AngularFontAwesomeModule,
-    ImageCropperModule
+    ImageCropperModule,
+    ChatsModule
   ],
   providers: [
     UsuarioService,

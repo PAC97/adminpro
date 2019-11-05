@@ -31,7 +31,7 @@ export class TipoUsuarioComponent implements OnInit {
     .subscribe(tip=>{
       this.tips=tip;
       this.tipoUsario=this.tips.tipoUsuario;
-      
+      console.log(this.tipoUsario);
       if(this.tipoUsario.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])
       }
