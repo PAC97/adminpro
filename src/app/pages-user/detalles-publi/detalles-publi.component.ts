@@ -71,9 +71,10 @@ idus:any;
     })
   }
   sendChat(){
-    this.chatservice.sendMessage(this.mensaje, this.idPubli, this.idUser);
-    this.mensaje = '';
+    this.chatservice.sendMessage(this.mensaje, this.emisor, this.idUser);
     console.log(this.mensaje);
+    this.mensaje = '';
+   
   }
   obtenerChat(){
     this.chatservice.getMessages()

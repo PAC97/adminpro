@@ -6,7 +6,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { HeaderUserComponent } from './header-user/header-user.component';
 import { SideuserComponent } from './sideuser/sideuser.component';
 import {PAGES_ROUTES_USUARIO} from '../pages-user/pages-user.routes';
-
+import {PAGES_ROUTES_CHATS} from '../chats/chat.routes';
 @NgModule({
     declarations: [
         BreadcrumbsComponent,
@@ -26,6 +26,7 @@ import {PAGES_ROUTES_USUARIO} from '../pages-user/pages-user.routes';
     ],
     imports: [
         PAGES_ROUTES_USUARIO,
+        PAGES_ROUTES_CHATS
   ]
 })
 
