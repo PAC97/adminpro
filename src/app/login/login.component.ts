@@ -44,14 +44,23 @@ export class LoginComponent implements OnInit {
             //if para validar los servicios 
            
               if (this.datos.data.Rol.nombre == 'Admin') {
-                this.route.navigate(['/menu']);
+                this.route.navigate(['/menu'])
+                .then(() => {
+                  window.location.reload();
+                });
               }
               else if (this.datos.data.Rol.nombre == 'Cliente') {
                 if (this.datos.data.Servicios.length >= 1) {
                 this.route.navigate(['/inicio'])
+                .then(() => {
+                  window.location.reload();
+                });
               }
               else {
-                this.route.navigate(['/SeleccionarServicios']);
+                this.route.navigate(['/SeleccionarServicios'])
+                .then(() => {
+                  window.location.reload();
+                });
               }
               }
               else {
