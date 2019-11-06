@@ -4,17 +4,22 @@ import { MessComponent } from './mess/mess.component';
 import {AppChatsComponent} from './app-chats.component';
 import {PAGES_ROUTES_CHATS} from './chat.routes';
 import {SharedModule} from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SendComponent } from './send/send.component';
+
 
 @NgModule({
   declarations: [
     AppChatsComponent,
     MessComponent,
+    SendComponent,
   ],
   exports: [
 ],
   imports: [
     PAGES_ROUTES_CHATS,
-    SharedModule
+    SharedModule,
+    CommonModule
   ],
   providers: [
     

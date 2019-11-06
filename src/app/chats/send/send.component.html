@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="row" *ngFor="let chat of Mess">    
+                <div class="col-md-12" *ngIf="chat.Emisor != session">
+                    <div class="alert alert-light" role="alert" style="float: left;">
+                        {{chat.Chat}}
+                    </div>
+                </div>
+                <div class="col-md-12" *ngIf="chat.Emisor == session">
+                    <div class="alert alert-success" role="alert" style="float: right;">
+                       {{chat.Chat}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

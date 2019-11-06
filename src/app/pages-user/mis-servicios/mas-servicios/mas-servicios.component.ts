@@ -44,7 +44,7 @@ export class MasServiciosComponent implements OnInit {
       .subscribe(ser => {
         this.ser = ser;
         this.pruev = this.ser.servicios;
-        
+          
         this.pruev.forEach(element => {
           var items = this.sesr.filter(function (items) {
             return items.nombre == element.nombre;
