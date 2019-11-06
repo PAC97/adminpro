@@ -6,7 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
+<<<<<<< HEAD
   private url = 'https://desempla2.herokuapp.com/';
+=======
+  private url = 'https://desempla2.herokuapp.com';
+>>>>>>> 328af08ada2383d268f63731b398b59636f7c63d
   private socket;
 
   constructor() {

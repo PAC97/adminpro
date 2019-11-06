@@ -72,7 +72,12 @@ idus:any;
   }
   sendChat(){
     this.chatservice.sendMessage(this.mensaje, this.emisor, this.idUser);
+<<<<<<< HEAD
     this.mensaje = '';
+=======
+>>>>>>> 328af08ada2383d268f63731b398b59636f7c63d
     console.log(this.mensaje);
+    this.mensaje = '';
+   
   }
 }

@@ -42,8 +42,6 @@ import { PubliCuentaComponent } from './publi-cuenta/publi-cuenta.component';
     MasServiciosComponent,
     DetallesPubliComponent,
     PubliCuentaComponent
-
-
   ],
   exports: [
     PagesUserComponent,
@@ -56,20 +54,12 @@ import { PubliCuentaComponent } from './publi-cuenta/publi-cuenta.component';
     PAGES_ROUTES_USUARIO,
     SharedModule,
     ReactiveFormsModule,
-
-
     ImageCropperModule,
     NgxSelectModule,
-
     Ng2SearchPipeModule  
-  
-
-
-
   ],
   providers: [
     ChatService
-
   ]
 })
 export class PagesUserModule { }
