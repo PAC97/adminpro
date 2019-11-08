@@ -21,15 +21,20 @@ export class AdminRegisterComponent implements OnInit {
     'Direccion': '',
     'Correo':'',
     'Password':'',
-    'ID_TipoUsuario':'5db1051dc9064971646b675c',
+    'ID_TipoUsuario':'5dba5781b65f0f0017e3e6a7',
     'pathImg': '',
     'Region': '',
     'Estado': true,
+    'Acciones':[],
+    'Servicios':[''],
     }
     IDservicio;
     confirm;
     uses:any;
     servicios:any;
+    Acciones=[{accion:'Ver'},{accion:'Modificar'},{accion:'Eliminar'},{accion:'Agregar'}];
+    sers=[{nombre:'admin'}]
+    Accion=[];
   constructor(private service: UsuarioService, private route:Router) { }
 
   ngOnInit() {
@@ -41,10 +46,36 @@ export class AdminRegisterComponent implements OnInit {
   //Combobox 
   this.service.getService()
   .subscribe(tip=>{
-    this.servicios = tip;
-    
+    this.servicios = tip; 
   })
+}
+//metodos para seleccionar los roles de los usuarios
+addAccion(accion:string){
+var items = this.Accion.filter( function (items){
+  return items.accion == accion;
+})
+if(items.length > 0){
+ var index:number = this.Accion.indexOf(this.Accion.find(x => x.accion == accion));
+ this.Accion.splice(index, 1);
+}
+else{
+ this.Accion.push({ accion: accion});
+ }
+ console.log(this.Accion)
+}
+guaAcc(){
+  if(this.Accion.length > 0){
+    this.User.Acciones = this.Accion;
+    console.log(this.User);
   }
+  else{
+    Swal.fire(
+      'Error',
+      'Debes seleccionar por lo menos una accion',
+      'warning'
+    )
+  }
+}
   //Metodos para las imagenes 
 fileChangeEvent(event: any): void {
   this.imageChangedEvent = event;
@@ -68,13 +99,13 @@ this.User.pathImg = this.croppedImage;
 //
 
 add(){
+ 
   var correo = this.User.Correo;
   var items = this.uses.filter(function(item) {
     return item.Correo == correo;
   });
-  
   if(this.User.Nombres != '' && this.User.Apellidos && this.User.Edad != '' && this.User.Telefono != '' 
-  && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != '' && this.User.pathImg != ''){
+  && this.User.Direccion != '' && this.User.Correo != '' && this.User.Password != '' && this.User.pathImg != '' && this.User.Acciones.length > 0){
     if(this.confirm == this.User.Password){
       if(items.length <= 0 ){
         this.service.postUser(this.User)
