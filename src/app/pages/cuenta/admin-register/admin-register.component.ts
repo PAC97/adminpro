@@ -25,7 +25,7 @@ export class AdminRegisterComponent implements OnInit {
     'pathImg': '',
     'Region': '',
     'Estado': true,
-    'Acciones':[],
+    'Acciones':[''],
     'Servicios':[''],
     }
     IDservicio;
@@ -33,7 +33,7 @@ export class AdminRegisterComponent implements OnInit {
     uses:any;
     servicios:any;
     Acciones=[{accion:'Ver'},{accion:'Modificar'},{accion:'Eliminar'},{accion:'Agregar'}];
-    sers=[{nombre:'admin'}]
+    sers=[];
     Accion=[];
   constructor(private service: UsuarioService, private route:Router) { }
 
@@ -94,12 +94,12 @@ loadImageFailed() {
 }
 foto(){
 this.User.pathImg = this.croppedImage;
-
 }
 //
 
 add(){
- 
+  this.sers.push({nombre:'Admin'});
+ this.User.Servicios = this.sers;
   var correo = this.User.Correo;
   var items = this.uses.filter(function(item) {
     return item.Correo == correo;
