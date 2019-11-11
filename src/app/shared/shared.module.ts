@@ -1,4 +1,7 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -26,7 +29,9 @@ import {PAGES_ROUTES_CHATS} from '../chats/chat.routes';
     ],
     imports: [
         PAGES_ROUTES_USUARIO,
-        PAGES_ROUTES_CHATS
+        PAGES_ROUTES_CHATS,
+        FormsModule,
+        CommonModule
   ]
 })
 

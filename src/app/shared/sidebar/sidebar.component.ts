@@ -13,6 +13,8 @@ export class SidebarComponent implements OnInit {
   nombre:any;
   apellido:any;
   img:any;
+  permisos:any;
+  per:any;
   constructor(private service: UsuarioService) { }
 
   ngOnInit() {
@@ -23,7 +25,13 @@ export class SidebarComponent implements OnInit {
         this.nombre = this.userSession.Nombres;
         this.apellido = this.userSession.Apellidos;
         this.img = this.userSession.pathImg;
-        
+        this.permisos = this.userSession.Acciones;
+        if(this.permisos.length >= 4){
+          this.per = true;
+        }
+        else{
+          this.per = false;
+        }
       })
   }
 }

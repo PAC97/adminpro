@@ -31,7 +31,7 @@
                                     <a class="waves-dark" aria-expanded="false" [routerLink]="['/publicaciones']"><i class="fa fa-bullhorn" ></i><span class="hide-menu"> Publicaciones</span></a>
                                 </li>
                                 <li class="nav-devider"></li>
-                                <li class="user-profile">
+                                <li *ngIf="per == true" class="user-profile">
                                     <a class="waves-dark" aria-expanded="false" [routerLink]="['/admin-register']"><i class="fa fa-user-plus"></i><span class="hide-menu"> Agregar Administrador</span></a>
                                 </li>
                         
