@@ -17,27 +17,51 @@ export class TipoUsuarioComponent implements OnInit {
   p:any;
   tipoUsario:any;
   tips:any;
+  permisos:any;
+  user:any;
+  id:any;
+  ok:any;
   constructor(private service:TipoUsuarioService, private router:Router) { }
 
   ngOnInit() {
-    this.obtenerTipoUsuario();
+  
     var session = localStorage.getItem('x-access-token');
+    this.id = localStorage.getItem('session');
     if(session == null){
       this.router.navigate(['../login'])
     }
+    this.service.getIdUsuario(this.id)
+    .subscribe(user=>{
+      this.user = user;
+      this.permisos = this.user.usuario.Acciones;
+    })
+    
+    this.obtenerTipoUsuario();
   }
   obtenerTipoUsuario(){
+  
     this.service.getTipoUsuario()
     .subscribe(tip=>{
       this.tips=tip;
       this.tipoUsario=this.tips.tipoUsuario;
-      console.log(this.tipoUsario);
       if(this.tipoUsario.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])
       }
     })
   };
   DeleteTipoUsuario(id:string){
+    this.permisos.forEach(element => {
+      var items = this.permisos.filter( function (items){
+        return items.accion == 'Eliminar Tipo Usuario'
+      })
+      if(items.length > 0){
+        this.ok = true;
+      }
+      else{
+        this.ok = false;
+      }
+    });
+    if(this.ok == true){
     Swal.fire({
       title: '¿Desea eliminar el registro?',
       text: "Al eliminar no se podrá recuperar el registro!",
@@ -64,5 +88,13 @@ export class TipoUsuarioComponent implements OnInit {
         )
       }
     });
+  }
+  else{
+    Swal.fire(
+      'Error',
+      'No tienes permiso para realizar esta accion',
+      'warning'
+    )
+  }
   }
 }

@@ -30,7 +30,7 @@ export class  UsuarioService {
   }
   //
   getUser(){
-    return this.http.get(`${this.API_URI}/usuario`);
+    return this.http.get(`${this.API_URI}/usuario`,{headers: this.httpheaders});
   }
   //getServicios
   getService(){

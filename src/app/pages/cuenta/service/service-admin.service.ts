@@ -26,6 +26,6 @@ export class ServiceUserService {
     return this.http.put(`${this.API_URI}/usuario/${id}`,user, {headers: this.httpheaders})
   }
   logUser(Userlog:userLog){
-    return this.http.post(`${this.API_URI}/autenticacion`, Userlog);
+    return this.http.post(`${this.API_URI}/autenticacion`, Userlog, {headers: this.httpheaders});
 }
 }

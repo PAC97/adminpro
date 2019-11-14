@@ -40,7 +40,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { AdminRegisterComponent } from './cuenta/admin-register/admin-register.component';
 
-
+import {TabsModule} from 'ngx-tabset';
 
 @NgModule({
     declarations: [
@@ -73,6 +73,7 @@ import { AdminRegisterComponent } from './cuenta/admin-register/admin-register.c
         CommonModule,
         SharedModule,
         PAGES_ROUTES,
+        TabsModule,
         FormsModule,
         NgxPaginationModule,
         AngularFontAwesomeModule,
