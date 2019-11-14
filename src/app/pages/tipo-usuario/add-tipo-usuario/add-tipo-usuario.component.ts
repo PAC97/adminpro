@@ -35,13 +35,12 @@ export class AddTipoUsuarioComponent implements OnInit {
     .subscribe(user=>{
       this.user = user;
       this.permisos = this.user.usuario.Acciones;
-      console.log(this.permisos);
     })
   }
   Agregar(){
     this.permisos.forEach(element => {
     var items = this.permisos.filter( function (items){
-      return items.accion == 'Agregar'
+      return items.accion == 'Agregar Tipo Usuario'
     })
     if(items.length > 0){
       this.ok = true;

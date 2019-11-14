@@ -39,7 +39,6 @@ export class TipoUsuarioComponent implements OnInit {
     this.obtenerTipoUsuario();
   }
   obtenerTipoUsuario(){
-  
     this.service.getTipoUsuario()
     .subscribe(tip=>{
       this.tips=tip;
