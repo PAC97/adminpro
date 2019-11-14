@@ -32,16 +32,20 @@ export class AdminRegisterComponent implements OnInit {
     confirm;
     uses:any;
     servicios:any;
-    Acciones=[{accion:'Ver'},{accion:'Modificar'},{accion:'Eliminar'},{accion:'Agregar'}];
+    accion:any;
     sers=[];
     Accion=[];
+    Acciones=[{Modulo:'Usuario', crear:'Crear Usuario', ver: 'Ver Usuario', modificar:'Modificar Usuario', eliminar:'Eliminar Usuario'},
+  {Modulo:'Servicios', crear:'Crear Servicios', ver: 'Ver Servicios', modificar:'Modificar Servicios', eliminar:'Eliminar Servicios'},
+{Modulo:'Publicaciones', crear:'Crear Publicaciones', ver: 'Ver Publicaciones', modificar:'Modificar Publicaciones', eliminar:'Eliminar Publicaciones'},
+{Modulo:'Tipo Usuario', crear:'Crear Tipo Usuario', ver: 'Ver Tipo Usuario', modificar:'Modificar Tipo Usuario', eliminar:'Eliminar Tipo Usuario'}]
   constructor(private service: UsuarioService, private route:Router) { }
 
   ngOnInit() {
     this.service.getUser()
     .subscribe(user=>{
       this.uses = user;
-      
+      console.log(this.uses);
   })
   //Combobox 
   this.service.getService()

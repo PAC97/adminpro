@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ServiceUserService } from '../service/service-user.service';
 import { user, userLog } from '../models/usuario';
 
@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
 //imagen
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 //prueba xd xd xd
-
+import {HeaderUserComponent} from '../../../shared/header-user/header-user.component';
+import { inject } from '@angular/core/testing';
 
 @Component({
   selector: 'app-mod-cuenta',
@@ -16,6 +17,9 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
   styleUrls: ['./mod-cuenta.component.css']
 })
 export class ModCuentaComponent implements OnInit {
+
+  @Inject(HeaderUserComponent) header : HeaderUserComponent;
+
   imageChangedEvent: any = '';
   croppedImage: any = '';
   user: any;
@@ -84,7 +88,6 @@ export class ModCuentaComponent implements OnInit {
         this.direccion = this.us.Direccion;
         this.edad = this.us.Edad;
         this.img = this.us.pathImg;
-        
       })
   }
 
@@ -114,7 +117,7 @@ export class ModCuentaComponent implements OnInit {
           'success'
         )
         this.getUsuario();
-       
+       this.header.ngOnInit();
       }
     });
   }
@@ -175,7 +178,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -187,7 +190,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -197,7 +200,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -211,7 +214,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -221,7 +224,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -233,7 +236,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -243,7 +246,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -259,7 +262,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -269,7 +272,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -281,7 +284,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -291,7 +294,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -305,7 +308,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -315,7 +318,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -327,7 +330,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -337,7 +340,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -356,7 +359,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -366,7 +369,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -378,7 +381,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -388,7 +391,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -402,7 +405,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -412,7 +415,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -424,7 +427,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -434,7 +437,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -450,7 +453,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -460,7 +463,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -472,7 +475,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -482,7 +485,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -496,7 +499,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -506,7 +509,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -518,7 +521,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -528,7 +531,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -550,7 +553,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -560,7 +563,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -572,7 +575,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -582,7 +585,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -596,7 +599,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -606,7 +609,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -618,7 +621,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -628,7 +631,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -644,7 +647,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -654,7 +657,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -666,7 +669,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -676,7 +679,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -690,7 +693,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -700,7 +703,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -712,7 +715,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -722,7 +725,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -741,7 +744,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -751,7 +754,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -763,7 +766,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -773,7 +776,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -787,7 +790,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -797,7 +800,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -809,7 +812,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -819,7 +822,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -835,7 +838,7 @@ export class ModCuentaComponent implements OnInit {
           if (this.User.Password != '') {
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -845,7 +848,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -857,7 +860,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -867,7 +870,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -881,7 +884,7 @@ export class ModCuentaComponent implements OnInit {
             this.User.Password = this.us.Password;
             if (this.User.Edad != '') {
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -891,7 +894,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -903,7 +906,7 @@ export class ModCuentaComponent implements OnInit {
             else {
               this.User.Edad = this.us.Edad;
               if (this.User.Telefono != '') {
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
@@ -913,7 +916,7 @@ export class ModCuentaComponent implements OnInit {
               }
               else {
                 this.User.Telefono = this.us.Telefono;
-                if(this.user.pathImg != ''){
+                if(this.User.pathImg != ''){
                   this.guardarModificacion();
                 }
                 else{
