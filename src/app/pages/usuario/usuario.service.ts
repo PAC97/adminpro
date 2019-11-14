@@ -9,13 +9,14 @@ import {user} from './models/usuario';
 })
 export class UsuarioService {
  API_URI = 'https://desempla2.herokuapp.com/api';
-
+id:any;
   //variable para llenar dentro del constructor para luego utilizarce 
     httpheaders:any;
   constructor(private http:HttpClient) {
     //Creamos un constructor para poder mandar la cabecera solo con la asignacion dentro del metodo
     //cachamos el token que esta almacenado en el localstorage
     var session = localStorage.getItem('x-access-token');
+    this.id = localStorage.getItem('session');
     //A la variable de header le asiggnamos el tipo de dato y le mandamos el token para poder validar 
     this.httpheaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -27,6 +28,9 @@ export class UsuarioService {
     //Nuesta validacion
     getUsuario(){
       return this.http.get(`${this.API_URI}/Usuario`, {headers: this.httpheaders});
+    }
+    getUsuarioAd(id:string){
+      return this.http.get(`${this.API_URI}/usuarioA/${id}`, {headers: this.httpheaders});   
     }
     getUsuarioTipoID(Tip_ID: string){
       return this.http.get(`${this.API_URI}/Usuario/${Tip_ID}`, {headers: this.httpheaders});
