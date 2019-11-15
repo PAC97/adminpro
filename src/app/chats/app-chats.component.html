@@ -10,10 +10,10 @@
                     <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/inicio']"><span
                      class="hide-menu">salir</span></a>
                 </li>
-                <li class="user-profile" *ngFor="let Us of Usuario">
+                <li class="user-profile" *ngFor="let Us of Us">
                     <a class="has-arrow waves-effect waves-dark" aria-expanded="false" [routerLink]="['/send', Us.Receptor._id, Us.Emisor._id]" ><img
-                            [src]="Us.Receptor.pathImg" alt="user" /><span
-                            class="hide-menu">{{ Us.Receptor.Nombres }} {{ Us.Receptor.Apellidos }}</span></a>
+                            [src]="Us.Foto" alt="user" /><span
+                            class="hide-menu">{{ Us.Nombres }} {{ Us.Apellidos }}</span></a>
                 </li>
             </ul>
         </nav>
