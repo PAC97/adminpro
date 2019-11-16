@@ -13,15 +13,13 @@ import {user} from './models/usuario';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-  filter:any;
-  p:any;
-  uses:any;
-  ids:any;
-  User:any;
-  Usr:any;
+  filter:any; p:any; uses:any; U:any; C:any; ids:any; User:any; Usr:any;
   users:any;
   id: any;
   Users:any;
+  UseAd:any;
+  IdAd="5dba5781b65f0f0017e3e6a7";
+  idCl="5dbba3eab743d7001769b587";
   Usuario:user={
     '_id':'',
     'Nombres':'',
@@ -37,16 +35,26 @@ export class UsuarioComponent implements OnInit {
     'Region': '',
     'Estado': false
   }
+  idA:any;
   constructor(private service: UsuarioService, private router:Router) { }
-
+  
   ngOnInit() {
-  this.getUsers();
+  this.getUsersC();
+  this.getUserA();
+ }
+  getUserA(){
+    this.service.getUsuarioAd(this.IdAd)
+    .subscribe(U=>{
+      this.C = U;
+      this.UseAd = this.C.usuario;
+    
+    })
   }
-  getUsers(){
-    this.service.getUsuario()
+  getUsersC(){
+    this.service.getUsuarioAd(this.idCl)
     .subscribe(user=>{
-      this.uses = user;
-      
+      this.U = user;
+      this.uses = this.U.usuario;
     })
   }
   getidUsuario(id:string){
@@ -94,7 +102,7 @@ ModUsuario(){
          'El registro se modificó correctamente.',
          'success'
        )
-     this.getUsers();
+     this.getUsersC();
      }
    });
   }  
@@ -121,7 +129,7 @@ ModUsuario(){
           'El registro se modificó correctamente.',
           'success'
         )
-      this.getUsers();
+      this.getUsersC();
       }
     });
   }

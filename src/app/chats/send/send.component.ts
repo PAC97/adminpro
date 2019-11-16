@@ -29,8 +29,8 @@ session:any;
       this.Ec = chats;
       this.Echats = this.Ec.Chat;
       this.Echats.forEach(element => {
-        this.Mess.push({Emisor:element.Emisor._id, Chat:element.Mensaje, Receptor:element.Receptor._id, Fecha:element.Hora});
-      });
+          this.Mess.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: element.Hora });
+        });
     })
     this.service.getChatsUsers(this.idR, this.idE)
     .subscribe(chat=>{
