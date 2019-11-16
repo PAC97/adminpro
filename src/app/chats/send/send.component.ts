@@ -29,18 +29,8 @@ session:any;
       this.Ec = chats;
       this.Echats = this.Ec.Chat;
       this.Echats.forEach(element => {
-        var items = this.Mess.filter(function (items) {
-          return items.Receptor._id == element.Receptor._id;
-        })
-        console.log(items);
-        if (items.length > 0) {
-          var index:number = this.Mess.indexOf(this.Mess.find(x => x.Receptor._id == element.Receptor._id));
-          this.Mess.splice(index, 1);
-        }
-        else {
           this.Mess.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: element.Hora });
-        }
-      });
+        });
     })
     this.service.getChatsUsers(this.idR, this.idE)
     .subscribe(chat=>{
