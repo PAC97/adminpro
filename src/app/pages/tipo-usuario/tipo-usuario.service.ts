@@ -44,4 +44,7 @@ export class TipoUsuarioService {
     putTipoUsuario(id:any, TipoUser:tipoUsuario){
       return this.http.put(`${this.API_URI}/tipoUsuario/${id}`, TipoUser, {headers: this.httpheaders});
     }
+    getIdUsuario(id:string){
+      return this.http.get(`${this.API_URI}/Usuario/${id}`, {headers: this.httpheaders});
+    }
   }

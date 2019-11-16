@@ -35,7 +35,7 @@ export class ModCuentaComponent implements OnInit {
     'ID_TipoUsuario':'',
     'Servicios':'',
     'pathImg': '',
-    'Region': '',
+    'Region': 'Sonsonate',
     'Estado': true
   }
   pass = "";
@@ -82,7 +82,6 @@ getUsuario() {
       this.direccion = this.us.Direccion;
       this.edad = this.us.Edad;
       this.img = this.us.pathImg;
-    
     })
 }
 
@@ -99,6 +98,7 @@ guardarModificacion() {
     cancelButtonText: 'No'
   }).then((result) => {
     if (result.value) {
+      console.log(this.User);
       this.service.putUsuario(this.User, this.us._id)
         .subscribe(
           res => {
@@ -152,7 +152,6 @@ modifica() {
   this.User.Correo = this.us.Correo;
   this.User.Servicios = this.us.Servicios;
   this.User.ID_TipoUsuario = this.us.ID_TipoUsuario;
-  this.User.Region = this.us.Region;
   this.User.Estado = this.us.Estado;
   //If para nombres
   if (this.User.Nombres != '') {
@@ -162,7 +161,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-             if(this.user.pathImg != ''){
+             if(this.User.pathImg != ''){
                this.guardarModificacion();
              }
              else{
@@ -172,7 +171,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -184,7 +183,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -194,7 +193,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -208,7 +207,7 @@ modifica() {
           this.User.Password = this.us.Password;
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -218,7 +217,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -230,7 +229,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -240,7 +239,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -256,7 +255,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -266,7 +265,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -278,7 +277,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -288,7 +287,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -302,7 +301,7 @@ modifica() {
           this.User.Password = this.us.Password;
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -312,7 +311,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -324,7 +323,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -334,7 +333,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -353,7 +352,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -363,7 +362,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -375,7 +374,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -385,7 +384,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -399,7 +398,7 @@ modifica() {
           this.User.Password = this.us.Password;
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -409,7 +408,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -421,7 +420,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -431,7 +430,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -447,7 +446,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -457,7 +456,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -469,7 +468,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -479,7 +478,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -493,7 +492,7 @@ modifica() {
           this.User.Password = this.us.Password;
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -503,7 +502,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -515,7 +514,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -525,7 +524,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -547,7 +546,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -557,7 +556,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -569,7 +568,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -579,7 +578,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -593,7 +592,7 @@ modifica() {
           this.User.Password = this.us.Password;
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -603,7 +602,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -615,7 +614,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -625,7 +624,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -641,7 +640,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -651,7 +650,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -663,7 +662,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -673,7 +672,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -687,7 +686,7 @@ modifica() {
           this.User.Password = this.us.Password;
            if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -697,7 +696,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -709,7 +708,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -719,7 +718,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -738,7 +737,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -748,7 +747,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -760,7 +759,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -770,7 +769,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -784,7 +783,7 @@ modifica() {
           this.User.Password = this.us.Password;
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -794,7 +793,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -806,7 +805,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -816,7 +815,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -832,7 +831,7 @@ modifica() {
         if (this.User.Password != '') {
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -842,7 +841,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -854,7 +853,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -864,7 +863,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -878,7 +877,7 @@ modifica() {
           this.User.Password = this.us.Password;
           if (this.User.Edad != '') {
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -888,7 +887,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -900,7 +899,7 @@ modifica() {
           else {
             this.User.Edad = this.us.Edad;
             if (this.User.Telefono != '') {
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{
@@ -910,7 +909,7 @@ modifica() {
             }
             else {
               this.User.Telefono = this.us.Telefono;
-              if(this.user.pathImg != ''){
+              if(this.User.pathImg != ''){
                 this.guardarModificacion();
               }
               else{

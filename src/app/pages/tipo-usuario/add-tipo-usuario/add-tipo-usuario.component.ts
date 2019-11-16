@@ -19,6 +19,10 @@ export class AddTipoUsuarioComponent implements OnInit {
     'nombre':'',
     'descripcion': ''
   }
+  id:any;
+  permisos:any;
+  user:any;
+  ok:any;
   constructor(private service:TipoUsuarioService, private router:Router) { }
 
   ngOnInit() {
@@ -26,8 +30,27 @@ export class AddTipoUsuarioComponent implements OnInit {
     if(session == null){
       this.router.navigate(['../login'])
     }  
+    this.id = localStorage.getItem('session');
+    this.service.getIdUsuario(this.id)
+    .subscribe(user=>{
+      this.user = user;
+      this.permisos = this.user.usuario.Acciones;
+    })
   }
   Agregar(){
+    this.permisos.forEach(element => {
+    var items = this.permisos.filter( function (items){
+      return items.accion == 'Agregar Tipo Usuario'
+    })
+    if(items.length > 0){
+      this.ok = true;
+    }
+    else{
+      this.ok = false;
+    }
+  });
+  if(this.ok == true){
+    
    if(this.tipU.nombre != '' && this.tipU.descripcion != ''){
       this.service.postTipoUsuario(this.tipU)
       .subscribe(tipoU=>{
@@ -47,5 +70,12 @@ export class AddTipoUsuarioComponent implements OnInit {
         'warning'
       )
     }
+  }else{
+    Swal.fire(
+      'Error',
+      'No tienes permiso para realizar esta accion',
+      'warning'
+    )
   }
+ }
 }

@@ -12,6 +12,7 @@ export interface user{
     Region?: string,
     Servicios?: string[],
     Estado: boolean,
+    Acciones?:string[],
 }
 export interface userLog{
     Correo: string,

@@ -21,11 +21,19 @@ export class ModTipoUsuarioComponent implements OnInit {
   }
   ids;
   tipUser:any;
+  nombre:string;
+  descripcion:any;
+  id:any;
+  User:any;
+  permisos:any;
+  user:any;
+  ok:any;
   constructor(private service:TipoUsuarioService, private router:Router, private activateRouter:ActivatedRoute) { }
 
   ngOnInit() {
     //sesion
     var session = localStorage.getItem('x-access-token');
+    this.id = localStorage.getItem('session');
     if(session == null){
       this.router.navigate(['../login'])
     }  
@@ -37,9 +45,49 @@ export class ModTipoUsuarioComponent implements OnInit {
       this.service.getIdtipoUsuario(this.ids)
       .subscribe(tipUs =>{
       this.tipUser = tipUs;
+      this.nombre = this.tipUser.tipoUsuario.nombre;
+      this.descripcion =  this.tipUser.tipoUsuario.descripcion;
     });
+    this.service.getIdUsuario(this.id)
+    .subscribe(user=>{
+      this.user = user;
+      this.permisos = this.user.usuario.Acciones;
+    })
   }
   mod(){
+
+    if(this.tipUM.nombre != ''){
+      if(this.tipUM.descripcion != ''){
+        this.Mensaje();
+      }else{
+        this.tipUM.descripcion = this.descripcion;
+        this.Mensaje();
+      }
+    } 
+    else{
+      this.tipUM.nombre = this.nombre;
+      if(this.tipUM.descripcion != ''){
+        this.Mensaje();
+      }
+      else{
+        this.tipUM.descripcion = this.descripcion;
+        this.Mensaje();
+      }
+    }
+  }
+  Mensaje(){
+    this.permisos.forEach(element => {
+      var items = this.permisos.filter( function (items){
+        return items.accion == 'Modificar Tipo Usuario'
+      })
+      if(items.length > 0){
+        this.ok = true;
+      }
+      else{
+        this.ok = false;
+      }
+    });
+    if(this.ok == true){
    Swal.fire({
       title: '¿Dese modificar el registro?',
       text: "El registro se modificará",
@@ -65,5 +113,13 @@ export class ModTipoUsuarioComponent implements OnInit {
       this.router.navigate(['/tipoUsuario']);
       }
     });
+  }
+  else{
+    Swal.fire(
+      'Error',
+      'No tienes permiso para realizar esta accion',
+      'warning'
+    )
+  }
  }
 }
