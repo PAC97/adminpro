@@ -7,3 +7,8 @@ export interface publicaciones{
     ID_Servicio?:string,
     Fecha:Date,
 }
+export interface comentarios{
+    ID_Usuario:string,
+    ID_Publicacion:string,
+    Comentario:string
+}
