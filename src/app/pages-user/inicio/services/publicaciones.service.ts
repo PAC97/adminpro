@@ -45,7 +45,13 @@ export class PublicacionesService {
  getComentarios(id:string){
   return this.http.get(`${this.API_URI}/comentarios/${id}`, {headers: this.httpheaders});
  }
+ getIDComentarios(id:string){
+  return this.http.get(`${this.API_URI}/comentario/${id}`, {headers: this.httpheaders});
+ }
  deleteComentarios(id:string){
   return this.http.delete(`${this.API_URI}/comentarios/${id}`, {headers: this.httpheaders});
+ }
+ puComentario(id:string, Comentarios:comentarios){
+  return this.http.put(`${this.API_URI}/comentarios/${id}`, Comentarios, {headers: this.httpheaders});  
  }
 }
