@@ -23,4 +23,7 @@ export class PublicacionesService{
     deletepublicaciones(id:string){
         return this.http.delete(`${this.API_URI}/publicaciones/${id}`, {headers: this.httpheaders});
     }
+    getIdUsuario(id:string){
+        return this.http.get(`${this.API_URI}/Usuario/${id}`, {headers: this.httpheaders});
+      }
 }
