@@ -16,6 +16,11 @@ export class ServicioComponent implements OnInit {
   p:any;
   Servicio:any;
   ser:any;
+  permisos:any;
+  user:any;
+  id:any;
+  ok:any;
+
   constructor(private service:TipoServicioService, private router:Router) { }
 
   ngOnInit() {
@@ -24,44 +29,69 @@ export class ServicioComponent implements OnInit {
     if(session == null){
       this.router.navigate(['../login'])
     }
+    this.id = localStorage.getItem('session');
+    this.service.getIdUsuario(this.id)
+    .subscribe(user=>{
+      this.user = user;
+      this.permisos = this.user.usuario.Acciones;
+    }) 
   }
   obtenerServicio(){
     this.service.getTipoServicio()
     .subscribe(tip=>{
       this.ser = tip;
       this.Servicio=this.ser.servicios;
-      
+      console.log(this.Servicio);
       if(this.Servicio.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])
       }
     })
   };
   DeleteServicio(id:string){
-    Swal.fire({
-      title: '¿Desea eliminar el registro?',
-      text: "Al eliminar no se podrá recuperar el registro!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, borrar!',
-      cancelButtonText: 'No, Cancelar'
-    }).then((result) => {
-      if (result.value) {
-        this.service.deleteServicio(id)
-        .subscribe(
-          res => {
-          return this.obtenerServicio();
-          },
-          err => console.log(err)
-        )
-        Swal.fire(
-          'Eliminado!',
-          'El registro se eliminó correctamente.',
-          'success'
-        )
+    this.permisos.forEach(element => {
+      var items = this.permisos.filter( function (items){
+        return items.accion == 'Eliminar Servicios'
+      })
+      if(items.length > 0){
+        this.ok = true;
+      }
+      else{
+        this.ok = false;
       }
     });
+    if(this.ok == true){
+      Swal.fire({
+        title: '¿Desea eliminar el registro?',
+        text: "Al eliminar no se podrá recuperar el registro!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, borrar!',
+        cancelButtonText: '¡No, Cancelar!'
+      }).then((result) => {
+        if (result.value) {
+          this.service.deleteServicio(id)
+          .subscribe(
+            res => {
+            return this.obtenerServicio();
+            },
+            err => console.log(err)
+          )
+          Swal.fire(
+            'Eliminado!',
+            'El registro se eliminó correctamente.',
+            'success'
+          )
+        }
+      });
+    }
+    else{
+      Swal.fire(
+        'Error',
+        'No tienes permiso para realizar esta acción.',
+        'warning'
+      )
+    }
   }
-
 }

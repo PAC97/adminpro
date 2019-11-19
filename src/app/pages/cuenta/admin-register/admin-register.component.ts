@@ -36,9 +36,9 @@ export class AdminRegisterComponent implements OnInit {
     sers=[];
     Accion=[];
     Acciones=[{Modulo:'Usuario', crear:'Crear Usuario', ver: 'Ver Usuario', modificar:'Modificar Usuario', eliminar:'Eliminar Usuario'},
-  {Modulo:'Servicios', crear:'Crear Servicios', ver: 'Ver Servicios', modificar:'Modificar Servicios', eliminar:'Eliminar Servicios'},
-{Modulo:'Publicaciones', crear:'Crear Publicaciones', ver: 'Ver Publicaciones', modificar:'Modificar Publicaciones', eliminar:'Eliminar Publicaciones'},
-{Modulo:'Tipo Usuario', crear:'Crear Tipo Usuario', ver: 'Ver Tipo Usuario', modificar:'Modificar Tipo Usuario', eliminar:'Eliminar Tipo Usuario'}]
+              {Modulo:'Servicios', crear:'Crear Servicios', ver: 'Ver Servicios', modificar:'Modificar Servicios', eliminar:'Eliminar Servicios'},
+              {Modulo:'Publicaciones', crear:'Crear Publicaciones', ver: 'Ver Publicaciones', modificar:'Modificar Publicaciones', eliminar:'Eliminar Publicaciones'},
+              {Modulo:'Tipo Usuario', crear:'Crear Tipo Usuario', ver: 'Ver Tipo Usuario', modificar:'Modificar Tipo Usuario', eliminar:'Eliminar Tipo Usuario'}]
   constructor(private service: UsuarioService, private route:Router) { }
 
   ngOnInit() {

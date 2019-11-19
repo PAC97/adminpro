@@ -33,6 +33,7 @@ export class TipoServicioService {
     }
     //Post
     postTipoServicio(Serv:tipoServicio){
+      console.log(Serv);
       return this.http.post(`${this.API_URI}/servicio`, Serv, {headers: this.httpheaders});
     }
     // Delete
@@ -46,5 +47,8 @@ export class TipoServicioService {
     //put
     putTipoServicio(id:any, Serv:tipoServicio){
       return this.http.put(`${this.API_URI}/servicio/${id}`, Serv, {headers: this.httpheaders});
+    }
+    getIdUsuario(id:string){
+      return this.http.get(`${this.API_URI}/Usuario/${id}`, {headers: this.httpheaders});
     }
   }
