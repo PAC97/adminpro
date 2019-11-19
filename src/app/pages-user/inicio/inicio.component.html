@@ -136,7 +136,7 @@
                 </div>
                 <div id="demo_{{i}}" class="collapse" style="background: rgb(255, 255, 255); height: auto;">
                     <div *ngFor="let co of Con">
-                        <div class="col-md-12">
+                        <div class="col-md-12" *ngIf="pub._id == co.ID_Publicacion">
                             <div class="row">
                                 <div class="col-md-1">
                                     <img [src]="co.ID_Usuario.pathImg"
