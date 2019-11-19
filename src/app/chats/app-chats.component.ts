@@ -38,7 +38,7 @@ export class AppChatsComponent implements OnInit {
           var items = this.Mess.filter(function (items) {
             return items.Receptor == element.Receptor._id;
           })
-          console.log(items);
+          console.log(element);
           if (items.length > 1) {
             var index: number = this.Mess.indexOf(this.Mess.find(x => x.Receptor.Nombres == element.Receptor.Nombres));
             this.Mess.splice(index, 1);
@@ -63,7 +63,6 @@ export class AppChatsComponent implements OnInit {
 
           return nuevoArray;
         }
-
         this.Us = eliminarObjetosDuplicados(this.Usuario, 'Receptor');
         console.log(this.Us)
       })
