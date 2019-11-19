@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     localStorage.removeItem('x-access-token');
     localStorage.removeItem('session');
+      localStorage.removeItem('fecha');
   }
   userLog: userLog = {
     'Correo': "",
