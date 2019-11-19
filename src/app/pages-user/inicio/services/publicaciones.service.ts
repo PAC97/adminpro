@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { observable, Observable } from 'rxjs';
-import {publicaciones} from '../models/publicaciones';
+import {publicaciones, comentarios} from '../models/publicaciones';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,5 +38,14 @@ export class PublicacionesService {
  }
  getIDServicio(id:string){
  return this.http.get(`${this.API_URI}/publicacioneServicio/${id}`,{headers: this.httpheaders})
+ }
+ postComentarios(Comentarios:comentarios){
+  return this.http.post(`${this.API_URI}/comentarios`, Comentarios, {headers: this.httpheaders} );
+ }
+ getComentarios(id:string){
+  return this.http.get(`${this.API_URI}/comentarios/${id}`, {headers: this.httpheaders});
+ }
+ deleteComentarios(id:string){
+  return this.http.delete(`${this.API_URI}/comentarios/${id}`, {headers: this.httpheaders});
  }
 }

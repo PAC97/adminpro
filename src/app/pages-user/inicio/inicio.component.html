@@ -5,10 +5,11 @@
             <!--Filtro espacio-->
             <div style="background: rgb(255, 255, 255); height: 150px;">
                 <div class="from-gruop">
-                    <div class="col-md-12" >
+                    <div class="col-md-12">
                         <div class="d-flex justify-content-center h-100">
                             <div class="searchbar">
-                                <input class="search_input" type="text" name="buscar" placeholder="Buscar..." [(ngModel)]="filter">
+                                <input class="search_input" type="text" name="buscar" placeholder="Buscar..."
+                                    [(ngModel)]="filter">
                                 <a class="search_icon">
                                     <fa name="search"></fa>
                                 </a>
@@ -51,18 +52,20 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body"> 
+                                <div class="modal-body">
                                     <form class="form-horizontal form-material">
                                         <input class="form-control" placeholder="Ingresar título de la publicación"
                                             name="Titulo" [(ngModel)]="publi.Titulo">
                                         <br>
                                         <br>
-                                        <textarea class="form-control" placeholder="Ingresar descripción de la publicación"
-                                            name="Descripcion" [(ngModel)]="publi.Descripcion"></textarea>
-                                           <br>
-                                           <br>
-                                            <ngx-select [formControl]="selectControl2" [allowClear]="true" [items]="servicios2"
-                                            optionValueField="_id" optionTextField="nombre" placeholder="Seleccionar servicio...">
+                                        <textarea class="form-control"
+                                            placeholder="Ingresar descripción de la publicación" name="Descripcion"
+                                            [(ngModel)]="publi.Descripcion"></textarea>
+                                        <br>
+                                        <br>
+                                        <ngx-select [formControl]="selectControl2" [allowClear]="true"
+                                            [items]="servicios2" optionValueField="_id" optionTextField="nombre"
+                                            placeholder="Seleccionar servicio...">
                                         </ngx-select>
                                     </form>
                                 </div>
@@ -79,26 +82,80 @@
                 </div>
             </div>
             <!--Fin del de publicacion-->
-            <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
-                *ngFor="let pub of pubb | filter:filter" >
-                <div class="row">
-                    <div class="col-md-8">
-                        <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
-                        <hr>
+            <div *ngFor="let pub of pubb | filter:filter">
+                <div class="col-md-12" style="background: rgb(255, 255, 255); height: auto; margin-top: 10px;">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
+                            <hr>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 style="margin-top:15px;"><a
+                                    [routerLink]="['/publi-cuenta', pub.Usuario._id]">{{pub.Usuario.Nombres}}
+                                    {{pub.Usuario.Apellidos}}</a></h3>
+                            <hr>
+                        </div>
+                        <div class="col-md-8">
+                            <h4>{{pub.Descripcion}}</h4>
+                            <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-info"
+                                [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Contactarse</button>
+                            <br>
+                            <br>
+                            <button class="btn btn-info" data-toggle="collapse" data-target="#demo"
+                                (click)="getComentarios(pub._id)">Comentarios</button>
+                            <h3 style="margin-top: 10px;">{{ pub.Fecha | date:'shortTime' }}</h3>
+                        </div>
+                        <div class="col-md-12">
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <img [src]="img" style="border-radius: 60px; width: 30px; margin-top: 10px;">
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control"
+                                        style="border-radius: 20px; background: #f1f1f1a4; color:black;"
+                                        [(ngModel)]="com.Comentario">
+                                </div>
+                                <div class="col-md-1">
+                                    <a (click)="addComentarios(pub._id)">
+                                        <i class="fa fa-paper-plane btn" aria-hidden="true" size="3x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
                     </div>
-                     <div class="col-md-4">
-                        <h3 style="margin-top:15px;"><a [routerLink]="['/publi-cuenta', pub.Usuario._id]">{{pub.Usuario.Nombres}}  {{pub.Usuario.Apellidos}}</a></h3>
-                        <hr>
-                    </div>
-                    <div class="col-md-8">
-                        <h4>{{pub.Descripcion}}</h4>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-info" [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Contactarse </button>
-                        <h3 style="margin-top: 10px;">{{ pub.Fecha | date:'shortTime' }}</h3>
-                    </div>
-                    <div class="col-md-12">
-                        <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre}}</span>
+                </div>
+                <div id="demo" class="collapse" style="background: rgb(255, 255, 255); height: auto;">
+                    <div *ngFor="let co of Con">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <img [src]="co.ID_Usuario.pathImg"
+                                        style="border-radius: 60px; width: 30px; margin-top: 10px;">
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="alert alert-primary" role="alert">
+                                        {{ co.Comentario }}
+                                        
+                                        <div *ngIf="co.ID_Usuario._id == usuario" class="btn-group dropleft" style="float: right;">
+                                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <fa size="2x" name="ellipsis-v"></fa>
+                                            </a>
+                                            <div  class="dropdown-menu" x-placement="right-start"
+                                                style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                <a class="dropdown-item">Modificar
+                                                </a>
+                                                <a class="dropdown-item" (click)="eliComentario(co._id, pub._id)">Eliminar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
