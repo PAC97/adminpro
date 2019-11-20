@@ -40,6 +40,7 @@ session:any;
         this.Mess.push({Emisor:element.Emisor._id, Chat:element.Mensaje, Receptor:element.Receptor._id, Fecha:element.Hora});
       });
     });
+    
      this.Mess.sort(function(a, b) {
         a = new Date(a.Fecha);
         b = new Date(b.Fecha);

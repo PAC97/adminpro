@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     localStorage.removeItem('x-access-token');
     localStorage.removeItem('session');
+      localStorage.removeItem('fecha');
   }
   userLog: userLog = {
     'Correo': "",
@@ -40,21 +41,22 @@ export class LoginComponent implements OnInit {
             )
             localStorage.setItem('x-access-token', this.datos.data.token);
             localStorage.setItem('session', this.datos.data.Usuario);
+            localStorage.setItem('fecha', this.datos.data.payload.exp);
             this.currentUserSubject.next(this.datos.data.token);
             //if para validar los servicios 
            
               if (this.datos.data.Rol.nombre == 'Admin') {
                 this.route.navigate(['/menu'])
-                .then(() => {
-                  window.location.reload();
-                });
+               .then(() => {
+                 window.location.reload();
+               });
               }
               else if (this.datos.data.Rol.nombre == 'Cliente') {
                 if (this.datos.data.Servicios.length >= 1) {
                 this.route.navigate(['/inicio'])
-                .then(() => {
-                  window.location.reload();
-                });
+               .then(() => {
+                window.location.reload();
+               });
               }
               else {
                 this.route.navigate(['/SeleccionarServicios'])
