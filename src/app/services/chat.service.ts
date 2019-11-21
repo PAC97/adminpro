@@ -14,8 +14,8 @@ export class ChatService {
     this.socket = io(this.url);
    }
 
-  public sendMessage(mensaje, emisor, receptor) {
-    this.socket.emit('nuevo-mensaje', mensaje, emisor, receptor);
+  public sendMessage(mensaje, emisor, receptor, hora) {
+    this.socket.emit('nuevo-mensaje', mensaje, emisor, receptor, hora);
   }
 
   public getMessages = () => {

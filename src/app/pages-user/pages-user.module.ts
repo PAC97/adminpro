@@ -25,7 +25,7 @@ import { MensajesComponent } from './mensajes/mensajes.component';
 import { ChatService } from '../services/chat.service';
 import { DetallesPubliComponent } from './detalles-publi/detalles-publi.component';
 import { PubliCuentaComponent } from './publi-cuenta/publi-cuenta.component';
-
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import { PubliCuentaComponent } from './publi-cuenta/publi-cuenta.component';
     Ng2SearchPipeModule  
   ],
   providers: [
-    ChatService
+    ChatService,
+    DatePipe
   ]
 })
 export class PagesUserModule { }
