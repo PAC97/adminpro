@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceChatsService } from './service/service-chats.service';
 //rutas
 import { Router } from '@angular/router';
+import { element } from 'protractor';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-app-chats',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AppChatsComponent implements OnInit {
 
-  constructor(private service: ServiceChatsService) { }
+  constructor(private service: ServiceChatsService, public datepipe:DatePipe) { }
   chat: any;
   chatsU: any;
   user: any;
@@ -25,6 +27,8 @@ export class AppChatsComponent implements OnInit {
   Rc: any;
   session: any;
   Us = [];
+  Chats=[];
+  Chat=[];
   ngOnInit() {
     this.user = localStorage.getItem('session');
     this.getchat();
@@ -70,27 +74,39 @@ export class AppChatsComponent implements OnInit {
 
 
   getMessages(idE: string, idR: string) {
+   this.Chat.forEach( element =>{
+      var i = this.Chat.indexOf(element);
+      console.log(i);
+      this.Chat.splice(i, 1);
+    })
     this.service.getChatsUsers(idE, idR)
       .subscribe(chats => {
         this.Ec = chats;
         this.Echats = this.Ec.Chat;
+        console.log(chats);
         this.Echats.forEach(element => {
-          this.Mess.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: element.Hora });
+          let fecha = this.datepipe.transform(element.Hora, 'MM-dd-yyyy h:mm:ss a');
+          console.log(fecha);
+          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha });
         });
       })
+      console.log(this.Mess);
     this.service.getChatsUsers(idR, idE)
       .subscribe(chat => {
+        console.log(chat);
         this.Rc = chat;
         this.Rchats = this.Rc.Chat;
         this.Rchats.forEach(element => {
-          this.Mess.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: element.Hora });
+          let fecha = this.datepipe.transform(element.Hora, 'MM-dd-yyyy h:mm:ss a');
+          console.log(fecha);
+          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha });
         });
       });
-    this.Mess.sort(function (a, b) {
+    this.Chat.sort(function (a, b) {
       a = new Date(a.Fecha);
       b = new Date(b.Fecha);
       return a < b ? -1 : a > b ? 1 : 0;
     });
-    console.log(this.Mess)
+    console.log(this.Chat);
   }
 }

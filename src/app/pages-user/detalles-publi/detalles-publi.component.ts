@@ -30,6 +30,7 @@ ser:any;
 mensaje:'';
 emisor:any;
 idus:any;
+hora= Date.now();
   constructor(private activate:ActivatedRoute, private service:ServicePubliService, private chatservice:ChatService) { }
 
   ngOnInit() {
@@ -71,8 +72,7 @@ idus:any;
     })
   }
   sendChat(){
-    this.chatservice.sendMessage(this.mensaje, this.emisor, this.idUser);
-    this.mensaje = '';
+    this.chatservice.sendMessage(this.mensaje, this.emisor, this.idUser, this.hora);
     console.log(this.mensaje);
     this.mensaje = '';
    
