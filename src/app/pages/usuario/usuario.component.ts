@@ -36,11 +36,20 @@ export class UsuarioComponent implements OnInit {
     'Estado': false
   }
   idA:any;
+  permisos:any;
+  user:any;
+  ok:any;
   constructor(private service: UsuarioService, private router:Router) { }
   
   ngOnInit() {
   this.getUsersC();
   this.getUserA();
+  var session = localStorage.getItem('x-access-token');
+  this.service.getIdUsuario(this.id)
+    .subscribe(user=>{
+      this.user = user;
+      this.permisos = this.user.usuario.Acciones;
+    })
  }
   getUserA(){
     this.service.getUsuarioAd(this.IdAd)
@@ -107,30 +116,50 @@ ModUsuario(){
    });
   }  
   DeleteUsuario(id:string){
-    Swal.fire({
-      title: '¿Desea Eliminar el registro?',
-      text: "El registro se Eliminara",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si',
-      cancelButtonText: 'No'
-    }).then((result) => {
-      if (result.value) {
-       this.service.deleteUsuario(id) 
-        .subscribe(
-          res => {
-          },
-          err => console.log(err)
-        )
-        Swal.fire(
-          'Modificado!',
-          'El registro se modificó correctamente.',
-          'success'
-        )
-      this.getUsersC();
+    this.permisos.forEach(element => {
+      var items = this.permisos.filter( function (items){
+        return items.accion == 'Eliminar Tipo Usuario'
+      })
+      if(items.length > 0){
+        this.ok = true;
+      }
+      else{
+        this.ok = false;
       }
     });
+    if(this.ok == true){
+      Swal.fire({
+        title: '¿Desea Eliminar el registro?',
+        text: "El registro se Eliminará",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+         this.service.deleteUsuario(id) 
+          .subscribe(
+            res => {
+            },
+            err => console.log(err)
+          )
+          Swal.fire(
+            '¡Eliminado!',
+            'El registro se eliminó correctamente.',
+            'success'
+          )
+        this.getUsersC();
+        }
+      });
+    }
+    else{
+    Swal.fire(
+      'Error',
+      'No tienes permiso para realizar esta acción.',
+      'warning'
+      )
+    } 
   }
 }

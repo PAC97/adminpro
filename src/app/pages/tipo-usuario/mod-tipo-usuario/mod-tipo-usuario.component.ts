@@ -36,7 +36,7 @@ export class ModTipoUsuarioComponent implements OnInit {
     this.id = localStorage.getItem('session');
     if(session == null){
       this.router.navigate(['../login'])
-    }  
+    }
     //cachar id del registro
     var id = this.activateRouter.snapshot.paramMap.get('id');
     this.ids = id;
@@ -55,7 +55,6 @@ export class ModTipoUsuarioComponent implements OnInit {
     })
   }
   mod(){
-
     if(this.tipUM.nombre != ''){
       if(this.tipUM.descripcion != ''){
         this.Mensaje();
@@ -89,8 +88,8 @@ export class ModTipoUsuarioComponent implements OnInit {
     });
     if(this.ok == true){
    Swal.fire({
-      title: '¿Dese modificar el registro?',
-      text: "El registro se modificará",
+      title: '¿Desea modificar el registro?',
+      text: "El registro se modificará.",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -106,7 +105,7 @@ export class ModTipoUsuarioComponent implements OnInit {
           err => console.log(err)
         )
         Swal.fire(
-          'Modificado!',
+          '¡Modificado!',
           'El registro se modificó correctamente.',
           'success'
         )
@@ -117,7 +116,7 @@ export class ModTipoUsuarioComponent implements OnInit {
   else{
     Swal.fire(
       'Error',
-      'No tienes permiso para realizar esta accion',
+      'No tienes permiso para realizar esta acción.',
       'warning'
     )
   }

@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-4" *ngFor="let ser of servicio;let i = index" >
                     <div class="card" style="border-style: solid; border-width: 1px;">
-                        <img class="card-img-top" src="../../../assets//images/background/user-info.jpg">
+                        <img style="height: 287.98px; width: 287.98px;" class="card-img-top" [src]="ser.pathImage">
                         <div class="card-body">
                             <h4 class="card-title">{{ ser.nombre }}</h4>
                             <p class="card-text">

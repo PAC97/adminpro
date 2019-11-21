@@ -35,41 +35,40 @@ export class TipoUsuarioComponent implements OnInit {
       this.user = user;
       this.permisos = this.user.usuario.Acciones;
     })
-    
     this.obtenerTipoUsuario();
   }
   obtenerTipoUsuario(){
     this.service.getTipoUsuario()
     .subscribe(tip=>{
       this.tips=tip;
-      this.tipoUsario=this.tips.tipoUsuario;
+      this.tipoUsario=this. tips.tipoUsuario;
       if(this.tipoUsario.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])
       }
     })
   };
   DeleteTipoUsuario(id:string){
-    this.permisos.forEach(element => {
-      var items = this.permisos.filter( function (items){
-        return items.accion == 'Eliminar Tipo Usuario'
-      })
-      if(items.length > 0){
-        this.ok = true;
-      }
-      else{
-        this.ok = false;
-      }
-    });
-    if(this.ok == true){
+      this.permisos.forEach(element => {
+        var items = this.permisos.filter( function (items){
+          return items.accion == 'Eliminar Tipo Usuario'
+        })
+        if(items.length > 0){
+          this.ok = true;
+        }
+        else{
+          this.ok = false;
+        }
+      });
+      if(this.ok == true){
     Swal.fire({
       title: '¿Desea eliminar el registro?',
-      text: "Al eliminar no se podrá recuperar el registro!",
+      text: "¡Al eliminar no se podrá recuperar el registro!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: '¡Si, borrar!',
-      cancelButtonText: 'No, Cancelar'
+      cancelButtonText: '¡No, Cancelar!'
     }).then((result) => {
       if (result.value) {
         
@@ -81,8 +80,8 @@ export class TipoUsuarioComponent implements OnInit {
           err => console.log(err)
         )
         Swal.fire(
-          'Eliminado!',
-          'El registro se elimino correctamente.',
+          '¡Eliminado!',
+          'El registro se eliminó correctamente.',
           'success'
         )
       }
@@ -91,9 +90,9 @@ export class TipoUsuarioComponent implements OnInit {
   else{
     Swal.fire(
       'Error',
-      'No tienes permiso para realizar esta accion',
+      'No tienes permiso para realizar esta acción.',
       'warning'
-    )
-  }
+      )
+    }
   }
 }

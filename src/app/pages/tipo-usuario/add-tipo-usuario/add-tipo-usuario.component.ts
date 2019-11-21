@@ -40,7 +40,7 @@ export class AddTipoUsuarioComponent implements OnInit {
   Agregar(){
     this.permisos.forEach(element => {
     var items = this.permisos.filter( function (items){
-      return items.accion == 'Agregar Tipo Usuario'
+      return items.accion == 'Crear Tipo Usuario'
     })
     if(items.length > 0){
       this.ok = true;
@@ -50,13 +50,11 @@ export class AddTipoUsuarioComponent implements OnInit {
     }
   });
   if(this.ok == true){
-    
    if(this.tipU.nombre != '' && this.tipU.descripcion != ''){
       this.service.postTipoUsuario(this.tipU)
-      .subscribe(tipoU=>{
-        
+      .subscribe(tipoU=>{   
           Swal.fire(
-            'Usuario Agregado!',
+            '¡Usuario Agregado!',
             'El registro se agregó correctamente.',
             'success'
           )
@@ -65,15 +63,16 @@ export class AddTipoUsuarioComponent implements OnInit {
    }
     else{
       Swal.fire(
-        'Verificar los datos ingresados!',
+        '¡Verificar los datos ingresados!',
         'El registro debe ir lleno correctamente.',
         'warning'
       )
     }
-  }else{
+  }
+  else{
     Swal.fire(
       'Error',
-      'No tienes permiso para realizar esta accion',
+      'No tienes permisos para realizar esta acción.',
       'warning'
     )
   }
