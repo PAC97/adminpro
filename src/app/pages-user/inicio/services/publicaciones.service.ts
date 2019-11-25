@@ -25,7 +25,7 @@ export class PublicacionesService {
  //
  //traer publicaciones 
  getPublicaciones(){
-  return this.http.get(`${this.API_URI}/publicaciones`, {headers: this.httpheaders} );
+  return this.http.get(`${this.API_URI}/publicaciones`);
  }
  //
  //Traer usuario log 

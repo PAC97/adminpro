@@ -14,9 +14,11 @@ export class HeaderUserComponent implements OnInit {
   apellido:any;
   img:any;
   correo:any;
+  token="";
   constructor(private router:Router, private service: UsuarioService) { }
 
   ngOnInit() {
+    this.token = localStorage.getItem('x-access-token');
     this.getUserpoID();
   }
   getUserpoID(){

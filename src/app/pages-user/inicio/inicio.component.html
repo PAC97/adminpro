@@ -3,7 +3,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <!--Filtro espacio-->
-            <div style="background: rgb(255, 255, 255); height: 150px;">
+            <div *ngIf="token != null" style="background: rgb(255, 255, 255); height: 150px;">
                 <div class="from-gruop">
                     <div class="col-md-12">
                         <div class="d-flex justify-content-center h-100">
@@ -29,7 +29,7 @@
             </div>
             <!--fin del div del filtro-->
             <!--Div para crear una nueva publicacion-->
-            <div class="col-md-12" style="background: rgb(255, 255, 255); height: 100px; margin-top: 10px;">
+            <div  *ngIf="token != null" class="col-md-12" style="background: rgb(255, 255, 255); height: 100px; margin-top: 10px;">
                 <div class="row">
                     <!--div perfil-->
                     <div class="col-md-2">
@@ -89,8 +89,8 @@
                             <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
                             <hr>
                         </div>
-                        <div class="col-md-4">
-                            <h3 style="margin-top:15px;"><a
+                        <div *ngIf="token != null" class="col-md-4">
+                            <h3  style="margin-top:15px;"><a
                                     [routerLink]="['/publi-cuenta', pub.Usuario._id]">{{pub.Usuario.Nombres}}
                                     {{pub.Usuario.Apellidos}}</a></h3>
                             <hr>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col-md-4">
                             <button class="btn btn-info"
-                                [routerLink]="['/detalles-publi', pub.Usuario._id, pub._id]">Contactarse</button>
+                              (click)="redy(pub.Usuario._id, pub._id)">Contactarse</button>
                             <br>
                             <br>
                             <a class="btn btn-info" data-toggle="collapse" href="#demo_{{i}}"
@@ -111,8 +111,8 @@
                         <div class="col-md-12">
                             <hr>
                             <div class="row">
-                                <div class="col-md-1">
-                                    <img [src]="img" style="border-radius: 60px; width: 30px; margin-top: 10px;">
+                                <div  class="col-md-1">
+                                    <img  *ngIf="token != null" [src]="img" style="border-radius: 60px; width: 30px; margin-top: 10px;">
                                 </div>
                                 <div class="col-md-10">
                                     <input type="text" class="form-control"
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="col-md-1" *ngIf="comen == ''">
                                         <a (click)="addComentarios(pub._id)">
-                                            <i class="fa fa-paper-plane btn" aria-hidden="true" style="size: 3x;"></i>
+                                            <i class="fa fa-paper-plane btn fa-1x" aria-hidden="true"></i>
                                         </a>
                                     </div>
                             </div>

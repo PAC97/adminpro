@@ -35,9 +35,9 @@
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
-            <ul class="navbar-nav my-lg-0">
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark" [routerLink]="['/chats']">
+            <ul  class="navbar-nav my-lg-0">
+                <li  class="nav-item dropdown">
+                        <a *ngIf="token != null" class="nav-link dropdown-toggle waves-effect waves-dark" [routerLink]="['/chats']">
                             <img src="assets/images/email.png" alt="user"
                             class="profile-pic" /></a>
                 </li>
@@ -48,7 +48,7 @@
                 <!-- Profile -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
+                    <a *ngIf="token != null" class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"><img [src]="img" alt="user"
                             class="profile-pic" /></a>
                     <div class="dropdown-menu dropdown-menu-right animated fadeIn">

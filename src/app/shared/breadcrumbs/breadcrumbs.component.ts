@@ -11,5 +11,7 @@ export class BreadcrumbsComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  prueba(id:string, id2:string){
+    console.log(id, id2);
+  }
 }
