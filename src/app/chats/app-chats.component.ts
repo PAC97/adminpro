@@ -168,7 +168,31 @@ export class AppChatsComponent implements OnInit {
       )
     }
   }
-  deletChat(id:string){
-    console.log(id);
+  deletChat(id:string, idE:string, idR:string){
+    Swal.fire({
+      title: '¿Desea eliminar el mensaje?',
+      text: "Al eliminar no se podrá recuperar el mensaje!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Si, borrar!',
+      cancelButtonText: 'No, Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.service.deletChat(id)
+          .subscribe(
+            res => {
+            },
+            err => console.log(err)
+          )
+        Swal.fire(
+          'Eliminado!',
+          'El mensaje se elimino correctamente.',
+          'success'
+        )
+        this.getMessages(idE, idR);
+      }
+    });
   }
 }
