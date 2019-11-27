@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pages-user.component.css']
 })
 export class PagesUserComponent implements OnInit {
-
+token="";
   constructor() { }
 
   ngOnInit() {
+    this.token = localStorage.getItem('x-access-token')
+    console.log(this.token);
   }
 
 }

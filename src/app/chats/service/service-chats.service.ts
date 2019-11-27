@@ -20,4 +20,7 @@ export class ServiceChatsService {
    getChatsUsers(id1:any, id2:any){
     return this.http.get(`${this.API_URI}/chats/${id1}/${id2}`, {headers: this.httpheaders});
    }
+   deletChat(id:any){
+    return this.http.delete(`${this.API_URI}/chat/${id}`, {headers: this.httpheaders});
+   }
 }

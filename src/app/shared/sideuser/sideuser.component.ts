@@ -12,9 +12,11 @@ nombre:any;
 apellido:any;
 img:any;
 permisos:any;
+token="";
   constructor(private service: UsuarioService) { }
 
   ngOnInit() {
+    this.token = localStorage.getItem('x-access-token');
     this.service.getIDUser()
     .subscribe(id=>{
       this.uses = id;
