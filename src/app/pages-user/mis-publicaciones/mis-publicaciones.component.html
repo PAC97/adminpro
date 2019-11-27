@@ -5,8 +5,8 @@
          
             <!--Fin del de publicacion-->
             <input class="form-control mb-2" placeholder="Búsqueda" [(ngModel)]="filter">
-            <div class="col-md-12" style="background: rgb(255, 255, 255); height: 200px; margin-top: 10px;"
-                *ngFor="let pub of pubb | filter:filter">
+            <div class="col-md-12" style="background: rgb(255, 255, 255); height: auto; margin-top: 10px;"
+                *ngFor="let pub of pubb | filter:filter;let i = index">
                 <div class="row">
                     <div class="col-md-11">
                         <h3 style="margin-top:15px;">{{pub.Titulo}}</h3>
@@ -28,15 +28,68 @@
                     </div>
                     <div class="col-md-8">
                         <h4>{{pub.Descripcion}}</h4> 
-                    </div>
-                    <div class="col-md-4">
-                        <h5>{{ pub.Fecha | date:'medium' }}</h5>
-                    </div>
-                    <div class="col-md-12" style="margin-top: 20px;">
                         <span class="badge badge-pill badge-success">{{ pub.ID_Servicio.nombre }}</span>
                     </div>
-                    
+                    <div class="col-md-4">
+                            <a class="btn btn-info" data-toggle="collapse" href="#demo_{{i}}"
+                            (click)="getComentarios(pub._id)">Comentarios</a><br>
+                            <br>
+                        <h5>{{ pub.Fecha | date:'medium' }}</h5>
+                    </div>
+                    <div class="col-md-12">
+                            <hr>
+                            <div class="row">
+                                <div  class="col-md-1">
+                                    <img [src]="img" style="border-radius: 60px; width: 30px; margin-top: 10px;">
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control"
+                                        style="border-radius: 20px; background: #f1f1f1a4; color:black;"
+                                       [value]="comen"  [(ngModel)]="com.Comentario">
+                                </div>
+                                <div class="col-md-1" *ngIf="comen != ''">
+                                    <a (click)="mod()">
+                                        <i class="fa fa-paper-plane btn" aria-hidden="true" style="size: 3x;"></i>
+                                    </a>
+                                </div>
+                                <div class="col-md-1" *ngIf="comen == ''">
+                                        <a (click)="addComentarios(pub._id)">
+                                            <i class="fa fa-paper-plane btn fa-1x" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                            </div>
+                            <br>
+                        </div>
                 </div>
+                <div id="demo_{{i}}" class="collapse" style="background: rgb(255, 255, 255); height: auto;">
+                        <div *ngFor="let co of Con">
+                            <div class="col-md-12" *ngIf="pub._id == co.ID_Publicacion">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <img [src]="co.ID_Usuario.pathImg"
+                                            style="border-radius: 60px; width: 30px; margin-top: 10px;">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="alert alert-primary" style="border-radius: 15px;"ole="alert">
+                                            {{ co.Comentario }}
+                                            
+                                            <div class="btn-group dropleft" style="float: right;">
+                                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <fa size="2x" name="ellipsis-v"></fa>
+                                                </a>
+                                                <div  class="dropdown-menu" x-placement="right-start"
+                                                    style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                    <a class="dropdown-item" (click)="getidCom(co._id)">Modificar
+                                                    </a>
+                                                    <a class="dropdown-item" (click)="eliComentario(co._id, pub._id)">Eliminar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
                <!--error por si no hay archivos-->
                <div *ngIf="Message > 0" class="alert alert-danger" role="alert">

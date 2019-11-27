@@ -9,6 +9,7 @@ import {ChatService} from '../services/chat.service';
 
 import {BreadcrumbsComponent} from '../shared/breadcrumbs/breadcrumbs.component';
 import Swal from 'sweetalert2';
+import { timer } from 'rxjs';
 @Component({
   selector: 'app-app-chats',
   templateUrl: './app-chats.component.html',
@@ -43,7 +44,6 @@ export class AppChatsComponent implements OnInit {
   ngOnInit() {
     this.user = localStorage.getItem('session');
     this.getchat();
-    
   }
   getchat() {
     this.service.getIDchats(this.user)
@@ -80,11 +80,8 @@ export class AppChatsComponent implements OnInit {
           return nuevoArray;
         }
         this.Us = eliminarObjetosDuplicados(this.Usuario, 'Receptor');
-        console.log(this.Us)
       })
   }
-
-
   getMessages(idE: string, idR: string) {
     
     this.Chat.forEach( element =>{
@@ -103,8 +100,6 @@ export class AppChatsComponent implements OnInit {
       this.Chat.splice(i, 1);
     });
     this.service.getChatsUsers(idE, idR)
-    
-    
       .subscribe(chats => {
         this.Ec = chats;
         this.Echats = this.Ec.Chat;
@@ -112,7 +107,7 @@ export class AppChatsComponent implements OnInit {
         this.Echats.forEach(element => {
           let fecha = this.datepipe.transform(element.Hora, 'M/d/yy h:mm a');
           console.log(fecha);
-          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha });
+          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha, img: element.Emisor.pathImg, _id: element._id});
           this.Chat.sort(function (a, b) {
             a = new Date(a.Fecha);
             b = new Date(b.Fecha);
@@ -129,7 +124,7 @@ export class AppChatsComponent implements OnInit {
         this.Rchats.forEach(element => {
           let fecha = this.datepipe.transform(element.Hora, 'M/d/yy h:mm a');
           console.log(fecha);
-          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha });
+          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha, img: element.Emisor.pathImg, _id: element._id});
           this.Chat.sort(function (a, b) {
             a = new Date(a.Fecha);
             b = new Date(b.Fecha);
@@ -142,10 +137,9 @@ export class AppChatsComponent implements OnInit {
       b = new Date(b.Fecha);
       return a < b ? -1 : a > b ? 1 : 0;
     });
-  
-   
-    console.log(this.Chat);
+    console.log(this.Chat); 
   }
+  
   addMes(idE:string, idR:string){
    this.emisor = idE;
    this.receptor = idR;
@@ -173,5 +167,8 @@ export class AppChatsComponent implements OnInit {
         'warning'
       )
     }
+  }
+  deletChat(id:string){
+    console.log(id);
   }
 }

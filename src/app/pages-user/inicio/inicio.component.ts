@@ -67,37 +67,6 @@ export class InicioComponent implements OnInit {
     this.token = localStorage.getItem('x-access-token');
     this.fech = localStorage.getItem('fecha');
     this.usuario = localStorage.getItem('session');
-    //obtener fecha 
-    var months_arr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const date = new Date(this.fech * 1000);
-    const year = date.getFullYear();
-
-    // Month
-    const month = months_arr[date.getMonth()];
-
-    // Day
-    const day = date.getDate();
-
-    // Hours
-    const hours = date.getHours();
-
-    // Minutes
-    const minutes = "0" + date.getMinutes();
-
-    // Seconds
-    const seconds = "0" + date.getSeconds();
-
-    // Display date time in MM-dd-yyyy h:m:s format
-    const convdataTime = month + '-' + day + '-' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-    this.fecha = convdataTime;
-    console.log(this.fecha);
-    var dte = new Date();
-    let fet = this.datepipe.transform(dte, 'MMM-d-y h:mm:ss');
-    console.log(fet);
-    if(fet > this.fecha){
-      localStorage.removeItem('x-access-token');
-      this.router.navigate(['/login']);
-    }else{
     this.obtenesPublicaciones();
     //user
     this.getUser();
@@ -108,7 +77,7 @@ export class InicioComponent implements OnInit {
     this.Filtrar();
 
     this.select(); 
-    }
+    
   }
   Filtrar() {
 

@@ -10,6 +10,7 @@ import { HeaderUserComponent } from './header-user/header-user.component';
 import { SideuserComponent } from './sideuser/sideuser.component';
 import {PAGES_ROUTES_USUARIO} from '../pages-user/pages-user.routes';
 import {PAGES_ROUTES_CHATS} from '../chats/chat.routes';
+import { HeaderChatComponent } from './header-chat/header-chat.component';
 @NgModule({
     declarations: [
         BreadcrumbsComponent,
@@ -18,6 +19,7 @@ import {PAGES_ROUTES_CHATS} from '../chats/chat.routes';
         NopagefoundComponent,
         HeaderUserComponent,
         SideuserComponent,
+        HeaderChatComponent,
     ],
     exports:[
         BreadcrumbsComponent,
@@ -26,6 +28,7 @@ import {PAGES_ROUTES_CHATS} from '../chats/chat.routes';
         SideuserComponent,
         HeaderUserComponent,
         NopagefoundComponent,
+        HeaderChatComponent,
     ],
     imports: [
         PAGES_ROUTES_USUARIO,
