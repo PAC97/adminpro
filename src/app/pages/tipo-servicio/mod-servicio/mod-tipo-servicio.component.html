@@ -13,8 +13,49 @@
                      <label>Descripción</label>
                      <textarea class="form-control" placeholder="Descripcion" name="descripcion" required [value]="descripcion" [(ngModel)]="Servi.descripcion"></textarea>
                 </div>
+
+              <button type="submit" class="btn btn-info btn-block" data-toggle="modal" data-target="#img">Modificar Imagen</button>
+
              <button type="submit" class="btn btn-primary btn-block" (click)="mod()">Modificar</button> <!--btn-block para el color verde-->
-              
+              <!--modal para seleccionar la foto de perfil nueva-->
+            <!-- Modal -->
+            <div class="modal" id="img" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Seleccionar Imagen Nueva</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input class="btn btn-info" type="file" (change)="fileChangeEvent($event)" />
+
+                            <image-cropper [imageChangedEvent]="imageChangedEvent"
+                                [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="128"
+                                format="png" (imageCropped)="imageCropped($event)"
+                                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                                (loadImageFailed)="loadImageFailed()">
+                            </image-cropper>
+                            <div *ngIf="croppedImage != ''">
+                                <img [src]="croppedImage" />
+                            </div>
+                            
+                            <div *ngIf="croppedImage == ''">
+                                <img [src]="imgS" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger"
+                                data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-info" (click)="foto()"
+                                data-dismiss="modal">Seleccionar Imagen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--fin del modal-->
           </form>
         </div>
         <div class="col-md-4- col-sm-4 col-xs-12"></div>

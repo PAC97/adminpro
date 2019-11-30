@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 //servicio
-import {TipoServicioService} from '../tipo-servicio.service';
+import { TipoServicioService } from '../tipo-servicio.service';
 //models
 import { tipoServicio } from '../models/tiposervicio';
 //ritas
-import {Router, ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 //alertas
 import Swal from 'sweetalert2';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-mod-tipo-servicio',
@@ -14,80 +15,86 @@ import Swal from 'sweetalert2';
   styleUrls: ['./mod-tipo-servicio.component.css']
 })
 export class ModTipoServicioComponent implements OnInit {
-  filter:any;
-  p:any;
-  Servi:tipoServicio={
-    'nombre':'',
+  imageChangedEvent: any = '';
+  croppedImage = '';
+  ids: any;
+  tipSer: any;
+  nombre: string;
+  descripcion: any;
+  imgS: any;
+  id: any;
+  filter: any;
+  p: any;
+  Servi: tipoServicio = {
+    'nombre': '',
     'descripcion': '',
     'pathImage': ''
   }
-  ids:any;
-  tipSer:any;
-  nombre:string;
-  descripcion:any;
-  id:any;
-  User:any;
-  permisos:any;
-  user:any;
-  ok:any;
-  constructor(private service:TipoServicioService, private router:Router, private activateRouter:ActivatedRoute) { }
+  User: any;
+  permisos: any;
+  user: any;
+  ok: any;
+  idss: any;
+  constructor(private service: TipoServicioService, private router: Router, private activateRouter: ActivatedRoute) { }
 
   ngOnInit() {
     //sesion
     var session = localStorage.getItem('x-access-token');
-    if(session == null){
+    this.idss = localStorage.getItem('session');
+    if (session == null) {
       this.router.navigate(['../login'])
-    }  
+    }
     //cachar id del registro
     var id = this.activateRouter.snapshot.paramMap.get('id');
     this.ids = id;
-      
+
     //get id registro
-      this.service.getIdTipoServicio(this.ids)
-      .subscribe(tipServ =>{
-      this.tipSer = tipServ;
-      this.nombre = this.tipSer.tipoServicio.nombre;
-      this.descripcion = this.tipSer.tipoServicio.descripcion;
-    });
-    this.service.getIdUsuario(this.id)
-    .subscribe(user=>{
-      this.user = user;
-      this.permisos = this.user.usuario.Acciones;
-    })
+    this.service.getIdTipoServicio(this.ids)
+      .subscribe(tipServ => {
+        console.log(tipServ);
+        this.tipSer = tipServ;
+        this.nombre = this.tipSer.servicio.nombre;
+        this.descripcion = this.tipSer.servicio.descripcion;
+        this.imgS = this.tipSer.servicio.pathImage;
+      });
+    this.service.getIdUsuario(this.idss)
+      .subscribe(user => {
+        this.user = user;
+        this.permisos = this.user.usuario.Acciones;
+      })
   }
-  mod(){
-    if(this.Servi.nombre != ''){
-      if(this.Servi.descripcion != ''){
-        this.Mensaje();
-      }else{
-        this.Servi.descripcion = this.descripcion;
-        this.Mensaje();
-      }
-    } 
-    else{
-      this.Servi.nombre = this.nombre;
-      if(this.Servi.descripcion != ''){
-        this.Mensaje();
-      }
-      else{
-        this.Servi.descripcion = this.descripcion;
-        this.Mensaje();
-      }
-    }
+  //apartado para modificar las imagenes
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
   }
-  Mensaje(){
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+  imageLoaded() {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
+  }
+  foto() {
+    this.Servi.pathImage = this.croppedImage;
+  }
+  Mensaje() {
     this.permisos.forEach(element => {
-      var items = this.permisos.filter( function (items){
+      var items = this.permisos.filter(function (items) {
         return items.accion == 'Modificar Servicios'
       })
-      if(items.length > 0){
+      if (items.length > 0) {
         this.ok = true;
       }
-      else{
+      else {
         this.ok = false;
       }
     });
-    if(this.ok == true){
+    if (this.ok == true) {
       Swal.fire({
         title: '¿Desea modificar el registro?',
         text: "El registro se modificará",
@@ -99,22 +106,23 @@ export class ModTipoServicioComponent implements OnInit {
         cancelButtonText: 'No'
       }).then((result) => {
         if (result.value) {
-          this.service.putTipoServicio(this.tipSer.servicio._id, this.Servi) 
-          .subscribe(
-            res => {
-            },
-            err => console.log(err)
-          )
+         console.log(this.Servi);
+           this.service.putTipoServicio(this.tipSer.servicio._id, this.Servi)
+            .subscribe(
+              res => {
+              },
+              err => console.log(err)
+            )
           Swal.fire(
             'Modificado!',
             'El registro se modificó correctamente.',
             'success'
           )
-        this.router.navigate(['/servicio']);
+          this.router.navigate(['/servicio']);
         }
       });
     }
-    else{
+    else {
       Swal.fire(
         'Error',
         'No tienes permiso para realizar esta acción.',
@@ -122,4 +130,65 @@ export class ModTipoServicioComponent implements OnInit {
       )
     }
   }
+  mod() {
+    if (this.Servi.nombre != '') {
+      if (this.Servi.descripcion != '') {
+        if (this.Servi.pathImage != '') {
+          this.Mensaje();
+        } else {
+          this.Servi.pathImage = this.imgS;
+          this.Mensaje();
+        }
+      } else {
+        this.Servi.descripcion = this.descripcion;
+        if (this.Servi.pathImage != '') {
+          this.Mensaje;
+        } else {
+          this.Servi.pathImage = this.imgS;
+          this.Mensaje;
+        }
+      }
+    } else {
+      this.Servi.nombre = this.nombre;
+      if (this.Servi.descripcion != '') {
+        if (this.Servi.pathImage != '') {
+          this.Mensaje;
+        }
+        else {
+          this.Servi.pathImage = this.imgS;
+          this.Mensaje;
+        }
+      }
+      else {
+        this.Servi.descripcion = this.descripcion;
+        if (this.Servi.pathImage != '') {
+          this.Mensaje;
+        }
+        else {
+          this.Servi.pathImage = this.imgS;
+          this.Mensaje;
+        }
+      }
+    }
+  }
+
+  //   if(this.Servi.nombre != ''){
+  //     if(this.Servi.descripcion != ''){
+  //       this.Mensaje();
+  //     }else{
+  //       this.Servi.descripcion = this.descripcion;
+  //       this.Mensaje();
+  //     }
+  //   } 
+  //   else{
+  //     this.Servi.nombre = this.nombre;
+  //     if(this.Servi.descripcion != ''){
+  //       this.Mensaje();
+  //     }
+  //     else{
+  //       this.Servi.descripcion = this.descripcion;
+  //       this.Mensaje();
+  //     }
+  //   }
+  // }
 }
