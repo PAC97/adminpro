@@ -6,7 +6,8 @@ import {PAGES_ROUTES_CHATS} from './chat.routes';
 import {SharedModule} from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SendComponent } from './send/send.component';
-
+import {ChatService} from '../services/chat.service';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,12 @@ import { SendComponent } from './send/send.component';
   imports: [
     PAGES_ROUTES_CHATS,
     SharedModule,
-    CommonModule
+    CommonModule,
+    AngularFontAwesomeModule,
+    FormsModule
   ],
   providers: [
-    
+    ChatService
   ]
 })
 export class ChatsModule { }

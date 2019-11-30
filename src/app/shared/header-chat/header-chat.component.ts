@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { UsuarioService} from '../../services/usuario.service';
 
 @Component({
-  selector: 'app-header-user',
-  templateUrl: './header-user.component.html',
-  
+  selector: 'app-header-chat',
+  templateUrl: './header-chat.component.html',
+  styleUrls: ['./header-chat.component.css']
 })
-export class HeaderUserComponent implements OnInit {
+export class HeaderChatComponent implements OnInit {
   userSession:any;
   uses:any;
   nombre:any;
