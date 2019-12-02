@@ -129,8 +129,8 @@ ModUsuario(){
     });
     if(this.ok == true){
       Swal.fire({
-        title: '¿Desea Eliminar el registro?',
-        text: "El registro se Eliminará",
+        title: '¿Desea Eliminar este Usuario?',
+        text: "No se podrá recuperar",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
