@@ -13,7 +13,7 @@ import {user} from './models/usuario';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-  filter:any; p:any; uses:any; U:any; C:any; ids:any; User:any; Usr:any;
+  filter:any; p:any; uses:any; U:any; C:any; ids:any; User:any; Usr:any; A:any;
   users:any;
   id: any;
   Users:any;
