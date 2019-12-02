@@ -34,11 +34,6 @@ export class LoginComponent implements OnInit {
           console.log(this.datos);
           if (this.datos.data != null) {
             if(this.datos.data.Estado == true){
-            Swal.fire(
-              'Usuario valido',
-              'Bienvenido',
-              'success'
-            )
             localStorage.setItem('x-access-token', this.datos.data.token);
             localStorage.setItem('session', this.datos.data.Usuario);
             localStorage.setItem('fecha', this.datos.data.payload.exp);

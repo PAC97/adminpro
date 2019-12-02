@@ -56,10 +56,11 @@ export class MasServiciosComponent implements OnInit {
            
           }
          else{
-           this.sesr.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id});
+           this.sesr.push({ nombre: element.nombre, descripcion: element.descripcion, _id: element._id, img: element.pathImage});
            
          }
         });
+        console.log(this.sesr);
     })
   }
   getIdUser(){
