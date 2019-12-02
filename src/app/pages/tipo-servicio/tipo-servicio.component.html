@@ -10,6 +10,7 @@
                   <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Descripción</th>
+                    <th scope="col">Imagen</th>
                     <th scope="col">Acción</th>
                   </tr>
                 </thead>
@@ -17,6 +18,10 @@
                   <tr *ngFor="let tipSer of Servicio |  filter:filter | paginate: { itemsPerPage: 4, currentPage: p } "> 
                     <td>{{tipSer.nombre}}</td>
                     <td>{{tipSer.descripcion}}</td>
+                    <td>
+                      <img [src]="tipSer.pathImage" alt="">
+                      
+                    </td>
                     <td><a><fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-servicio/', tipSer._id]"></fa></a>   <fa name="trash" size="2x" class="btn btn-danger" (click)="DeleteServicio(tipSer._id)"></fa></td>
                   </tr>
                 </tbody >

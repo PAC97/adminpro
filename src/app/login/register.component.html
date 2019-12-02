@@ -2,19 +2,19 @@
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
 <section id="wrapper" class="login-register login-sidebar"
-    style="background-image:url(../assets/images/background/login-register.jpg);">
+    style="background-image:url(../assets/images/background/Oficio/oficio.jpg);">
     <div class="login-box card">
         <div class="card-body">
             <form class="form-horizontal form-material">
-                <a href="javascript:void(0)" class="text-center db"><img style="width: 70px; height: 70px;" src="../assets/images/desemplea2/LOGO.png" alt="Home" /><br/></a>
-                <h3 class="box-title m-t-40 m-b-0">¡Crea tu cuenta ahora!</h3>
+                <a href="javascript:void(0)" class="text-center db"><img style="width: 70px; height: 70px;" src="../assets/images/desemplea2/LOGO.png" alt="Home" /></a>
+                <h3 class="text-center box-title m-t-40 m-b-0">¡Crea tu cuenta ahora!</h3>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <div class="col-md-12">
                             <input class="form-control" type="text" required="required" placeholder="Nombres"
                                 name="Nombres" [(ngModel)]="User.Nombres" (keyup)="Cnombre($event)">
                                 <div id="name" style="display: none;" class="alert alert-danger" role="alert">
-                                    solo letras
+                                    ¡Solo letras!
                                    </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                             <input class="form-control" type="text" required="required" placeholder="Apellidos"
                                 name="Apellidos" [(ngModel)]="User.Apellidos" (keyup)="Capellido($event)">
                                 <div id="ape" style="display: none;" class="alert alert-danger" role="alert">
-                                    solo letras
+                                    ¡Solo letras!
                                    </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <input class="form-control" type="password" required="required" placeholder="Password"
                                 name="Password" [(ngModel)]="User.Password" maxlength="16" (keyup)="Cpass($event)">
                                 <div id="C1" style="display: none;" class="alert alert-danger" role="alert">
-                                     8 caracteres
+                                     Mínimo 8 Caracteres
                                 </div>
                         </div>
                         
@@ -68,7 +68,7 @@
                             <input class="form-control" type="password" required="required" placeholder="Confirmar Pass"
                                 name="confir" [(ngModel)]="confirm" maxlength="16"  (keyup)="Cpass2($event)">
                                 <div id="C2" style="display: none;" class="alert alert-danger" role="alert">
-                                    8 caracteres
+                                    Mínimo 8 Caracteres
                                </div>
                         </div>
                     </div>
