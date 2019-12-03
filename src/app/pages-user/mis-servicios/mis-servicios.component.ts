@@ -91,8 +91,6 @@ export class MisServiciosComponent implements OnInit {
       .subscribe(us => {
 
         Swal.fire(
-          'Datos eliminados con éxito',
-          'Sus servicios se agregaron',=======
           'Datos eliminados con exito con exito',
           'Sus servicios se Eliminaron',
           'success'
