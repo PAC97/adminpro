@@ -1,43 +1,62 @@
 <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar">
-                <!-- Sidebar scroll-->
-                <div class="scroll-sidebar">
-                    <!-- Sidebar navigation-->
-                    <nav class="sidebar-nav">
-                        <ul id="sidebarnav">
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
 
-                            <!-- Intento 1 -->
-                                <li class="user-profile">
-                                    <a class="waves-effect waves-dark" aria-expanded="false"><img
-                                            [src]="img" alt="user" /><span
-                                            class="hide-menu">{{ nombre }} {{ apellido }}</span></a>
+                <!-- Intento 1 -->
+                <li class="user-profile">
+                    <a class="waves-effect waves-dark" aria-expanded="false"><img [src]="img" alt="user" /><span
+                            class="hide-menu">{{ nombre }} {{ apellido }}</span></a>
+                </li>
+                <li class="nav-devider"></li>
+                <li class="user-profile">
+                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/menu']"><i class="fa fa-home"></i><span
+                            class="hide-menu"> Inicio</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
+                        class="hide-menu"> Usuario Cliente</span></a>
+                    <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+                        <ul class="dropdown-user">
+                            <li class="user-profile">
+                                <a class="waves-dark" aria-expanded="false"><i class="fa fa-user"></i><span
+                                        class="hide-menu" [routerLink]="['/cl-usuario']" routerLinkActive="router-link-active" > Usuario Cliente</span></a>
+                            </li>
+                            <li class="user-profile">
+                                    <a class="waves-dark" aria-expanded="false"><i class="fa fa-user"></i><span
+                                            class="hide-menu" [routerLink]="['/ad-usuario']" routerLinkActive="router-link-active" > Usuario Admin</span></a>
                                 </li>
-                                <li class="nav-devider"></li>
-                                <li class="user-profile">
-                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/menu']"><i class="fa fa-home"></i><span class="hide-menu"> Inicio</span></a>
-                                </li>
-                                <li class="user-profile">
-                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/usuario']"><i class="fa fa-user"></i><span class="hide-menu"> Usuario</span></a>
-                                </li>
-                                <li class="user-profile">
-                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/tipoUsuario']"><i class="fa fa-users"></i><span class="hide-menu"> Tipo de Usuarios</span></a>
-                                </li>
-                                <li class="user-profile">
-                                        
-                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/servicio']" ><i class="fa fa-wrench"></i><span class="hide-menu"> Servicios</span></a>
-                                </li>
-                                <li class="user-profile">
-                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/publicaciones']"><i class="fa fa-bullhorn" ></i><span class="hide-menu"> Publicaciones</span></a>
-                                </li>
-                                <li class="nav-devider"></li>
-                                <li *ngIf="per == true" class="user-profile">
-                                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/admin-register']"><i class="fa fa-user-plus"></i><span class="hide-menu"> Agregar Administrador</span></a>
-                                </li>
-                        
-                            
-                            <!-- NORMAL -->
-                            <!--<li class="user-profile">
+                        </ul>
+                    </div>
+                </li>
+                <li class="user-profile">
+                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/tipoUsuario']"><i
+                            class="fa fa-users"></i><span class="hide-menu"> Tipo de Usuarios</span></a>
+                </li>
+                <li class="user-profile">
+
+                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/servicio']"><i
+                            class="fa fa-wrench"></i><span class="hide-menu"> Servicios</span></a>
+                </li>
+                <li class="user-profile">
+                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/publicaciones']"><i
+                            class="fa fa-bullhorn"></i><span class="hide-menu"> Publicaciones</span></a>
+                </li>
+                <li class="nav-devider"></li>
+                <li *ngIf="per == true" class="user-profile">
+                    <a class="waves-dark" aria-expanded="false" [routerLink]="['/admin-register']"><i
+                            class="fa fa-user-plus"></i><span class="hide-menu"> Agregar Administrador</span></a>
+                </li>
+
+
+                <!-- NORMAL -->
+                <!--<li class="user-profile">
                                 <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><img
                                     src="../assets/images/users/profile.png" alt="user" alt="user"/><span
                                     class="hide-menu">Steve Job</span></a>
@@ -54,13 +73,13 @@
                             </li>
                             </li>-->
 
-                         
-                        </ul>
-                    </nav>
-                    <!-- End Sidebar navigation -->
-                </div>
-                <!-- End Sidebar scroll-->
-            </aside>
-            <!-- ============================================================== -->
-            <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-            <!-- ============================================================== -->
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->

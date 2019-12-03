@@ -45,7 +45,6 @@ export class AdminRegisterComponent implements OnInit {
     this.service.getUser()
     .subscribe(user=>{
       this.uses = user;
-      console.log(this.uses);
   })
   //Combobox 
   this.service.getService()
@@ -65,12 +64,10 @@ if(items.length > 0){
 else{
  this.Accion.push({ accion: accion});
  }
- console.log(this.Accion)
 }
 guaAcc(){
   if(this.Accion.length > 0){
     this.User.Acciones = this.Accion;
-    console.log(this.User);
   }
   else{
     Swal.fire(

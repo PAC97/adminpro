@@ -21,7 +21,7 @@ import { MasServiciosComponent } from './mis-servicios/mas-servicios/mas-servici
 import { NgxSelectModule } from 'ngx-select-ex';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { MensajesComponent } from './mensajes/mensajes.component';
+
 import { ChatService } from '../services/chat.service';
 import { DetallesPubliComponent } from './detalles-publi/detalles-publi.component';
 import { PubliCuentaComponent } from './publi-cuenta/publi-cuenta.component';
@@ -35,8 +35,6 @@ import {DatePipe} from '@angular/common';
     MisPublicacionesComponent,
     ModPublicacionesComponent,
     ModCuentaComponent,
-
-    MensajesComponent,
    
    MisServiciosComponent,
     MasServiciosComponent,

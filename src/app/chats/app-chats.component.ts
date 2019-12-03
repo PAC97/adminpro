@@ -5,9 +5,9 @@ import { ServiceChatsService } from './service/service-chats.service';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { DatePipe } from '@angular/common';
-import {ChatService} from '../services/chat.service';
+import { ChatService } from '../services/chat.service';
 
-import {BreadcrumbsComponent} from '../shared/breadcrumbs/breadcrumbs.component';
+import { BreadcrumbsComponent } from '../shared/breadcrumbs/breadcrumbs.component';
 import Swal from 'sweetalert2';
 import { timer } from 'rxjs';
 @Component({
@@ -17,8 +17,8 @@ import { timer } from 'rxjs';
 })
 export class AppChatsComponent implements OnInit {
 
-  constructor(private service: ServiceChatsService, public datepipe:DatePipe, private chatSer:ChatService) { }
-  @Inject(BreadcrumbsComponent) foter : BreadcrumbsComponent;
+  constructor(private service: ServiceChatsService, public datepipe: DatePipe, private chatSer: ChatService) { }
+  @Inject(BreadcrumbsComponent) foter: BreadcrumbsComponent;
 
   chat: any;
   chatsU: any;
@@ -34,13 +34,13 @@ export class AppChatsComponent implements OnInit {
   Rc: any;
   session: any;
   Us = [];
-  Chats=[];
-  Chat=[];
+  Chats = [];
+  Chat = [];
   //send mesaje
   hora = Date.now();
-  mensaje:any;
-  emisor;any;
-  receptor:any;
+  mensaje: any;
+  emisor; any;
+  receptor: any;
   ngOnInit() {
     this.user = localStorage.getItem('session');
     this.getchat();
@@ -54,7 +54,7 @@ export class AppChatsComponent implements OnInit {
           var items = this.Mess.filter(function (items) {
             return items.Receptor == element.Receptor._id;
           })
-          console.log(element);
+
           if (items.length > 1) {
             var index: number = this.Mess.indexOf(this.Mess.find(x => x.Receptor.Nombres == element.Receptor.Nombres));
             this.Mess.splice(index, 1);
@@ -83,31 +83,30 @@ export class AppChatsComponent implements OnInit {
       })
   }
   getMessages(idE: string, idR: string) {
-    
-    this.Chat.forEach( element =>{
+
+    this.Chat.forEach(element => {
       var i = this.Chat.indexOf(element);
-      console.log(i);
+
       this.Chat.splice(i, 1);
     });
-    this.Chat.forEach( element =>{
+    this.Chat.forEach(element => {
       var i = this.Chat.indexOf(element);
-      console.log(i);
+
       this.Chat.splice(i, 1);
     });
-    this.Chat.forEach( element =>{
+    this.Chat.forEach(element => {
       var i = this.Chat.indexOf(element);
-      console.log(i);
+
       this.Chat.splice(i, 1);
     });
     this.service.getChatsUsers(idE, idR)
       .subscribe(chats => {
         this.Ec = chats;
         this.Echats = this.Ec.Chat;
-        console.log(chats);
         this.Echats.forEach(element => {
           let fecha = this.datepipe.transform(element.Hora, 'M/d/yy h:mm a');
-          console.log(fecha);
-          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha, img: element.Emisor.pathImg, _id: element._id});
+
+          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha, img: element.Emisor.pathImg, _id: element._id });
           this.Chat.sort(function (a, b) {
             a = new Date(a.Fecha);
             b = new Date(b.Fecha);
@@ -115,16 +114,14 @@ export class AppChatsComponent implements OnInit {
           });
         });
       })
-      console.log(this.Mess);
     this.service.getChatsUsers(idR, idE)
       .subscribe(chat => {
-        console.log(chat);
+
         this.Rc = chat;
         this.Rchats = this.Rc.Chat;
         this.Rchats.forEach(element => {
           let fecha = this.datepipe.transform(element.Hora, 'M/d/yy h:mm a');
-          console.log(fecha);
-          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha, img: element.Emisor.pathImg, _id: element._id});
+          this.Chat.push({ Emisor: element.Emisor._id, Chat: element.Mensaje, Receptor: element.Receptor._id, Fecha: fecha, img: element.Emisor.pathImg, _id: element._id });
           this.Chat.sort(function (a, b) {
             a = new Date(a.Fecha);
             b = new Date(b.Fecha);
@@ -137,15 +134,14 @@ export class AppChatsComponent implements OnInit {
       b = new Date(b.Fecha);
       return a < b ? -1 : a > b ? 1 : 0;
     });
-    console.log(this.Chat); 
   }
-  
-  addMes(idE:string, idR:string){
-   this.emisor = idE;
-   this.receptor = idR;
+
+  addMes(idE: string, idR: string) {
+    this.emisor = idE;
+    this.receptor = idR;
   }
-  sendChat(){
-    if(this.mensaje != "" && this.emisor != null, this.receptor!= null){
+  sendChat() {
+    if (this.mensaje != "" && this.emisor != null, this.receptor != null) {
       this.chatSer.sendMessage(this.mensaje, this.emisor, this.receptor, this.hora)
       this.mensaje = '';
       Swal.fire(
@@ -153,14 +149,13 @@ export class AppChatsComponent implements OnInit {
         'Mensaje enviado',
         'success'
       )
-      this.Chat.forEach( element =>{
+      this.Chat.forEach(element => {
         var i = this.Chat.indexOf(element);
-        console.log(i);
         this.Chat.splice(i, 1);
       });
       this.getMessages(this.emisor, this.receptor);
     }
-    else{
+    else {
       Swal.fire(
         'Datos invalidos!',
         'Debes llenar todo los campos',
@@ -168,7 +163,7 @@ export class AppChatsComponent implements OnInit {
       )
     }
   }
-  deletChat(id:string, idE:string, idR:string){
+  deletChat(id: string, idE: string, idR: string) {
     Swal.fire({
       title: '¿Desea eliminar el mensaje?',
       text: "Al eliminar no se podrá recuperar el mensaje!",
@@ -184,7 +179,7 @@ export class AppChatsComponent implements OnInit {
           .subscribe(
             res => {
             },
-            err => console.log(err)
+           
           )
         Swal.fire(
           'Eliminado!',

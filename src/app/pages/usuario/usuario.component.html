@@ -3,6 +3,7 @@
     <div class="col-md-12">
       <ngx-tabset>
         <ngx-tab tabTitle="Usuarios">
+
           <input class="form-control mb-2" placeholder="Búsqueda" [(ngModel)]="filter">
           <table class="table">
             <thead class="thead-dark" style="background: #000;">
@@ -67,9 +68,13 @@
             </tbody>
           </table>
           <pagination-controls (pageChange)="A = $event"></pagination-controls>
+          <app-usuario-cli></app-usuario-cli>
+        </ngx-tab>
+        <ngx-tab tabTitle="Administradores">
+          <app-usuario-ad (click)="getUserA()"></app-usuario-ad>
+
         </ngx-tab>
       </ngx-tabset>
-
     </div>
   </div>
 </div>

@@ -21,7 +21,6 @@ filter: any;
 
   ngOnInit() {
     this.idUser = this.activate.snapshot.params.id;
-    console.log(this.idUser);
   //user
   this.obtenerUser();
   //pub
@@ -36,7 +35,6 @@ filter: any;
       this.nombre = this.user.Nombres;
       this.apellido = this.user.Apellidos;
       this.telefono = this.user.Telefono;
-      console.log(this.user);
     })
   }
   obtenerPubliId(){
@@ -44,7 +42,6 @@ filter: any;
     .subscribe(pub =>{
       this.publi = pub;
       this.pubb = this.publi.publicaciones;
-      console.log(this.pubb);
     })
   }
 }

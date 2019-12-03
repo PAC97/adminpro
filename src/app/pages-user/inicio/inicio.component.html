@@ -115,9 +115,9 @@
                                     <img  *ngIf="token != null" [src]="img" style="border-radius: 60px; width: 30px; margin-top: 10px;">
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="Comentario"
+                                    <input type="text" class="form-control"
                                         style="border-radius: 20px; background: #f1f1f1a4; color:black;"
-                                       [value]="comen"  [(ngModel)]="com.Comentario">
+                                       [value]="comen" (keyup)="onKey($event)">
                                 </div>
                                 <div class="col-md-1" *ngIf="comen != ''">
                                     <a (click)="mod()">

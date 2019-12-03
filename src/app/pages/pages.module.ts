@@ -41,6 +41,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { AdminRegisterComponent } from './cuenta/admin-register/admin-register.component';
 
 import {TabsModule} from 'ngx-tabset';
+import { UsuarioCliComponent } from './usuario/usuario-cli/usuario-cli.component';
+import { UsuarioAdComponent } from './usuario/usuario-ad/usuario-ad.component';
 
 @NgModule({
     declarations: [
@@ -59,9 +61,9 @@ import {TabsModule} from 'ngx-tabset';
         PublicacionesComponent,
         CuentaComponent,
         ModCuentaComponent,
-        AdminRegisterComponent
-
-
+        AdminRegisterComponent,
+        UsuarioCliComponent,
+        UsuarioAdComponent
     ], exports: [
         PagesComponent,
         DashboardComponent,
@@ -83,11 +85,9 @@ import {TabsModule} from 'ngx-tabset';
    ],
    providers: [
     TipoUsuarioService,
-
     UsuarioService,
     TipoServicioService,
     PublicacionesService
-
    ]
 })
 

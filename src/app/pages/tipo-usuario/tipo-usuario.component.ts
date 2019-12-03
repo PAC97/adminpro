@@ -77,7 +77,6 @@ export class TipoUsuarioComponent implements OnInit {
           res => {
           return this.obtenerTipoUsuario();
           },
-          err => console.log(err)
         )
         Swal.fire(
           '¡Eliminado!',

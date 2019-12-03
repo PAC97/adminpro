@@ -22,6 +22,8 @@ import {ModCuentaComponent} from './cuenta/mod-cuenta/mod-cuenta.component';
 
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { from } from 'rxjs';
+import { UsuarioCliComponent } from './usuario/usuario-cli/usuario-cli.component';
+import { UsuarioAdComponent } from './usuario/usuario-ad/usuario-ad.component';
 
 
 const pagesRoutes: Routes = [
@@ -37,6 +39,8 @@ const pagesRoutes: Routes = [
             {path: 'tipoUsuario', component: TipoUsuarioComponent},
             //Fin rutas tipoUsuario
              //Rutas para Usuario 
+             {path: 'ad-usuario', component: UsuarioAdComponent},
+             {path: 'cl-usuario', component: UsuarioCliComponent},
               {path: 'usuario', component: UsuarioComponent},
              //Fin rutas Usuario
               //Rutas para Servicio
