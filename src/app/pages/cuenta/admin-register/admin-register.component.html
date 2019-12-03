@@ -8,13 +8,19 @@
                     <div class="form-group col-md-6">
                         <div class="col-md-12">
                             <input class="form-control" type="text" required="required" placeholder="Nombres"
-                                name="Nombres" [(ngModel)]="User.Nombres">
+                                name="Nombres" [(ngModel)]="User.Nombres" (keyup)="Cnombre($event)">
+                                <div id="name" style="display: none;" class="alert alert-danger" role="alert">
+                                    ¡Solo letras!
+                                   </div>
                         </div>
                     </div>
                     <div class="form-group col-md-6">
                         <div class="col-md-12">
                             <input class="form-control" type="text" required="required" placeholder="Apellidos"
-                                name="Apellidos" [(ngModel)]="User.Apellidos">
+                            name="Apellidos" [(ngModel)]="User.Apellidos" (keyup)="Capellido($event)">
+                            <div id="ape" style="display: none;" class="alert alert-danger" role="alert">
+                                ¡Solo letras!
+                               </div>
                         </div>
                     </div>
 
@@ -46,13 +52,19 @@
                     <div class="form-group col-md-6">
                         <div class="col-md-12">
                             <input class="form-control" type="password" required="required" placeholder="Password"
-                                name="Password" [(ngModel)]="User.Password">
+                            name="Password" [(ngModel)]="User.Password" maxlength="16" (keyup)="Cpass($event)">
+                            <div id="C1" style="display: none;" class="alert alert-danger" role="alert">
+                                 Mínimo 8 Caracteres
+                            </div>
                         </div>
                     </div>
                     <div class="form-group col-md-6">
                         <div class="col-md-12">
                             <input class="form-control" type="password" required="required" placeholder="Confirmar Pass"
-                                name="confir" [(ngModel)]="confirm">
+                            name="confir" [(ngModel)]="confirm" maxlength="16"  (keyup)="Cpass2($event)">
+                            <div id="C2" style="display: none;" class="alert alert-danger" role="alert">
+                                Mínimo 8 Caracteres
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -71,7 +83,7 @@
                 </div>
                 <div class="form-group text-center m-t-20">
                     <div class="col-xs-12">
-                        <button class="btn btn-info btn-block text-uppercase waves-effect waves-light" type="submit"
+                        <button id="boto" class="btn btn-info btn-block text-uppercase waves-effect waves-light" type="submit"
                             (click)="add()">Crear cuenta</button>
                     </div>
                 </div>
