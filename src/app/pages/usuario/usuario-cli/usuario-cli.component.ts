@@ -111,7 +111,7 @@ ModUsuario(){
   DeleteUsuario(id:string){
     this.permisos.forEach(element => {
       var items = this.permisos.filter( function (items){
-        return items.accion == 'Eliminar Tipo Usuario'
+        return items.accion == 'Eliminar Usuario'
       })
       if(items.length > 0){
         this.ok = true;

@@ -4,6 +4,7 @@ import { UsuarioService} from '../../../services/usuario.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-admin-register',
@@ -28,6 +29,14 @@ export class AdminRegisterComponent implements OnInit {
     'Acciones':[''],
     'Servicios':[''],
     }
+    numeros=["1","2","3","4","5","6","7","8","9","0",
+    "*",".","-", "¡","¿","?","@","+","/","#","$","%",
+    "&","(",")","=","<",">",",","'", "°","!","|","_",
+    ":",";","{","}","[","]",'"'
+  ];
+  nombres="";
+    apellidos="";
+    pass:any;
     IDservicio;
     confirm;
     uses:any;
@@ -77,7 +86,70 @@ guaAcc(){
     )
   }
 }
-  //Metodos para las imagenes 
+ //validar campos nombre
+
+ Cnombre(event : any){
+  this.nombres = event.target.value;
+  var name = this.nombres.split("");
+  name.forEach(element=>{
+    var items = this.numeros.filter(function (items){
+      return items == element;
+    })
+    if(items.length > 0){
+      document.getElementById('name').style.display = 'block';
+      document.getElementById("boto").setAttribute('disabled', 'disabled');
+    }
+    else{
+     document.getElementById('name').style.display = 'none';
+     document.getElementById("boto").removeAttribute('disabled');
+    } 
+  })
+}
+//validar campos apellidos
+Capellido(event : any){
+  this.apellidos = event.target.value;
+  var ape = this.apellidos.split("");
+  ape.forEach(element=>{
+    var items = this.numeros.filter(function (items){
+      return items == element;
+    })
+    if(items.length > 0){
+      document.getElementById('ape').style.display = 'block';
+      document.getElementById("boto").setAttribute('disabled', 'disabled');
+    }
+    else{
+     document.getElementById('ape').style.display = 'none';
+     document.getElementById("boto").removeAttribute('disabled');
+    } 
+  })
+}
+//Validar pass
+Cpass(event:any){
+  this.pass = event.target.value;
+  var pas = this.pass.split("");
+  if(pas.length < 8){
+    document.getElementById('C1').style.display = 'block';
+    document.getElementById("boto").setAttribute('disabled', 'disabled');
+  }
+  else{
+    document.getElementById('C1').style.display = 'none';
+    document.getElementById("boto").removeAttribute('disabled');
+  }
+}
+Cpass2(event:any){
+  this.pass = event.target.value;
+  var pas = this.pass.split("");
+  if(pas.length < 8){
+    document.getElementById('C2').style.display = 'block';
+    document.getElementById("boto").setAttribute('disabled', 'disabled');
+  }
+  else{
+    document.getElementById('C2').style.display = 'none';
+    document.getElementById("boto").removeAttribute('disabled');
+  }
+}
+
+//Metodos para las imagenes 
 fileChangeEvent(event: any): void {
   this.imageChangedEvent = event;
 }
