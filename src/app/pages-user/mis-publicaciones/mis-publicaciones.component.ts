@@ -90,7 +90,7 @@ export class MisPublicacionesComponent implements OnInit {
           )
         Swal.fire(
           'Eliminado!',
-          'La publicación se elimino correctamente.',
+          'La publicación se eliminó correctamente.',
           'success'
         )
       }
@@ -111,7 +111,7 @@ export class MisPublicacionesComponent implements OnInit {
           .subscribe(con => {
             Swal.fire(
               'comentario agregado',
-              'Su comentario se agrego exitosamente',
+              'Su comentario se agregó exitosamente',
               'success'
             )
             this.getComentarios(this.com.ID_Publicacion);
@@ -158,8 +158,8 @@ export class MisPublicacionesComponent implements OnInit {
               },
             )
           Swal.fire(
-            'Modificardo!',
-            'El comentario se modifico correctamente.',
+            'Modificado!',
+            'El comentario se modificó correctamente.',
             'success'
           )
           this.com.Comentario = "";
@@ -188,8 +188,8 @@ export class MisPublicacionesComponent implements OnInit {
               },
             )
           Swal.fire(
-            'Modificardo!',
-            'El comentario se modifico correctamente.',
+            'Modificado!',
+            'El comentario se modificó correctamente.',
             'success'
           )
           this.com.Comentario = "";
@@ -219,7 +219,7 @@ export class MisPublicacionesComponent implements OnInit {
           )
         Swal.fire(
           'Eliminado!',
-          'El comentario se elimino correctamente.',
+          'El comentario se eliminó correctamente.',
           'success'
         )
       }

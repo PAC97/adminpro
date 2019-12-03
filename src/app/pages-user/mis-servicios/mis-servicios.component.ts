@@ -39,8 +39,8 @@ export class MisServiciosComponent implements OnInit {
   }
   eliminar(nombre: string) {
     Swal.fire({
-      title: '¿Dese eliminar el servicio?',
-      text: "El registro se eliminara",
+      title: '¿Desea eliminar el servicio?',
+      text: "El registro se eliminará",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -53,10 +53,23 @@ export class MisServiciosComponent implements OnInit {
           return items.nombre == nombre;
         })
 
+    
+         var index:number = this.Servicios.indexOf(this.Servicios.find(x => x.nombre == nombre));
+         this.Servicios.splice(index, 1);
+         
+         this.add();    
+        Swal.fire(
+          'Modificado!',
+          'El usuario se modificó correctamente.',
+          'success'
+        )
+
+
         var index: number = this.Servicios.indexOf(this.Servicios.find(x => x.nombre == nombre));
         this.Servicios.splice(index, 1);
 
         this.add();
+
         this.getIdUser();
       }
     });
@@ -78,6 +91,8 @@ export class MisServiciosComponent implements OnInit {
       .subscribe(us => {
 
         Swal.fire(
+          'Datos eliminados con éxito',
+          'Sus servicios se agregaron',=======
           'Datos eliminados con exito con exito',
           'Sus servicios se Eliminaron',
           'success'

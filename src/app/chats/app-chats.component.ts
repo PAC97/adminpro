@@ -158,7 +158,7 @@ export class AppChatsComponent implements OnInit {
     else {
       Swal.fire(
         'Datos invalidos!',
-        'Debes llenar todo los campos',
+        'Debes llenar todos los campos',
         'warning'
       )
     }
@@ -183,7 +183,7 @@ export class AppChatsComponent implements OnInit {
           )
         Swal.fire(
           'Eliminado!',
-          'El mensaje se elimino correctamente.',
+          'El mensaje se eliminó correctamente.',
           'success'
         )
         this.getMessages(idE, idR);

@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
               else {
                 Swal.fire(
                   'Error',
-                  'Usuario verificar los datos ingresados',
+                  'Verificar los datos ingresados',
                   'warning'
                 )
               }

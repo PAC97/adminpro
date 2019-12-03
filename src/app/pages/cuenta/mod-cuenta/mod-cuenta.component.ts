@@ -88,8 +88,8 @@ getUsuario() {
 //Metodo para validar la modificcacion
 guardarModificacion() {
   Swal.fire({
-    title: '¿Dese modificar su usuario?',
-    text: "El registro se modificara",
+    title: '¿Desea modificar su usuario?',
+    text: "El registro se modificará",
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -106,7 +106,7 @@ guardarModificacion() {
         )
       Swal.fire(
         'Modificado!',
-        'El usuario se modifico correctamente.',
+        'El usuario se modificó correctamente.',
         'success'
       )
       this.getUsuario();

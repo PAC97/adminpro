@@ -45,8 +45,8 @@ export class ModPublicacionesComponent implements OnInit {
   //Alerta modifacion
   guardarModificacion(){
     Swal.fire({
-      title: '¿Dese modificar el registro?',
-      text: "El registro se modificara",
+      title: '¿Desea modificar la publicación?',
+      text: "La publicación se modificará",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -62,7 +62,7 @@ export class ModPublicacionesComponent implements OnInit {
         )
         Swal.fire(
           'Modificado!',
-          'El registro se modifico correctamente.',
+          'La publicación se modificó correctamente.',
           'success'
         )
       this.router.navigate(['/mis-publicaciones']);

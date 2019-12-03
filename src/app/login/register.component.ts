@@ -153,8 +153,8 @@ this.User.pathImg = this.croppedImage;
           .subscribe(user=>{
             if(user != null){
              Swal.fire(
-               'Registrado con exito',
-               'Para ingresar su correo es: '+ this.User.Correo,
+               'Registrado con éxito',
+               'Para ingresar, su correo es: '+ this.User.Correo,
                'success'
              )
              

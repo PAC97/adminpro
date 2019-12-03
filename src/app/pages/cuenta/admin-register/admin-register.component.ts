@@ -72,7 +72,7 @@ guaAcc(){
   else{
     Swal.fire(
       'Error',
-      'Debes seleccionar por lo menos una accion',
+      'Debes seleccionar por lo menos una acción',
       'warning'
     )
   }
@@ -113,8 +113,8 @@ add(){
         .subscribe(user=>{
           if(user != null){
            Swal.fire(
-             'Registrado con exito',
-             'Para ingresar su correo es: '+ this.User.Correo,
+             'Registrado con éxito',
+             'Para ingresar, su correo es: '+ this.User.Correo,
              'success'
            )
            
