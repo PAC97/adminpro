@@ -43,7 +43,7 @@ export class UsuarioAdComponent implements OnInit {
   constructor(private service: UsuarioService, private router:Router) { }
   
   ngOnInit() {
- // this.getUserA();
+  this.getUserA();
   var session = localStorage.getItem('x-access-token');
   this.id = localStorage.getItem('session');
   this.service.getIdUsuario(this.id)
@@ -58,7 +58,6 @@ export class UsuarioAdComponent implements OnInit {
       this.C = U;
       this.UseAd = this.C.usuario;
       this.pag = "2";
-      console.log(this.UseAd);
     })
   }
   DeleteUsuario(id:string){
@@ -89,7 +88,6 @@ export class UsuarioAdComponent implements OnInit {
           .subscribe(
             res => {
             },
-            err => console.log(err)
           )
           Swal.fire(
             '¡Eliminado!',

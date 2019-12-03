@@ -102,7 +102,6 @@ export class ModTipoUsuarioComponent implements OnInit {
         .subscribe(
           res => {
           },
-          err => console.log(err)
         )
         Swal.fire(
           '¡Modificado!',

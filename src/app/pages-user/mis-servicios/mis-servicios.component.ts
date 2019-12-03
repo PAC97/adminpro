@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceServicioService} from './service-servicio.service';
-import {user} from './models/usuario';
+import { ServiceServicioService } from './service-servicio.service';
+import { user } from './models/usuario';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
@@ -10,34 +10,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./mis-servicios.component.css']
 })
 export class MisServiciosComponent implements OnInit {
-  user:any;
-  Servicios=[];
-  User:user={
-    'Nombres':'',
-    'Apellidos':'',
-    'Edad':'',
-    'Telefono':'',
+  user: any;
+  Servicios = [];
+  User: user = {
+    'Nombres': '',
+    'Apellidos': '',
+    'Edad': '',
+    'Telefono': '',
     'Direccion': '',
-    'Correo':'',
-    'Password':'',
-    'ID_TipoUsuario':'',
+    'Correo': '',
+    'Password': '',
+    'ID_TipoUsuario': '',
     'pathImg': '',
-    'Servicios':['']
-    }
-  constructor(private service:ServiceServicioService) { }
+    'Estado':true,
+    'Servicios': ['']
+  }
+  constructor(private service: ServiceServicioService) { }
 
   ngOnInit() {
     this.getIdUser();
   }
-  getIdUser(){
+  getIdUser() {
     this.service.getUser()
-    .subscribe(user=>{
-      this.user = user;
-      this.Servicios = this.user.usuario.Servicios;
-      
-    })
+      .subscribe(user => {
+        this.user = user;
+        this.Servicios = this.user.usuario.Servicios;
+      })
   }
-  eliminar(nombre: string){
+  eliminar(nombre: string) {
     Swal.fire({
       title: '¿Desea eliminar el servicio?',
       text: "El registro se eliminará",
@@ -52,6 +52,7 @@ export class MisServiciosComponent implements OnInit {
         var items = this.Servicios.filter(function (items) {
           return items.nombre == nombre;
         })
+
     
          var index:number = this.Servicios.indexOf(this.Servicios.find(x => x.nombre == nombre));
          this.Servicios.splice(index, 1);
@@ -62,12 +63,19 @@ export class MisServiciosComponent implements OnInit {
           'El usuario se modificó correctamente.',
           'success'
         )
+
+
+        var index: number = this.Servicios.indexOf(this.Servicios.find(x => x.nombre == nombre));
+        this.Servicios.splice(index, 1);
+
+        this.add();
+
         this.getIdUser();
       }
     });
-   }
-    
-  add(){
+  }
+
+  add() {
     this.User.Nombres = this.user.usuario.Nombres;
     this.User.Apellidos = this.user.usuario.Apellidos;
     this.User.Edad = this.user.usuario.Edad;
@@ -77,13 +85,16 @@ export class MisServiciosComponent implements OnInit {
     this.User.Password = this.user.usuario.Password;
     this.User.ID_TipoUsuario = this.user.usuario.ID_TipoUsuario;
     this.User.pathImg = this.user.usuario.pathImg;
-      this.User.Servicios = this.Servicios;
-      this.service.putUsuario(this.User, this.user.usuario._id)
-      .subscribe(us=>{
-      
+    this.User.Servicios = this.Servicios;
+    this.User.Estado = true;
+    this.service.putUsuario(this.User, this.user.usuario._id)
+      .subscribe(us => {
+
         Swal.fire(
           'Datos eliminados con éxito',
-          'Sus servicios se agregaron',
+          'Sus servicios se agregaron',=======
+          'Datos eliminados con exito con exito',
+          'Sus servicios se Eliminaron',
           'success'
         )
       })

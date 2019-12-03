@@ -5,23 +5,39 @@
                 <h2>Mis servicios</h2>
             </div>
             <div class="col-md-1" style="margin-top: 30px;">
-               <a class="btn" [routerLink]="['/mas-servicios']"><fa name="plus" size="2x"></fa></a>
+                <a class="btn" [routerLink]="['/mas-servicios']">
+                    <fa name="plus" size="2x"></fa>
+                </a>
             </div>
         </div>
         <hr>
     </div>
     <div class="row">
-        <div class="col-md-4" *ngFor="let ser of Servicios">
-
-            <div class="card" style="border-style: solid; border-width: 1px;">
-                    <button  (click)="eliminar(ser.nombre)" style="position:absolute; margin-left: 310px;" type="button" class="close" >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                <img class="card-img-top" src="../../../assets//images/background/user-info.jpg">
+        <div class="col-md-4" *ngFor="let ser of Servicios;let i = index">
+            <div class="card text-center" style="border-style: solid; border-width: 1px;">
+                <button (click)="eliminar(ser.nombre)" style="position:absolute; margin-left: 310px;" type="button"
+                    class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img class="card-img-top" [src]="ser.img">
                 <div class="card-body">
                     <h4 class="card-title">{{ ser.nombre }}</h4>
-                    <p class="card-text">
-                    </p>
+                    <div class="checkbox checkbox-primary pull-left p-t-0">
+                        <input id="{{'inlineCheckbox' + i}}" type="checkbox" class="filled-in chk-col-light-blue"
+                            (click)="addSer(ser.nombre, ser.descripcion, ser._id, ser.img)">
+                        <label style="margin-left: 45px ;" for="{{'inlineCheckbox' + i}}">Seleccionar</label>
+                    </div>
+                    <div>
+                        <a class="btn btn-info" data-toggle="collapse" href="#demo_{{i}}">
+                            Ver Descripción
+                        </a>
+                    </div>
+
+                    <div id="demo_{{i}}" class="collapse" style="background: rgb(255, 255, 255); height: auto;">
+                        <p class="card-text">
+                            {{ ser.descripcion }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

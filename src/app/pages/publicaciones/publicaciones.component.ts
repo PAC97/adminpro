@@ -73,7 +73,6 @@ export class PublicacionesComponent implements OnInit {
             res => {
               return this.Obtenerpublicaciones();
             },
-            err => console.log(err)
           )
           Swal.fire(
             '¡Eliminado!',

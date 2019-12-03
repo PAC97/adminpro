@@ -98,13 +98,11 @@ guardarModificacion() {
     cancelButtonText: 'No'
   }).then((result) => {
     if (result.value) {
-      console.log(this.User);
       this.service.putUsuario(this.User, this.us._id)
         .subscribe(
           res => {
            
           },
-          err => console.log(err)
         )
       Swal.fire(
         'Modificado!',

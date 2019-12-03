@@ -87,7 +87,6 @@ export class MisPublicacionesComponent implements OnInit {
             res => {
               this.obtenerMyPubli()
             },  
-            err => console.log(err)
           )
         Swal.fire(
           'Eliminado!',
@@ -102,7 +101,6 @@ export class MisPublicacionesComponent implements OnInit {
       this.service.getComentarios(id)
       .subscribe(co => {
         this.Con = co;
-        console.log(this.Con);
       })
   }
   addComentarios(idP: string) {
@@ -120,7 +118,6 @@ export class MisPublicacionesComponent implements OnInit {
             this.com.Comentario = "";
             this.com.ID_Publicacion = "";
             this.com.ID_Usuario = "";
-            console.log(this.com);
           })
       }
       else {
@@ -132,19 +129,16 @@ export class MisPublicacionesComponent implements OnInit {
       }
   }
   getidCom(id: string) {
-    console.log(id);
     this.com.Comentario = "";
     this.service.getIDComentarios(id)
       .subscribe(s => {
         this.ms = s;
         this.comen = this.ms.Comentario;
-        console.log(s);
       })
   }
   mod() {
     this.com.ID_Publicacion = this.ms.ID_Publicacion;
     this.com.ID_Usuario = this.ms.ID_Usuario;
-    console.log(this.com);
    if (this.com.Comentario != '') {
       Swal.fire({
         title: '¿Desea modificar el comentario?',
@@ -162,7 +156,6 @@ export class MisPublicacionesComponent implements OnInit {
               res => {
                 return this.getComentarios(this.ms.ID_Publicacion);
               },
-              err => console.log(err)
             )
           Swal.fire(
             'Modificado!',
@@ -193,7 +186,6 @@ export class MisPublicacionesComponent implements OnInit {
               res => {
                 return this.getComentarios(this.ms.ID_Publicacion);
               },
-              err => console.log(err)
             )
           Swal.fire(
             'Modificado!',
@@ -224,7 +216,6 @@ export class MisPublicacionesComponent implements OnInit {
             res => {
               return this.getComentarios(idP);
             },
-            err => console.log(err)
           )
         Swal.fire(
           'Eliminado!',

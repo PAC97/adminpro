@@ -59,7 +59,6 @@ export class ModPublicacionesComponent implements OnInit {
         .subscribe(
           res => {
           },
-          err => console.log(err)
         )
         Swal.fire(
           'Modificado!',
@@ -89,7 +88,6 @@ export class ModPublicacionesComponent implements OnInit {
       this.public.Usuario = this.publi.Usuario;
       this.guardarModificacion();
   
-   console.log(this.public)
     }
     else {
       this.public.Titulo = this.publi.Titulo;

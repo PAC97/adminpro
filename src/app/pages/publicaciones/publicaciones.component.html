@@ -14,7 +14,7 @@
                         <th scope="col">Descripción</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Fecha</th>
-                        <th scope="col">Acciones</th>
+                        <!-- <th scope="col">Acciones</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -24,14 +24,14 @@
                         <td>{{ publi.Usuario.Nombres }}</td>
                         <td>{{ publi.Fecha }}</td>
                         <!-- <td>{{ publi.Estado }}</td> -->
-                        <td>
-                            <!-- <a>
+                        <!-- <td>
+                            <<a>
                               <fa name="pencil" class="btn btn-warning" size="2x" [routerLink]="['/mod-publicaciones/', publi._id]">
                               </fa>
-                            </a> -->
+                            </a>
                             
                             <fa name="trash" size="2x" class="btn btn-danger" (click)="Eliminarpublicaciones(publi._id)"></fa>
-                        </td>
+                        </td> -->
                     </tr>
                 </tbody>
             </table>

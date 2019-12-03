@@ -11,7 +11,6 @@ token="";
 
   ngOnInit() {
     this.token = localStorage.getItem('x-access-token')
-    console.log(this.token);
   }
 
 }

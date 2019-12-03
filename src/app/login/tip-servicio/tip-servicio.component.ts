@@ -46,7 +46,7 @@ export class TipServicioComponent implements OnInit {
         
       })
   }
-  addSer(nombre: string, descripcion: string, _id: string) {
+  addSer(nombre: string, descripcion: string, _id: string, img: string) {
     var items = this.servicios.filter(function (items) {
       return items.nombre == nombre;
     })
@@ -56,7 +56,7 @@ export class TipServicioComponent implements OnInit {
      
     }
    else{
-     this.servicios.push({ nombre: nombre, descripcion: descripcion, _id: _id});
+     this.servicios.push({ nombre: nombre, descripcion: descripcion, _id: _id, img:img});
    }
   }
   add(){
@@ -74,7 +74,6 @@ export class TipServicioComponent implements OnInit {
       this.User.Servicios = this.servicios;
       this.service.putUsuario(this.User, this.user.usuario._id)
       .subscribe(us=>{
-        
         Swal.fire(
           'Datos agregados con exito',
           'Sus servicios se agregaron',

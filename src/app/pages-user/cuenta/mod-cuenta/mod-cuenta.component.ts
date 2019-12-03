@@ -109,7 +109,7 @@ export class ModCuentaComponent implements OnInit {
             res => {
               
             },
-            err => console.log(err)
+           
           )
         Swal.fire(
           'Modificado!',

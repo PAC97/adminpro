@@ -43,6 +43,7 @@ export class ServicioComponent implements OnInit {
       this.Servicio=this.ser.servicios;
       console.log(this.Servicio);
       if(this.Servicio.mensaje == "No tienes autorización"){
+      if(this.Servicio.mensaje == "no tienes autorizacion"){
         this.router.navigate(['../login'])
       }
     })
@@ -76,7 +77,6 @@ export class ServicioComponent implements OnInit {
             res => {
             return this.obtenerServicio();
             },
-            err => console.log(err)
           )
           Swal.fire(
             'Eliminado!',

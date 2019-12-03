@@ -33,7 +33,6 @@ export class TipoServicioService {
     }
     //Post
     postTipoServicio(Serv:tipoServicio){
-      console.log(Serv);
       return this.http.post(`${this.API_URI}/servicio`, Serv, {headers: this.httpheaders});
     }
     // Delete
