@@ -26,11 +26,11 @@ export class PublicacionesComponent implements OnInit {
     if (session == null){
       this.router.navigate(['../login'])
     }
-    // this.service.getIdUsuario(this.id)
-    // .subscribe(user=>{
-    //   this.user = user;
-    //   this.permisos = this.user.usuario.Acciones;
-    // })
+     this.service.getIdUsuario(this.id)
+     .subscribe(user=>{
+       this.user = user;
+       this.permisos = this.user.usuario.Acciones;
+   })
     this.Obtenerpublicaciones();
   }
   Obtenerpublicaciones(){
