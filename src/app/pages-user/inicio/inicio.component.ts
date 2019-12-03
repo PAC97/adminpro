@@ -207,8 +207,8 @@ export class InicioComponent implements OnInit {
         this.service.postPublicaciones(this.publi)
           .subscribe(pub => {
             Swal.fire(
-              'Publicacion creada con exito',
-              'Publicacion realizada',
+              'Publicación creada con éxito',
+              'Publicación realizada',
               'success'
             )
             console.log(pub);
@@ -248,7 +248,7 @@ export class InicioComponent implements OnInit {
           .subscribe(con => {
             Swal.fire(
               'comentario agregado',
-              'Su comentario se agrego exitosamente',
+              'Su comentario se agregó exitosamente',
               'success'
             )
             this.getComentarios(this.com.ID_Publicacion);
@@ -269,7 +269,7 @@ export class InicioComponent implements OnInit {
     else {
       Swal.fire({
         title: 'Deseas comentar',
-        text: "Para poder realizar un comentario debes iniciar sesion primero",
+        text: "Para poder realizar un comentario debes iniciar sesión primero",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -294,7 +294,7 @@ export class InicioComponent implements OnInit {
     else {
       Swal.fire({
         title: 'Deseas comentar',
-        text: "Para poder realizar un comentario debes iniciar sesion primero",
+        text: "Para poder realizar un comentario debes iniciar sesión primero",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -342,7 +342,7 @@ export class InicioComponent implements OnInit {
             )
           Swal.fire(
             'Modificardo!',
-            'El comentario se modifico correctamente.',
+            'El comentario se modificó correctamente.',
             'success'
           )
           this.com.Comentario = "";
@@ -372,8 +372,8 @@ export class InicioComponent implements OnInit {
               err => console.log(err)
             )
           Swal.fire(
-            'Modificardo!',
-            'El comentario se modifico correctamente.',
+            'Modificado!',
+            'El comentario se modificó correctamente.',
             'success'
           )
           this.com.Comentario = "";
@@ -404,7 +404,7 @@ export class InicioComponent implements OnInit {
           )
         Swal.fire(
           'Eliminado!',
-          'El comentario se elimino correctamente.',
+          'El comentario se eliminó correctamente.',
           'success'
         )
       }
@@ -417,7 +417,7 @@ export class InicioComponent implements OnInit {
     else {
       Swal.fire({
         title: 'Deseas comentar',
-        text: "Para poder realizar un comentario debes iniciar sesion primero",
+        text: "Para poder realizar un comentario debes iniciar sesión primero",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

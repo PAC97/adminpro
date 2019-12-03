@@ -42,7 +42,7 @@ export class ServicioComponent implements OnInit {
       this.ser = tip;
       this.Servicio=this.ser.servicios;
       console.log(this.Servicio);
-      if(this.Servicio.mensaje == "no tienes autorizacion"){
+      if(this.Servicio.mensaje == "No tienes autorización"){
         this.router.navigate(['../login'])
       }
     })
@@ -61,8 +61,8 @@ export class ServicioComponent implements OnInit {
     });
     if(this.ok == true){
       Swal.fire({
-        title: '¿Desea eliminar el registro?',
-        text: "Al eliminar no se podrá recuperar el registro!",
+        title: '¿Desea eliminar el servicio?',
+        text: "Al eliminar no se podrá recuperar el servicio!",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -80,7 +80,7 @@ export class ServicioComponent implements OnInit {
           )
           Swal.fire(
             'Eliminado!',
-            'El registro se eliminó correctamente.',
+            'El servicio se eliminó correctamente.',
             'success'
           )
         }

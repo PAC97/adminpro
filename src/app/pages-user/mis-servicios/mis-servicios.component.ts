@@ -39,8 +39,8 @@ export class MisServiciosComponent implements OnInit {
   }
   eliminar(nombre: string){
     Swal.fire({
-      title: '¿Dese eliminar el servicio?',
-      text: "El registro se eliminara",
+      title: '¿Desea eliminar el servicio?',
+      text: "El registro se eliminará",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -59,7 +59,7 @@ export class MisServiciosComponent implements OnInit {
          this.add();    
         Swal.fire(
           'Modificado!',
-          'El usuario se modifico correctamente.',
+          'El usuario se modificó correctamente.',
           'success'
         )
         this.getIdUser();
@@ -82,7 +82,7 @@ export class MisServiciosComponent implements OnInit {
       .subscribe(us=>{
       
         Swal.fire(
-          'Datos eliminados con exito con exito',
+          'Datos eliminados con éxito',
           'Sus servicios se agregaron',
           'success'
         )
