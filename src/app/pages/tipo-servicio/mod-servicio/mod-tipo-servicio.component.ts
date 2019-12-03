@@ -51,7 +51,6 @@ export class ModTipoServicioComponent implements OnInit {
     //get id registro
     this.service.getIdTipoServicio(this.ids)
       .subscribe(tipServ => {
-        console.log(tipServ);
         this.tipSer = tipServ;
         this.nombre = this.tipSer.servicio.nombre;
         this.descripcion = this.tipSer.servicio.descripcion;
@@ -106,12 +105,10 @@ export class ModTipoServicioComponent implements OnInit {
         cancelButtonText: 'No'
       }).then((result) => {
         if (result.value) {
-         console.log(this.Servi);
            this.service.putTipoServicio(this.tipSer.servicio._id, this.Servi)
             .subscribe(
               res => {
               },
-              err => console.log(err)
             )
           Swal.fire(
             'Modificado!',
