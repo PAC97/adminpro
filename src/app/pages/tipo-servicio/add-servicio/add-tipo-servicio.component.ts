@@ -30,6 +30,12 @@ export class AddTipoServicioComponent implements OnInit {
   permisos:any;
   user:any;
   ok:any;
+  numeros=["1","2","3","4","5","6","7","8","9","0",
+  "*",".","-", "¡","¿","?","@","+","/","#","$","%",
+  "&","(",")","=","<",">",",","'", "°","!","|","_",
+  ":",";","{","}","[","]",'"'
+];
+nombre="";
   constructor(private service:TipoServicioService, private router:Router) { }
 
   ngOnInit() {
@@ -102,5 +108,39 @@ loadImageFailed() {
 }
 foto(){
 this.Servicio.pathImage = this.croppedImage;
+}
+Cnombre(event : any){
+  this.nombre = event.target.value;
+  var name = this.nombre.split("");
+  name.forEach(element=>{
+    var items = this.numeros.filter(function (items){
+      return items == element;
+    })
+    if(items.length > 0){
+      document.getElementById('name').style.display = 'block';
+      document.getElementById("boto").setAttribute('disabled', 'disabled');
+    }
+    else{
+     document.getElementById('name').style.display = 'none';
+     document.getElementById("boto").removeAttribute('disabled');
+    } 
+  })
+}
+Cdescrip(event : any){
+  this.nombre = event.target.value;
+  var name = this.nombre.split("");
+  name.forEach(element=>{
+    var items = this.numeros.filter(function (items){
+      return items == element;
+    })
+    if(items.length > 0){
+      document.getElementById('descrip').style.display = 'block';
+      document.getElementById("boto").setAttribute('disabled', 'disabled');
+    }
+    else{
+     document.getElementById('descrip').style.display = 'none';
+     document.getElementById("boto").removeAttribute('disabled');
+    } 
+  })
 }
 }

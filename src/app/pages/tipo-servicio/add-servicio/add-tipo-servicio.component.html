@@ -1,33 +1,47 @@
 <div class="contaier-fluid bg">
-       
+
     <div class="row">
         <div class="col-md-3- col-sm-3 col-xs-3"></div>
         <div class="col-md-6- col-sm-6 col-xs-6">
             <!--Formulario para crear nuevo servicio-->
             <form class="form-conatainer row">
-              <h1>Ingresar Servicio</h1>
-                  <div class="form-group col-md-12">
-                     <label>Nombre</label>
-                     <input type="text" class="form-control" placeholder="Nombre" name="nombre" pattern="[A-Za-z]" [(ngModel)]="Servicio.nombre" required="required">
-                  </div>
-                  <div class="form-group col-md-12">
-                       <label>Descripción</label>
-                       <textarea class="form-control" placeholder="Descripcion" name="descripcion" required pattern="[A-Za-z]" [(ngModel)]="Servicio.descripcion" required></textarea>
+                <h1>Ingresar Servicio</h1>
+                <div class="form-group col-md-12">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre" pattern="[A-Za-z]"
+                        [(ngModel)]="Servicio.nombre" required="required" (keyup)="Cnombre($event)">
+                    <div id="name" style="display: none;" class="alert alert-danger" role="alert">
+                        ¡Solo letras!
                     </div>
-                    <div class="form-group col-md-12">
-                        <div class="col-xs-12">
-                            <button class="btn btn-success btn-block text-uppercase waves-effect waves-light" type="submit"
-                                data-toggle="modal" data-target="#img">Seleccionar imagen</button>
-                        </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Descripción</label>
+                    <textarea class="form-control" placeholder="Descripcion" name="descripcion" required
+                        pattern="[A-Za-z]" [(ngModel)]="Servicio.descripcion" required (keyup)="Cdescrip($event)"></textarea>
+                    <div id="descrip" style="display: none;" class="alert alert-danger" role="alert">
+                        ¡Solo letras!
                     </div>
-               <button type="submit" class="btn btn-info btn-block" (click)="Agregar()">Agregar</button> <!--btn-block para el color verde-->
-                
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success btn-block text-uppercase waves-effect waves-light" type="submit"
+                            data-toggle="modal" data-target="#img">Seleccionar imagen</button>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="col-xs-12">
+                        <button id="boto" type="submit" class="btn btn-info btn-block"
+                            (click)="Agregar()">Agregar</button>
+                        <!--btn-block para el color verde-->
+                    </div>
+                </div>
+
             </form>
-          <!--final del form-->
-          <!--Inicio formulario para modificar -->
+            <!--final del form-->
+            <!--Inicio formulario para modificar -->
         </div>
         <div class="col-md-4- col-sm-4 col-xs-12"></div>
-    </div >
+    </div>
 </div>
 <!-- Modal -->
 <div class="modal" id="img" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,7 +65,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" (click)="foto()" data-dismiss="modal">Seleccionar imagen</button>
+                <button type="button" class="btn btn-primary" (click)="foto()" data-dismiss="modal">Seleccionar
+                    imagen</button>
             </div>
         </div>
     </div>
