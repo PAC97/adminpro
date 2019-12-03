@@ -98,7 +98,6 @@ ModUsuario(){
        .subscribe(
          res => {
          },
-         err => console.log(err)
        )
        Swal.fire(
          'Modificado!',
@@ -137,7 +136,6 @@ ModUsuario(){
           .subscribe(
             res => {
             },
-            err => console.log(err)
           )
           Swal.fire(
             '¡Eliminado!',

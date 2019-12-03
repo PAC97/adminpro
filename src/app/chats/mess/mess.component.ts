@@ -28,7 +28,6 @@ export class MessComponent implements OnInit {
           var items = this.Mess.filter(function (items) {
             return items.Receptor._id == element.Receptor._id;
           })
-          console.log(items);
           if (items.length > 0) {
             var index:number = this.Mess.indexOf(this.Mess.find(x => x.Receptor._id == element.Receptor._id));
             this.Mess.splice(index, 1);
@@ -51,6 +50,5 @@ export class MessComponent implements OnInit {
       b = new Date(b.Fecha);
       return a < b ? -1 : a > b ? 1 : 0;
     });
-    console.log(this.Mess)
   }
 }

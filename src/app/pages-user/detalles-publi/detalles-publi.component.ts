@@ -55,7 +55,7 @@ hora = Date.now();
       this.name = this.userChat.Nombres;
       this.apellido = this.userChat.Apellidos;
       this.tel = this.userChat.Telefono;
-      console.log(this.userChat);
+    
     })
   }
   obtenerPubliId(){
@@ -68,13 +68,16 @@ hora = Date.now();
       this.descrip = this.publi.Descripcion;
       this.fecha = this.publi.Fecha;
       this.idus = this.publi.Usuario;
-      console.log(this.publi);
+     
     })
   }
   sendChat(){
     this.chatservice.sendMessage(this.mensaje, this.emisor, this.idUser, this.hora);
-    console.log(this.mensaje);
-    console.log(this.hora);
+    Swal.fire(
+      'Exito',
+      'Mensaje realizado con exito',
+      'success'
+    )
     this.mensaje = '';
   }
 }
