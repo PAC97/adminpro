@@ -74,7 +74,6 @@ export class TipServicioComponent implements OnInit {
       this.User.Servicios = this.servicios;
       this.service.putUsuario(this.User, this.user.usuario._id)
       .subscribe(us=>{
-        
         Swal.fire(
           'Datos agregados con exito',
           'Sus servicios se agregaron',
